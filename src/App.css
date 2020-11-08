@@ -1,0 +1,1104 @@
+* {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+* ::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  overflow: hidden !important;
+}
+
+button:focus {
+  outline: none;
+}
+
+.underline {
+  width: 100px;
+  border-bottom: 2px solid #eeb927;
+  margin: 5px auto 20px;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.register-nav,
+.login-nav {
+  padding-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.register-nav a,
+.login-nav a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.register-nav a:hover,
+.login-nav a:hover {
+  text-decoration: none;
+}
+
+.register-nav a i,
+.login-nav a i {
+  padding: 0 5px;
+  margin-top: -2px;
+}
+
+/**********************
+	HOMEPAGE
+**********************/
+.homepage h1 {
+  margin: 30px 0;
+  color: #163f69;
+}
+
+.homepage .navbar {
+  margin-top: 20px;
+  background: #fff;
+}
+
+.homepage .navbar.scrolled {
+  -webkit-box-shadow: 0 0 5px #040d15;
+          box-shadow: 0 0 5px #040d15;
+}
+
+.homepage .navbar.scrolled a {
+  color: #fff;
+  background: #eeb927;
+}
+
+.homepage .navbar a {
+  color: #163f69;
+  border: 1.5px solid #eeb927;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.homepage .home-intro {
+  margin-top: 70px;
+}
+
+.homepage .home-intro a {
+  background: #f46036;
+  color: #fff;
+  padding: 10px;
+  border-radius: 40px;
+}
+
+.homepage .home-intro .info-div {
+  margin-top: 20px;
+  background: rgba(244, 96, 54, 0.1);
+}
+
+.homepage .home-intro .info {
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.homepage .home-intro .info h2 {
+  color: #2d7dd2;
+  font-weight: bolder;
+}
+
+.homepage .home-intro .info p {
+  font-weight: bolder;
+}
+
+.homepage .carousel {
+  margin: 30px 0;
+}
+
+.homepage .about-oneshare .info p {
+  font-weight: 600;
+  color: #163f69;
+}
+
+.homepage .about-oneshare .text p {
+  padding-left: 70px;
+}
+
+.homepage .stories h2 {
+  text-align: center;
+  color: #163f69;
+  margin: 50px auto;
+}
+
+.homepage .stories .mobile-bg {
+  position: absolute;
+  left: 0;
+  margin-top: 150px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.homepage .stories .mobile-bg img {
+  width: 100%;
+  border: none;
+}
+
+.homepage .stories .story {
+  border: 2px solid rgba(4, 13, 21, 0.05);
+  margin: 20px;
+  padding: 10px;
+  background: #fff;
+}
+
+.homepage .mission .mission-background {
+  position: absolute;
+  left: 0;
+  margin-top: -120px;
+  z-index: -4;
+}
+
+.homepage .mission .mission-background img {
+  width: 100vw;
+}
+
+.homepage .mission h2 {
+  margin: 60px 0 40px 0;
+  color: #163f69;
+}
+
+.homepage .mission .mission-item p {
+  display: inline;
+}
+
+.homepage .mission .action strong {
+  color: #163f69;
+}
+
+.homepage .mission .action a {
+  background: #f46036;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+}
+
+.homepage .process {
+  margin-top: 70px;
+}
+
+.homepage .process h2 {
+  color: #163f69;
+  margin-bottom: 30px;
+}
+
+.homepage .process .process-bg {
+  position: absolute;
+  right: 0;
+}
+
+.homepage .process .process-bg img {
+  width: 100%;
+}
+
+.homepage .process .processes {
+  margin-top: 30px;
+}
+
+.homepage .process .processes p {
+  padding: 20px 10px;
+}
+
+.homepage .contact {
+  margin-top: 50px;
+}
+
+.homepage .contact h2 {
+  color: #163f69;
+  margin-top: 20px;
+}
+
+.homepage .contact .logo {
+  margin: 10px auto;
+}
+
+.homepage .contact .logo p {
+  margin-top: 20px;
+}
+
+.homepage .contact .logo .socials i {
+  padding: 10px;
+}
+
+.homepage .contact .action p {
+  margin: 10px auto;
+  padding-top: 10px;
+}
+
+.homepage .contact .action p.d-flex strong {
+  margin-top: 10px;
+}
+
+.homepage .contact .action p strong {
+  color: #163f69;
+}
+
+.homepage .contact .action a {
+  background: #f46036;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+  margin-left: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.homepage .footer {
+  margin-top: 70px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  left: 0;
+  padding-top: 10px;
+  width: 100vw;
+  background-color: #040d15;
+  color: #fff;
+}
+
+.homepage .footer a {
+  color: #fff;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .homepage .home-intro .underline {
+    -webkit-transform: rotate(90deg);
+            transform: rotate(90deg);
+  }
+  .homepage .about-oneshare .text p {
+    padding-left: 0;
+  }
+  .homepage .action {
+    text-align: center;
+  }
+  .homepage .contact h2,
+  .homepage .contact p {
+    text-align: center;
+  }
+  .homepage .contact .logo {
+    margin: 30px auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .homepage .contact .logo .socials,
+  .homepage .contact .logo p {
+    text-align: center;
+  }
+  .homepage .contact .action p {
+    width: 70%;
+  }
+  .homepage .contact .action a {
+    margin-top: 10px;
+  }
+}
+
+/*************************
+	CHOOSE ACCOUNT TYPE
+**************************/
+.choose-account .account-types, .choose-donor-account .account-types, .choose-beneficiary-account .account-types, .choose-donor-account .donor-types, .choose-beneficiary-account .beneficiary-types {
+  color: #163f69;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 15%;
+}
+
+.choose-account .account-types .account-type-intro, .choose-donor-account .account-types .account-type-intro, .choose-beneficiary-account .account-types .account-type-intro, .choose-donor-account .donor-types .account-type-intro, .choose-beneficiary-account .beneficiary-types .account-type-intro, .choose-donor-account .donor-types .donor-type-intro, .choose-beneficiary-account .beneficiary-types .beneficiary-type-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.choose-account .account-types .account-type-intro h2, .choose-donor-account .account-types .account-type-intro h2, .choose-beneficiary-account .account-types .account-type-intro h2, .choose-donor-account .donor-types .account-type-intro h2, .choose-beneficiary-account .beneficiary-types .account-type-intro h2, .choose-donor-account .donor-types .donor-type-intro h2, .choose-beneficiary-account .beneficiary-types .beneficiary-type-intro h2 {
+  font-weight: bold;
+}
+
+.choose-account .account-types .account-type-intro .underline, .choose-donor-account .account-types .account-type-intro .underline, .choose-beneficiary-account .account-types .account-type-intro .underline, .choose-donor-account .donor-types .account-type-intro .underline, .choose-beneficiary-account .beneficiary-types .account-type-intro .underline, .choose-donor-account .donor-types .donor-type-intro .underline, .choose-beneficiary-account .beneficiary-types .beneficiary-type-intro .underline {
+  width: 100px;
+  border-bottom: 2px solid #eeb927;
+  margin: 5px auto 20px;
+}
+
+.choose-account .account-types .account-list, .choose-donor-account .account-types .account-list, .choose-beneficiary-account .account-types .account-list, .choose-donor-account .donor-types .account-list, .choose-beneficiary-account .beneficiary-types .account-list, .choose-account .account-types .choose-donor-account .donor-list, .choose-donor-account .account-types .donor-list, .choose-beneficiary-account .account-types .choose-donor-account .donor-list, .choose-donor-account .donor-types .donor-list, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list, .choose-account .account-types .choose-beneficiary-account .beneficiary-list, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list, .choose-beneficiary-account .account-types .beneficiary-list, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list, .choose-beneficiary-account .beneficiary-types .beneficiary-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 100%;
+}
+
+.choose-account .account-types .account-list .account-item, .choose-donor-account .account-types .account-list .account-item, .choose-beneficiary-account .account-types .account-list .account-item, .choose-donor-account .donor-types .account-list .account-item, .choose-beneficiary-account .beneficiary-types .account-list .account-item, .choose-account .account-types .choose-donor-account .donor-list .account-item, .choose-donor-account .account-types .donor-list .account-item, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .account-item, .choose-donor-account .donor-types .donor-list .account-item, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .account-item, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .account-item, .choose-beneficiary-account .account-types .beneficiary-list .account-item, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .account-item, .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item, .choose-donor-account .donor-list .account-types .account-list .donor-account-item, .choose-donor-account .donor-list .donor-types .account-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .account-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item, .choose-donor-account .account-types .donor-list .donor-account-item, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item, .choose-donor-account .donor-types .donor-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item, .choose-beneficiary-account .beneficiary-list .account-types .account-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .account-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(128, 128, 128, 0.637);
+  margin: 25px 0;
+  cursor: pointer;
+}
+
+.choose-account .account-types .account-list .account-item .account-icon, .choose-donor-account .account-types .account-list .account-item .account-icon, .choose-beneficiary-account .account-types .account-list .account-item .account-icon, .choose-account .choose-donor-account .donor-types .account-list .account-item .account-icon, .choose-donor-account .choose-account .donor-types .account-list .account-item .account-icon, .choose-donor-account .donor-types .account-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .account-item .account-icon, .choose-beneficiary-account .beneficiary-types .account-list .account-item .account-icon, .choose-account .account-types .choose-donor-account .donor-list .account-item .account-icon, .choose-donor-account .choose-account .account-types .donor-list .account-item .account-icon, .choose-donor-account .account-types .donor-list .account-item .account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .account-item .account-icon, .choose-account .choose-donor-account .donor-types .donor-list .account-item .account-icon, .choose-donor-account .choose-account .donor-types .donor-list .account-item .account-icon, .choose-donor-account .donor-types .donor-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item .account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .account-item .account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .account-item .account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .account-types .beneficiary-list .account-item .account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .account-item .account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .account-item .account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .account-item .account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .account-icon, .choose-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-account .account-types .account-list .donor-account-item .account-icon, .choose-donor-account .account-types .account-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .account-types .account-list .donor-account-item .account-icon, .choose-beneficiary-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .account-list .donor-account-item .account-icon, .choose-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .account-icon, .choose-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .account-icon, .choose-donor-account .choose-account .donor-types .account-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-account .donor-types .account-list .donor-account-item .account-icon, .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .account-list .donor-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .account-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .account-list .donor-account-item .account-icon, .choose-beneficiary-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .account-icon, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .account-icon, .choose-donor-account .account-types .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .donor-account-item .account-icon, .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-types .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .donor-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-account .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .account-types .beneficiary-list .donor-account-item .account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .account-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .donor-account-item .account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-account .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .choose-account .donor-types .beneficiary-list .donor-account-item .account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .donor-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .donor-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .donor-list .donor-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .donor-account-item .account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .account-icon, .choose-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .account-list .beneficiary-account-item .account-icon, .choose-donor-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .account-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .account-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .account-types .account-list .beneficiary-account-item .account-icon, .choose-account .choose-donor-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .account-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .account-list .beneficiary-account-item .account-icon, .choose-donor-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .account-list .beneficiary-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .account-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .account-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .account-icon, .choose-account .account-types .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .choose-donor-account .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-account .account-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .account-types .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .account-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .beneficiary-account-item .account-icon, .choose-account .choose-donor-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .beneficiary-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-icon, .choose-account .account-types .account-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .account-types .account-list .account-item .donor-account-icon, .choose-donor-account .account-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .account-types .account-list .account-item .donor-account-icon, .choose-beneficiary-account .account-types .account-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .account-types .account-list .account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .account-list .account-item .donor-account-icon, .choose-donor-account .donor-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .donor-types .account-list .account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .choose-account .beneficiary-types .account-list .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .account-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .beneficiary-types .account-list .account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .account-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .account-list .account-item .donor-account-icon, .choose-account .account-types .choose-donor-account .donor-list .account-item .donor-account-item .donor-account-icon, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-account .account-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .account-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .account-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .donor-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .donor-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item .donor-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .account-item .donor-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .choose-account .account-types .beneficiary-list .account-item .donor-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .account-types .choose-beneficiary-account .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .account-types .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .account-types .beneficiary-list .account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .choose-beneficiary-account .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .beneficiary-list .account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .beneficiary-list .account-item .donor-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .donor-types .choose-beneficiary-account .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .donor-types .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .donor-types .beneficiary-list .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .donor-types .beneficiary-list .account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .beneficiary-types .beneficiary-list .account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .donor-account-icon, .choose-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-account .account-types .account-list .donor-account-item .donor-account-icon, .choose-donor-account .account-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .account-types .account-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .account-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-account .donor-types .account-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .account-list .donor-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .account-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .account-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .donor-account-icon, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .account-types .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-types .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .donor-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-account .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .account-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .choose-account .donor-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .donor-account-icon, .choose-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .account-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .choose-account .account-types .account-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .account-types .account-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .account-types .account-list .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .account-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .account-types .account-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .account-types .account-list .beneficiary-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .account-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .donor-types .account-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .donor-types .account-list .beneficiary-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .choose-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .account-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .account-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .account-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-types .account-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .donor-account-icon, .choose-account .account-types .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .choose-donor-account .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-account .account-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .account-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .account-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .account-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .donor-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .donor-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .donor-account-item .beneficiary-account-item .donor-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .account-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-list .donor-account-item .donor-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .choose-account .donor-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .donor-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .donor-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .donor-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-account-item .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .donor-account-icon, .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-icon, .choose-account .account-types .account-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .account-types .account-list .account-item .beneficiary-account-icon, .choose-donor-account .account-types .account-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .account-types .account-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .account-list .account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .account-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .choose-donor-account .donor-types .account-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .account-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .choose-account .donor-types .account-list .account-item .beneficiary-account-icon, .choose-donor-account .donor-types .account-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .account-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .account-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-types .account-list .account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .account-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .beneficiary-types .account-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .account-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .account-item .beneficiary-account-icon, .choose-account .account-types .choose-donor-account .donor-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .account-types .choose-donor-account .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-account .account-types .donor-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .choose-account .account-types .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .account-types .donor-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .account-types .donor-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .choose-donor-account .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .donor-list .account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .choose-donor-account .donor-types .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .choose-account .donor-types .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .donor-types .donor-list .account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .donor-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-types .donor-list .account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .choose-donor-account .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .donor-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .choose-donor-account .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .donor-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .beneficiary-types .donor-list .account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .choose-donor-account .donor-list .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .donor-list .account-item .beneficiary-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .account-item .beneficiary-account-icon, .choose-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .account-types .account-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .choose-account .account-types .account-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .account-types .account-list .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .account-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .account-types .account-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .account-types .account-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .account-list .donor-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .account-list .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .choose-account .donor-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .donor-types .account-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .choose-account .donor-types .account-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-types .account-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-types .account-list .donor-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .account-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .beneficiary-types .account-list .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .beneficiary-types .account-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .account-list .donor-account-item .beneficiary-account-icon, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .account-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .choose-account .account-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .account-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .account-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .account-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .choose-account .donor-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .donor-list .donor-account-item .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-account .beneficiary-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .beneficiary-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-types .donor-list .donor-account-item .beneficiary-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .account-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-list .donor-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .choose-account .donor-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .choose-account .donor-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-list .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .choose-donor-account .donor-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .choose-donor-account .donor-list .donor-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .donor-account-item .beneficiary-account-icon, .choose-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .account-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .account-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .account-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .account-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .account-types .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .account-types .choose-donor-account .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .account-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .account-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .account-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .account-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .choose-donor-account .donor-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .choose-account .donor-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .donor-list .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .choose-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .choose-account .beneficiary-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .account-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .account-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .choose-account .donor-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-account .beneficiary-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-donor-account .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .choose-donor-account .beneficiary-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item .beneficiary-account-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 20px;
+}
+
+.choose-account .account-types .account-list .account-item.selected, .choose-donor-account .account-types .account-list .account-item.selected, .choose-beneficiary-account .account-types .account-list .account-item.selected, .choose-donor-account .donor-types .account-list .account-item.selected, .choose-beneficiary-account .beneficiary-types .account-list .account-item.selected, .choose-account .account-types .choose-donor-account .donor-list .account-item.selected, .choose-donor-account .account-types .donor-list .account-item.selected, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .account-item.selected, .choose-donor-account .donor-types .donor-list .account-item.selected, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .account-item.selected, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item.selected, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item.selected, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item.selected, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .account-item.selected, .choose-beneficiary-account .account-types .beneficiary-list .account-item.selected, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item.selected, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item.selected, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .account-item.selected, .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item.selected, .choose-donor-account .donor-list .account-types .account-list .selected.donor-account-item, .choose-donor-account .donor-list .donor-types .account-list .selected.donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .account-list .selected.donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .selected.donor-account-item, .choose-account .account-types .choose-donor-account .donor-list .selected.donor-account-item, .choose-donor-account .account-types .donor-list .selected.donor-account-item, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .selected.donor-account-item, .choose-donor-account .donor-types .donor-list .selected.donor-account-item, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .selected.donor-account-item, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .selected.donor-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .selected.donor-account-item, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .selected.donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .selected.donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .selected.donor-account-item, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .selected.donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .selected.donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .selected.donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .selected.donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .selected.donor-account-item, .choose-beneficiary-account .beneficiary-list .account-types .account-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .selected.beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .account-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .selected.beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .selected.beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .selected.beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .selected.beneficiary-account-item, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .selected.beneficiary-account-item, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .selected.beneficiary-account-item, .choose-beneficiary-account .account-types .beneficiary-list .selected.beneficiary-account-item, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .selected.beneficiary-account-item, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .selected.beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .selected.beneficiary-account-item, .choose-beneficiary-account .beneficiary-types .beneficiary-list .selected.beneficiary-account-item {
+  border: 4px solid #2d7dd2;
+}
+
+.choose-account .account-types .account-list .check, .choose-donor-account .account-types .account-list .check, .choose-beneficiary-account .account-types .account-list .check, .choose-donor-account .donor-types .account-list .check, .choose-beneficiary-account .beneficiary-types .account-list .check, .choose-account .account-types .choose-donor-account .donor-list .check, .choose-donor-account .account-types .donor-list .check, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .check, .choose-donor-account .donor-types .donor-list .check, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .check, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .check, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .check, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .check, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .check, .choose-beneficiary-account .account-types .beneficiary-list .check, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .check, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .check, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .check, .choose-beneficiary-account .beneficiary-types .beneficiary-list .check {
+  display: none;
+}
+
+.choose-account .account-types .account-list .fa-check-circle, .choose-donor-account .account-types .account-list .fa-check-circle, .choose-beneficiary-account .account-types .account-list .fa-check-circle, .choose-donor-account .donor-types .account-list .fa-check-circle, .choose-beneficiary-account .beneficiary-types .account-list .fa-check-circle, .choose-account .account-types .choose-donor-account .donor-list .fa-check-circle, .choose-donor-account .account-types .donor-list .fa-check-circle, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .fa-check-circle, .choose-donor-account .donor-types .donor-list .fa-check-circle, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .fa-check-circle, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .fa-check-circle, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .fa-check-circle, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .fa-check-circle, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .fa-check-circle, .choose-beneficiary-account .account-types .beneficiary-list .fa-check-circle, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .fa-check-circle, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .fa-check-circle, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .fa-check-circle, .choose-beneficiary-account .beneficiary-types .beneficiary-list .fa-check-circle {
+  color: #2d7dd2;
+  display: none;
+}
+
+.choose-account .continue-register, .choose-donor-account .continue-register, .choose-beneficiary-account .continue-register {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.choose-account .continue-register button, .choose-donor-account .continue-register button, .choose-beneficiary-account .continue-register button {
+  background-color: #f46036;
+  color: #fff;
+  font-weight: bolder;
+  padding: 15px 45px;
+  border: none;
+  border-radius: 30px;
+}
+
+.choose-account .continue-register button:focus, .choose-donor-account .continue-register button:focus, .choose-beneficiary-account .continue-register button:focus {
+  border: none;
+}
+
+@media (min-width: 768px) {
+  .choose-account .account-types .account-list, .choose-donor-account .account-types .account-list, .choose-beneficiary-account .account-types .account-list, .choose-donor-account .donor-types .account-list, .choose-beneficiary-account .beneficiary-types .account-list, .choose-account .account-types .choose-donor-account .donor-list, .choose-donor-account .account-types .donor-list, .choose-beneficiary-account .account-types .choose-donor-account .donor-list, .choose-donor-account .donor-types .donor-list, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list, .choose-account .account-types .choose-beneficiary-account .beneficiary-list, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list, .choose-beneficiary-account .account-types .beneficiary-list, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list, .choose-beneficiary-account .beneficiary-types .beneficiary-list {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .choose-account .account-types .account-list .account-item, .choose-donor-account .account-types .account-list .account-item, .choose-beneficiary-account .account-types .account-list .account-item, .choose-donor-account .donor-types .account-list .account-item, .choose-beneficiary-account .beneficiary-types .account-list .account-item, .choose-account .account-types .choose-donor-account .donor-list .account-item, .choose-donor-account .account-types .donor-list .account-item, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .account-item, .choose-donor-account .donor-types .donor-list .account-item, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .account-item, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .account-item, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .account-item, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .account-item, .choose-beneficiary-account .account-types .beneficiary-list .account-item, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .account-item, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .account-item, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .account-item, .choose-beneficiary-account .beneficiary-types .beneficiary-list .account-item, .choose-donor-account .donor-list .account-types .account-list .donor-account-item, .choose-donor-account .donor-list .donor-types .account-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .account-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .account-list .donor-account-item, .choose-account .account-types .choose-donor-account .donor-list .donor-account-item, .choose-donor-account .account-types .donor-list .donor-account-item, .choose-beneficiary-account .account-types .choose-donor-account .donor-list .donor-account-item, .choose-donor-account .donor-types .donor-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .beneficiary-types .donor-list .donor-account-item, .choose-beneficiary-account .beneficiary-types .choose-donor-account .donor-list .donor-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-types .donor-list .donor-account-item, .choose-donor-account .donor-list .account-types .choose-beneficiary-account .beneficiary-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .account-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .account-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .donor-types .choose-beneficiary-account .beneficiary-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .donor-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .donor-types .beneficiary-list .donor-account-item, .choose-beneficiary-account .choose-donor-account .donor-list .beneficiary-types .beneficiary-list .donor-account-item, .choose-donor-account .donor-list .choose-beneficiary-account .beneficiary-types .beneficiary-list .donor-account-item, .choose-beneficiary-account .beneficiary-list .account-types .account-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .account-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .account-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .beneficiary-types .account-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .account-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .account-types .choose-donor-account .donor-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .account-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .donor-types .donor-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .donor-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .choose-donor-account .beneficiary-types .donor-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-list .beneficiary-types .choose-donor-account .donor-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .beneficiary-list .beneficiary-types .donor-list .beneficiary-account-item, .choose-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item, .choose-donor-account .account-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item, .choose-beneficiary-account .account-types .beneficiary-list .beneficiary-account-item, .choose-donor-account .donor-types .choose-beneficiary-account .beneficiary-list .beneficiary-account-item, .choose-beneficiary-account .choose-donor-account .donor-types .beneficiary-list .beneficiary-account-item, .choose-donor-account .choose-beneficiary-account .donor-types .beneficiary-list .beneficiary-account-item, .choose-beneficiary-account .beneficiary-types .beneficiary-list .beneficiary-account-item {
+    padding: 5px 55px;
+  }
+}
+
+.choose-beneficiary-account #organization {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 15px;
+  border-radius: 10px;
+  border: 2px solid rgba(128, 128, 128, 0.637);
+  margin: 25px 0;
+  width: 100%;
+  cursor: pointer;
+}
+
+.choose-beneficiary-account #organization .beneficiary-account-icon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-right: 20px;
+}
+
+.choose-beneficiary-account #organization .check {
+  display: none;
+}
+
+.choose-beneficiary-account #organization.selected {
+  border: 4px solid #2d7dd2;
+}
+
+.choose-beneficiary-account #organization .fa-check-circle {
+  color: #2d7dd2;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .choose-beneficiary-account #organization {
+    width: 450px;
+    padding: 10px;
+  }
+}
+
+/**************************
+	CONTINUE REGISTRATION
+**************************/
+.bg-color {
+  background-color: rgba(244, 96, 54, 0.1);
+  position: absolute;
+  height: 100vh;
+  z-index: -1;
+  width: 50vw;
+  top: 0;
+  left: 0;
+}
+
+.continue-donor-reg {
+  color: #163f69;
+}
+
+.continue-donor-reg .continue-registration {
+  margin-top: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.continue-donor-reg .register-info {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-right: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.continue-donor-reg .register-info h1 span {
+  color: #f46036;
+}
+
+.continue-donor-reg .register-info p {
+  margin: 25px 0;
+}
+
+.continue-donor-reg .register-info .oneshare-logo {
+  margin-top: 80px;
+}
+
+.continue-donor-reg .register-form {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.continue-donor-reg .register-form form {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.continue-donor-reg .register-form form input,
+.continue-donor-reg .register-form form select {
+  padding: 10px 25px;
+  width: 80%;
+  background-color: rgba(128, 128, 128, 0.1);
+  outline: none;
+  border: none;
+}
+
+.continue-donor-reg .register-form form #toggle-password {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+.continue-donor-reg .register-form form input[type="email"] {
+  margin-left: 10px;
+}
+
+.continue-donor-reg .register-form form button {
+  border: none;
+  background-color: rgba(128, 128, 128, 0.637);
+  padding: 10px 30px;
+  border-radius: 30px;
+  width: 70%;
+  color: #fff;
+}
+
+.continue-donor-reg .register-form form button.completed {
+  background-color: #f46036;
+}
+
+.continue-donor-reg .register-form form #terms {
+  width: auto;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .bg-color {
+    display: none;
+  }
+  .bg-color-device {
+    width: 100vw;
+    height: 35rem;
+    margin-top: -3rem;
+    left: 0;
+    background-color: rgba(244, 96, 54, 0.1);
+    position: absolute;
+    z-index: -1;
+  }
+  .bg-color-device#finish-page {
+    margin-top: 10vh;
+  }
+  .continue-registration {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .continue-registration .register-info {
+    width: 80%;
+    margin-top: 15%;
+  }
+  .continue-registration .register-info h1 {
+    font-size: 30px;
+  }
+  .continue-registration .register-form {
+    width: 80%;
+  }
+}
+
+/**************
+	LOGIN
+***************/
+.bg-image {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(244, 96, 54, 0.8)), to(rgba(244, 96, 54, 0.7))), url("img/Rectangle 12.png") center center/cover no-repeat;
+  background: linear-gradient(to right, rgba(244, 96, 54, 0.8), rgba(244, 96, 54, 0.7)), url("img/Rectangle 12.png") center center/cover no-repeat;
+  position: absolute;
+  height: 100vh;
+  z-index: -1;
+  width: 50vw;
+  top: 0;
+  left: 0;
+}
+
+.login-home-link {
+  color: #fff;
+}
+
+.login {
+  color: #163f69;
+}
+
+.login .continue-login {
+  margin-top: 15%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.login .login-info {
+  color: #fff;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding-right: 10px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login .login-info p {
+  margin: 25px 0;
+}
+
+.login .login-info .oneshare-logo {
+  margin-top: 80px;
+}
+
+.login .login-form {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login .login-form form {
+  margin: 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.login .login-form form input,
+.login .login-form form select {
+  padding: 10px 25px;
+  width: 80%;
+  background-color: rgba(128, 128, 128, 0.1);
+  outline: none;
+  border: none;
+}
+
+.login .login-form form #toggle-password,
+.login .login-form form #toggle-password1,
+.login .login-form form #toggle-password2 {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+.login .login-form form input[type="email"] {
+  margin-left: 10px;
+}
+
+.login .login-form form button {
+  border: none;
+  background-color: rgba(128, 128, 128, 0.637);
+  padding: 10px 30px;
+  border-radius: 30px;
+  width: 70%;
+  color: #fff;
+}
+
+.login .login-form form button.completed {
+  background-color: #f46036;
+}
+
+.login .login-form form #terms {
+  width: auto;
+  margin: 0 5px;
+}
+
+@media (max-width: 768px) {
+  .bg-image {
+    display: none;
+  }
+  .login-home-link {
+    color: #2d7dd2;
+  }
+  .bg-image-device {
+    background: -webkit-gradient(linear, left top, right top, from(rgba(244, 96, 54, 0.8)), to(rgba(244, 96, 54, 0.7))), url("img/Rectangle 12.png") center center/cover no-repeat;
+    background: linear-gradient(to right, rgba(244, 96, 54, 0.8), rgba(244, 96, 54, 0.7)), url("img/Rectangle 12.png") center center/cover no-repeat;
+    width: 100vw;
+    height: 60vh;
+    left: 0;
+    position: absolute;
+    z-index: -1;
+  }
+  .bg-image-device#finish-page {
+    margin-top: 10vh;
+  }
+  .continue-login {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .continue-login .login-info {
+    width: 80%;
+    margin-top: 15%;
+  }
+  .continue-login .login-info h1 {
+    font-size: 30px;
+  }
+  .continue-login .login-form {
+    width: 80%;
+  }
+}
+
+#input-reset-code,
+#set-new-password,
+#password-success {
+  display: none;
+}
+
+#resend-code {
+  cursor: pointer;
+}
+
+#password-unmatch {
+  color: #f46036;
+  display: none;
+}
+
+#password-match {
+  color: green;
+  display: none;
+}
+
+/****************
+	DASHBOARD
+*****************/
+.logo-nav {
+  margin: 30px 0;
+}
+
+.dashboard {
+  background: rgba(244, 96, 54, 0.1);
+  padding-top: 20px;
+  position: absolute;
+  left: 0;
+  width: 100vw;
+}
+
+.dashboard .greeting strong {
+  color: #163f69;
+}
+
+.dashboard .greeting a {
+  margin-top: 30px;
+  background: #f46036;
+  padding: 10px 15px;
+  border-radius: 40px;
+  color: #fff;
+  margin-left: 20px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.dashboard-nav {
+  margin-top: 20rem;
+}
+
+.dashboard-nav ul {
+  overflow-x: scroll;
+  padding: 0;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.637);
+}
+
+.dashboard-nav li {
+  color: rgba(22, 63, 105, 0.7);
+  padding: 0 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+
+.dashboard-nav li span {
+  cursor: pointer;
+}
+
+.dashboard-nav li.active {
+  color: #163f69;
+}
+
+.dashboard-nav li.active span {
+  border-bottom: 2px solid #163f69;
+  padding-bottom: 1px;
+}
+
+.item-cover {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.637);
+}
+
+.dashboard-item .item-img img {
+  margin-bottom: 10px;
+}
+
+.dashboard-item .item-details strong {
+  color: #163f69;
+}
+
+.dashboard-item .item-details p {
+  margin-right: 10px;
+}
+
+.dashboard-item .item-details p.faded {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.dashboard-item .item-details p.faded span {
+  cursor: pointer;
+}
+
+.dashboard-item .item-details p.faded-blue {
+  color: rgba(22, 63, 105, 0.85);
+}
+
+.dashboard-item .item-details .check-icon {
+  width: 20px;
+}
+
+.dashboard-item .contact-btn a {
+  color: #163f69;
+  border: 1.5px solid #eeb927;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.more-read,
+.read-less {
+  display: none;
+}
+
+.read-more-span,
+.read-less {
+  cursor: pointer;
+}
+
+.dashboard-items {
+  margin: 30px 0;
+}
+
+.dashboard-items input {
+  padding: 10px 25px;
+  width: 60%;
+  background-color: rgba(128, 128, 128, 0.1);
+  outline: none;
+  border: none;
+}
+
+.dashboard-items input ~ span {
+  margin-left: -30px;
+  cursor: pointer;
+}
+
+.dashboard-items button {
+  border: none;
+  background-color: rgba(128, 128, 128, 0.637);
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin: 10px 0;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  color: #fff;
+}
+
+.dashboard-items button.completed {
+  background-color: #f46036;
+}
+
+.dashboard-items .logout {
+  font-weight: bold;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.dashboard-item-details {
+  margin: 30px 0;
+}
+
+#completed-donations,
+#completed-requests,
+#account-settings,
+#help {
+  display: none;
+}
+
+.beneficiaries-details {
+  margin: 20px 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+.beneficiaries-header {
+  margin: 30px 0;
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+.mark-donation button {
+  color: #163f69;
+  border: 1.5px solid #eeb927;
+  border-radius: 40px;
+  padding: 10px;
+}
+
+.chosen-p {
+  padding-bottom: 20px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+p.faded {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.request-detail {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.2);
+}
+
+.request-detail strong {
+  color: #163f69;
+}
+
+.request-detail textarea {
+  border: none;
+  padding: 10px;
+  width: 373px;
+  height: 216px;
+  background-color: rgba(128, 128, 128, 0.1);
+}
+
+.request-detail textarea:focus {
+  outline: none;
+}
+
+.request-detail button {
+  border: none;
+  background-color: rgba(128, 128, 128, 0.637);
+  padding: 10px 30px;
+  border-radius: 30px;
+  margin: 10px 0;
+  width: 70%;
+  font-weight: bolder;
+  color: #fff;
+}
+
+.request-detail button.completed {
+  background-color: #f46036;
+}
+
+.request-detail button:hover {
+  color: #fff;
+}
+
+.dnd {
+  background: rgba(128, 128, 128, 0.1);
+  border: 2px dashed rgba(128, 128, 128, 0.637);
+  padding: 2px;
+  outline-style: outset;
+}
+
+.dnd.active {
+  border: 2px dashed #f46036;
+  background: rgba(244, 96, 54, 0.1);
+}
+
+.dnd #file-error {
+  display: none;
+}
+/*# sourceMappingURL=App.css.map */

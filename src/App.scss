@@ -1,0 +1,948 @@
+$yellow: #eeb927;
+$dark-yellow: #775d0e;
+$red: #f46036;
+$dark-red: #b74828;
+$blue: #2d7dd2;
+$dark-blue: #163f69;
+$black: #040d15;
+$gray: rgba(128, 128, 128, 0.637);
+
+* {
+	margin: 0;
+	overflow-x: hidden;
+	::-webkit-scrollbar {
+		display: none;
+	}
+}
+body {
+	overflow: hidden !important;
+}
+button:focus {
+	outline: none;
+}
+.underline {
+	width: 100px;
+	border-bottom: 2px solid $yellow;
+	margin: 5px auto 20px;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.register-nav,
+.login-nav {
+	padding-top: 30px;
+	display: flex;
+	justify-content: space-between;
+	a {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&:hover {
+			text-decoration: none;
+		}
+		i {
+			padding: 0 5px;
+			margin-top: -2px;
+		}
+	}
+}
+
+/**********************
+	HOMEPAGE
+**********************/
+.homepage {
+	h1 {
+		margin: 30px 0;
+		color: $dark-blue;
+	}
+	.navbar {
+		margin-top: 20px;
+		background: #fff;
+
+		&.scrolled {
+			box-shadow: 0 0 5px $black;
+
+			a {
+				color: #fff;
+				background: $yellow;
+			}
+		}
+		a {
+			color: $dark-blue;
+			border: 1.5px solid $yellow;
+			border-radius: 40px;
+			padding: 10px;
+		}
+	}
+
+	.home-intro {
+		margin-top: 70px;
+		a {
+			background: $red;
+			color: #fff;
+			padding: 10px;
+			border-radius: 40px;
+		}
+		.info-div {
+			margin-top: 20px;
+			background: rgba($red, 0.1);
+		}
+		.info {
+			padding: 10px;
+			margin: 10px auto;
+			h2 {
+				color: $blue;
+				font-weight: bolder;
+			}
+			p {
+				font-weight: bolder;
+			}
+		}
+	}
+
+	.carousel {
+		margin: 30px 0;
+	}
+	.about-oneshare {
+		.info p {
+			font-weight: 600;
+			color: $dark-blue;
+		}
+		.text p {
+			padding-left: 70px;
+		}
+	}
+
+	.stories {
+		h2 {
+			text-align: center;
+			color: $dark-blue;
+			margin: 50px auto;
+		}
+		.mobile-bg {
+			position: absolute;
+			left: 0;
+			margin-top: 150px;
+			overflow: hidden;
+			width: 100%;
+			img {
+				width: 100%;
+				border: none;
+			}
+		}
+
+		.story {
+			border: 2px solid rgba(4, 13, 21, 0.05);
+			margin: 20px;
+			padding: 10px;
+			background: #fff;
+		}
+	}
+
+	.mission {
+		.mission-background {
+			position: absolute;
+			left: 0;
+			margin-top: -120px;
+			z-index: -4;
+			img {
+				width: 100vw;
+			}
+		}
+
+		h2 {
+			margin: 60px 0 40px 0;
+			color: $dark-blue;
+		}
+		.mission-item {
+			p {
+				display: inline;
+			}
+		}
+		.action {
+			strong {
+				color: $dark-blue;
+			}
+			a {
+				background: $red;
+				padding: 10px 15px;
+				border-radius: 40px;
+				color: #fff;
+			}
+		}
+	}
+
+	.process {
+		margin-top: 70px;
+
+		h2 {
+			color: $dark-blue;
+			margin-bottom: 30px;
+		}
+		.process-bg {
+			position: absolute;
+			right: 0;
+			img {
+				width: 100%;
+			}
+		}
+		.processes {
+			margin-top: 30px;
+			p {
+				padding: 20px 10px;
+			}
+		}
+	}
+
+	.contact {
+		margin-top: 50px;
+
+		h2 {
+			color: $dark-blue;
+			margin-top: 20px;
+		}
+		.logo {
+			margin: 10px auto;
+			p {
+				margin-top: 20px;
+			}
+			.socials i {
+				padding: 10px;
+			}
+		}
+		.action {
+			p {
+				margin: 10px auto;
+				padding-top: 10px;
+
+				&.d-flex {
+					strong {
+						margin-top: 10px;
+					}
+				}
+				strong {
+					color: $dark-blue;
+				}
+			}
+			a {
+				background: $red;
+				padding: 10px 15px;
+				border-radius: 40px;
+				color: #fff;
+				margin-left: 20px;
+				width: fit-content;
+			}
+		}
+	}
+
+	.footer {
+		margin-top: 70px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+		left: 0;
+		padding-top: 10px;
+		width: 100vw;
+		background-color: $black;
+		color: #fff;
+
+		a {
+			color: #fff;
+			margin-right: 20px;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.homepage {
+		.home-intro {
+			.underline {
+				transform: rotate(90deg);
+			}
+		}
+		.about-oneshare {
+			.text p {
+				padding-left: 0;
+			}
+		}
+		.action {
+			text-align: center;
+		}
+		.contact {
+			h2,
+			p {
+				text-align: center;
+			}
+			.logo {
+				margin: 30px auto;
+				display: flex;
+				justify-content: center;
+				flex-direction: column;
+				.socials,
+				p {
+					text-align: center;
+				}
+			}
+
+			.action {
+				p {
+					width: 70%;
+				}
+				a {
+					margin-top: 10px;
+				}
+			}
+		}
+	}
+}
+
+/*************************
+	CHOOSE ACCOUNT TYPE
+**************************/
+.choose-account {
+	.account-types {
+		color: $dark-blue;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		margin-top: 15%;
+
+		.account-type-intro {
+			display: flex;
+			justify-content: center;
+			align-content: center;
+			flex-direction: column;
+			text-align: center;
+			h2 {
+				font-weight: bold;
+			}
+			.underline {
+				width: 100px;
+				border-bottom: 2px solid $yellow;
+				margin: 5px auto 20px;
+			}
+		}
+		.account-list {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-evenly;
+			width: 100%;
+
+			.account-item {
+				display: flex;
+				padding: 15px;
+				border-radius: 10px;
+				border: 2px solid $gray;
+				margin: 25px 0;
+				cursor: pointer;
+
+				.account-icon {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding-right: 20px;
+				}
+			}
+			.account-item.selected {
+				border: 4px solid $blue;
+			}
+			.check {
+				display: none;
+			}
+			.fa-check-circle {
+				color: $blue;
+				display: none;
+			}
+		}
+	}
+	.continue-register {
+		display: none;
+		justify-content: center;
+		align-items: center;
+
+		button {
+			background-color: $red;
+			color: #fff;
+			font-weight: bolder;
+			padding: 15px 45px;
+			border: none;
+			border-radius: 30px;
+
+			&:focus {
+				border: none;
+			}
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.choose-account .account-types .account-list {
+		flex-direction: row;
+		.account-item {
+			padding: 5px 55px;
+		}
+	}
+}
+.choose-donor-account {
+	@extend .choose-account;
+	.donor-types {
+		@extend .account-types;
+		.donor-type-intro {
+			@extend .account-type-intro;
+		}
+	}
+	.donor-list {
+		@extend .account-list;
+		.donor-account-item {
+			@extend .account-item;
+			.donor-account-icon {
+				@extend .account-icon;
+			}
+		}
+		.donor-account-item.selected {
+			@extend .account-item.selected;
+		}
+	}
+}
+
+.choose-beneficiary-account {
+	@extend .choose-account;
+	.beneficiary-types {
+		@extend .account-types;
+		.beneficiary-type-intro {
+			@extend .account-type-intro;
+		}
+	}
+	.beneficiary-list {
+		@extend .account-list;
+		.beneficiary-account-item {
+			@extend .account-item;
+			.beneficiary-account-icon {
+				@extend .account-icon;
+			}
+		}
+		.beneficiary-account-item.selected {
+			@extend .account-item.selected;
+		}
+	}
+	#organization {
+		display: flex;
+		padding: 15px;
+		border-radius: 10px;
+		border: 2px solid $gray;
+		margin: 25px 0;
+		width: 100%;
+		cursor: pointer;
+		.beneficiary-account-icon {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-right: 20px;
+		}
+		.check {
+			display: none;
+		}
+		&.selected {
+			border: 4px solid $blue;
+		}
+		.fa-check-circle {
+			color: $blue;
+			display: none;
+		}
+	}
+}
+
+@media (min-width: 768px) {
+	.choose-beneficiary-account #organization {
+		width: 450px;
+		padding: 10px;
+	}
+}
+
+/**************************
+	CONTINUE REGISTRATION
+**************************/
+.bg-color {
+	background-color: rgba($red, 0.1);
+	position: absolute;
+	height: 100vh;
+	z-index: -1;
+	width: 50vw;
+	top: 0;
+	left: 0;
+}
+.continue-donor-reg {
+	color: $dark-blue;
+	.continue-registration {
+		margin-top: 15%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.register-info {
+		width: 50%;
+		display: flex;
+		justify-content: flex-start;
+		padding-right: 10px;
+		flex-direction: column;
+
+		h1 span {
+			color: $red;
+		}
+		p {
+			margin: 25px 0;
+		}
+
+		.oneshare-logo {
+			margin-top: 80px;
+		}
+	}
+	.register-form {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		form {
+			margin: 20px 0;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			input,
+			select {
+				padding: 10px 25px;
+				width: 80%;
+				background-color: rgba(128, 128, 128, 0.1);
+				outline: none;
+				border: none;
+			}
+			#toggle-password {
+				margin-left: -30px;
+				cursor: pointer;
+			}
+			input[type="email"] {
+				margin-left: 10px;
+			}
+			button {
+				border: none;
+				background-color: $gray;
+				padding: 10px 30px;
+				border-radius: 30px;
+				width: 70%;
+				color: #fff;
+				&.completed {
+					background-color: $red;
+				}
+			}
+			#terms {
+				width: auto;
+				margin: 0 5px;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.bg-color {
+		display: none;
+	}
+	.bg-color-device {
+		width: 100vw;
+		height: 35rem;
+		margin-top: -3rem;
+		left: 0;
+		background-color: rgba($red, 0.1);
+		position: absolute;
+		z-index: -1;
+		&#finish-page {
+			margin-top: 10vh;
+		}
+	}
+	.continue-registration {
+		flex-direction: column-reverse;
+
+		.register-info {
+			width: 80%;
+			margin-top: 15%;
+			h1 {
+				font-size: 30px;
+			}
+		}
+		.register-form {
+			width: 80%;
+		}
+	}
+}
+
+/**************
+	LOGIN
+***************/
+
+.bg-image {
+	background: linear-gradient(to right, rgba($red, 0.8), rgba($red, 0.7)),
+		url("img/Rectangle\ 12.png") center center / cover no-repeat;
+	position: absolute;
+	height: 100vh;
+	z-index: -1;
+	width: 50vw;
+	top: 0;
+	left: 0;
+}
+.login-home-link {
+	color: #fff;
+}
+.login {
+	color: $dark-blue;
+	.continue-login {
+		margin-top: 15%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.login-info {
+		color: #fff;
+		width: 50%;
+		display: flex;
+		justify-content: flex-start;
+		padding-right: 10px;
+		flex-direction: column;
+
+		p {
+			margin: 25px 0;
+		}
+
+		.oneshare-logo {
+			margin-top: 80px;
+		}
+	}
+	.login-form {
+		width: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+
+		form {
+			margin: 20px 0;
+			display: flex;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+
+			input,
+			select {
+				padding: 10px 25px;
+				width: 80%;
+				background-color: rgba(128, 128, 128, 0.1);
+				outline: none;
+				border: none;
+			}
+			#toggle-password,
+			#toggle-password1,
+			#toggle-password2 {
+				margin-left: -30px;
+				cursor: pointer;
+			}
+			input[type="email"] {
+				margin-left: 10px;
+			}
+			button {
+				border: none;
+				background-color: $gray;
+				padding: 10px 30px;
+				border-radius: 30px;
+				width: 70%;
+				color: #fff;
+				&.completed {
+					background-color: $red;
+				}
+			}
+			#terms {
+				width: auto;
+				margin: 0 5px;
+			}
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.bg-image {
+		display: none;
+	}
+
+	.login-home-link {
+		color: $blue;
+	}
+	.bg-image-device {
+		background: linear-gradient(to right, rgba($red, 0.8), rgba($red, 0.7)),
+			url("img/Rectangle\ 12.png") center center / cover no-repeat;
+		width: 100vw;
+		height: 60vh;
+		left: 0;
+		position: absolute;
+		z-index: -1;
+		&#finish-page {
+			margin-top: 10vh;
+		}
+	}
+	.continue-login {
+		flex-direction: column-reverse;
+
+		.login-info {
+			width: 80%;
+			margin-top: 15%;
+			h1 {
+				font-size: 30px;
+			}
+		}
+		.login-form {
+			width: 80%;
+		}
+	}
+}
+
+#input-reset-code,
+#set-new-password,
+#password-success {
+	display: none;
+}
+#resend-code {
+	cursor: pointer;
+}
+#password-unmatch {
+	color: $red;
+	display: none;
+}
+#password-match {
+	color: green;
+	display: none;
+}
+
+/****************
+	DASHBOARD
+*****************/
+.logo-nav {
+	margin: 30px 0;
+}
+
+.dashboard {
+	background: rgba($red, 0.1);
+	padding-top: 20px;
+	position: absolute;
+	left: 0;
+	width: 100vw;
+	.greeting {
+		strong {
+			color: $dark-blue;
+		}
+		a {
+			margin-top: 30px;
+			background: $red;
+			padding: 10px 15px;
+			border-radius: 40px;
+			color: #fff;
+			margin-left: 20px;
+			width: fit-content;
+		}
+	}
+}
+.dashboard-nav {
+	margin-top: 20rem;
+	ul {
+		overflow-x: scroll;
+		padding: 0;
+		border-bottom: 2px solid $gray;
+	}
+	li {
+		color: rgba($dark-blue, 0.7);
+		padding: 0 10px;
+		width: max-content;
+		span {
+			cursor: pointer;
+		}
+		&.active {
+			color: $dark-blue;
+			span {
+				border-bottom: 2px solid $dark-blue;
+				padding-bottom: 1px;
+			}
+		}
+	}
+}
+.item-cover {
+	margin: 20px 0;
+	padding-bottom: 20px;
+	border-bottom: 2px solid $gray;
+}
+.dashboard-item {
+	.item-img img {
+		margin-bottom: 10px;
+	}
+	.item-details {
+		strong {
+			color: $dark-blue;
+		}
+
+		p {
+			margin-right: 10px;
+			&.faded {
+				color: rgba(#000, 0.6);
+
+				span {
+					cursor: pointer;
+				}
+			}
+			&.faded-blue {
+				color: rgba($dark-blue, 0.85);
+			}
+		}
+		.check-icon {
+			width: 20px;
+		}
+	}
+	.contact-btn {
+		a {
+			color: $dark-blue;
+			border: 1.5px solid $yellow;
+			border-radius: 40px;
+			padding: 10px;
+		}
+	}
+}
+.more-read,
+.read-less {
+	display: none;
+}
+.read-more-span,
+.read-less {
+	cursor: pointer;
+}
+.dashboard-items {
+	margin: 30px 0;
+	input {
+		padding: 10px 25px;
+		width: 60%;
+		background-color: rgba(128, 128, 128, 0.1);
+		outline: none;
+		border: none;
+	}
+	input ~ span {
+		margin-left: -30px;
+		cursor: pointer;
+	}
+	button {
+		border: none;
+		background-color: $gray;
+		padding: 10px 30px;
+		border-radius: 30px;
+		margin: 10px 0;
+		width: min-content;
+		color: #fff;
+		&.completed {
+			background-color: $red;
+		}
+	}
+	.logout {
+		font-weight: bold;
+		margin: 20px 0;
+		cursor: pointer;
+	}
+}
+.dashboard-item-details {
+	margin: 30px 0;
+}
+#completed-donations,
+#completed-requests,
+#account-settings,
+#help {
+	display: none;
+}
+.beneficiaries-details {
+	margin: 20px 0;
+	padding-bottom: 20px;
+	border-bottom: 2px solid rgba($gray, 0.2);
+}
+.beneficiaries-header {
+	margin: 30px 0;
+	padding-bottom: 20px;
+	border-bottom: 2px solid rgba($gray, 0.2);
+}
+
+.mark-donation {
+	button {
+		color: $dark-blue;
+		border: 1.5px solid $yellow;
+		border-radius: 40px;
+		padding: 10px;
+	}
+}
+.chosen-p {
+	padding-bottom: 20px;
+	border-bottom: 2px solid rgba($gray, 0.2);
+}
+
+p.faded {
+	color: rgba(#000, 0.6);
+}
+
+.request-detail {
+	margin-bottom: 40px;
+	padding-bottom: 40px;
+	border-bottom: 2px solid rgba($gray, 0.2);
+
+	strong {
+		color: $dark-blue;
+	}
+
+	textarea {
+		border: none;
+		padding: 10px;
+		width: 373px;
+		height: 216px;
+		background-color: rgba($gray, 0.1);
+
+		&:focus {
+			outline: none;
+		}
+	}
+	button {
+		border: none;
+		background-color: $gray;
+		padding: 10px 30px;
+		border-radius: 30px;
+		margin: 10px 0;
+		width: 70%;
+		font-weight: bolder;
+		color: #fff;
+		&.completed {
+			background-color: $red;
+		}
+		&:hover {
+			color: #fff;
+		}
+	}
+}
+.dnd {
+	background: rgba($gray, 0.1);
+	border: 2px dashed $gray;
+	padding: 2px;
+	outline-style: outset;
+
+	&.active {
+		border: 2px dashed $red;
+		background: rgba($red, 0.1);
+	}
+	#file-error {
+		display: none;
+	}
+}

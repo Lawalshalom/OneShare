@@ -1,11 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import OngoingDonations from "../../Components/OngoingDonations";
 import CompletedDonations from "../../Components/CompletedDonations";
 import AccountSettings from "../../Components/AccountSettings";
+import { Redirect } from "react-router-dom";
 
-const DonorDashboard = () => {
+const DonorDashboard = (props) => {
+
+    const [ redirect, setRedirect ] = useState(null);
+
+    const appLoginData =  props.authData.user;
+    const storageData = localStorage.getItem("user");
+    const user = appLoginData || JSON.parse(storageData);
 
     useEffect(() => {
+
         const dashboardNav = document.getElementById("dashboard-nav");
         const navLists = dashboardNav.querySelectorAll("li");
 
@@ -17,9 +25,21 @@ const DonorDashboard = () => {
                     }
                 })
                 navItem.classList.add("active");
-            })
+            });
         });
-    });
+        return () => {
+            navLists.forEach(navItem => {
+                navItem.removeEventListener("click", () => {
+                    navLists.forEach(item =>{
+                        if (item.classList.contains("active")){
+                            item.classList.remove("active")
+                        }
+                    })
+                    navItem.classList.add("active");
+                });
+            });
+        }
+    }, [user]);
 
     useEffect(() => {
         const ongoingDonationsBtn = document.getElementById("ongoing-donations-btn");
@@ -36,34 +56,43 @@ const DonorDashboard = () => {
             completedDonations.style.display = "none";
             accountSettings.style.display = "none";
             help.style.display = "none";
-        })
+        });
 
         completedDonationsBtn.addEventListener("click", () => {
             completedDonations.style.display = "block";
             ongoingDonations.style.display = "none";
             accountSettings.style.display = "none";
             help.style.display = "none";
-        })
+        });
         accountSettingsBtn.addEventListener("click", () => {
             accountSettings.style.display = "block";
             ongoingDonations.style.display = "none";
             completedDonations.style.display = "none";
             help.style.display = "none";
-        })
+        });
         helpBtn.addEventListener("click", () => {
             ongoingDonations.style.display = "none";
             completedDonations.style.display = "none";
             accountSettings.style.display = "none";
             help.style.display = "block";
-        })
-    });
+        });
+    }, []);
+
+    if (!user){
+        return setRedirect("/login");
+     }
+     if (user.accountType !== "donor"){
+        return setRedirect("/login");
+     }
 
     const dayHour = new Date().getHours();
     const timeOfDay =  dayHour < 12 ? "morning" :
                     12 < dayHour  && dayHour < 16 ? "afternoon" : 'evening';
-    const name = "Isaac";
 
-    return (
+    if (redirect !== null){
+        return <Redirect to={redirect}/>
+    }
+    else return (
     <div className="container">
         <div className="logo-nav">
             <a href="/"><img src="images/logo-stretch.png" alt="oneshare logo" /></a>
@@ -72,7 +101,7 @@ const DonorDashboard = () => {
         <div className="container row">
             <div className="dashboard">
                 <div className="container greeting d-flex flex-column">
-                    <h2><strong>Good {timeOfDay}, {name}.</strong></h2>
+                    <h2><strong>Good {timeOfDay}, {user ? user.name.split(" ")[0] : ""}.</strong></h2>
                     <p>It's a good time to donate towards a better and healthier community.</p>
                     <p><strong>Have any items to donate?</strong></p>
                     <a className="btn" href="/donor-form">Donate now</a>
@@ -90,9 +119,9 @@ const DonorDashboard = () => {
 
         </div>
 
-        <OngoingDonations />
-        <CompletedDonations/>
-        <AccountSettings />
+        <OngoingDonations authData={props.authData}/>
+        <CompletedDonations authData={props.authData}/>
+        <AccountSettings authData={props.authData} setAuthData={props.setAuthData}/>
 
         <div className="dashboard-items row" id="help">
             <div className="col-12 col-md-4">

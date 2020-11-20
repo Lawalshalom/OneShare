@@ -1,4 +1,1 @@
-### [MedRec](https://webrec-gads.netlify.app)
-
-This is the community project of **Web-health-04** team of the Google Andela
-Developers Scholarship.
+### We are a non-profit set up to provide food and personal equipment to vulnerable persons by connecting those who have to those in need within their vicinity.

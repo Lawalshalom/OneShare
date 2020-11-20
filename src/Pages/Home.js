@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react';
 
-const Home = () => {
+const Home = (props) => {
+
+  const appLoginData =  props.authData.user;
+  const storedUser = localStorage.getItem("user");
+  const user = appLoginData || JSON.parse(storedUser);
+  console.log(user)
+
   useEffect(() => {
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 100){
-        header.classList.add('scrolled')
+        header.classList.add('scrolled');
       }
       else header.classList.remove('scrolled');
     })
-  })
+  });
   return (
     <>
     <div className="homepage container">
@@ -19,10 +25,18 @@ const Home = () => {
             <img src="images/Logo.svg" alt="oneshare logo" />
           </div>
           <div className="col-6 d-sm-flex d-none justify-content-end login-btn">
-            <a href="/register">Register / Login</a>
+            {!user ? <a href="/register">Register / Login</a>
+            : user.accountType === "donor" ?
+            <a href="/donor-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
+            : <a href="/beneficiary-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
+          }
           </div>
           <div className="col-6 d-flex d-sm-none justify-content-end login-btn">
-            <a href="/register">Register / Login</a>
+          {!user ? <a href="/register">Register / Login</a>
+            : user.accountType === "donor" ?
+            <a href="/donor-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
+            : <a href="/beneficiary-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
+          }
           </div>
         </div>
       </div>
@@ -32,7 +46,7 @@ const Home = () => {
           <h1><strong>Help get food and supplies to the prople who need them</strong></h1>
           <p>We are a non-profit set up to provide food and personal equipment to vulnerable persons by connecting those who have to those in need within their vicinity.</p>
           <p><strong>You can register to be a donor or an intending beneficiary</strong></p>
-          <div><a className="btn" href="/register">Register on OneShare</a></div>
+          {!user && <div><a className="btn" href="/register">Register on OneShare</a></div>}
         </div>
         <div className="info-div col-lg-4 col-md-4 d-flex flex-md-column flex-sm-row align-items-center justify-content-center">
 
@@ -54,7 +68,7 @@ const Home = () => {
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  data-aos="fade-up">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src="images/1.png" alt="Prefirst slide"/>
+              <img className="d-block w-100" src="https://res.cloudinary.com/lawfirm1000/image/upload/v1605899005/oneshare/1_xb2ahb.png" alt="Prefirst slide"/>
             </div>
             <div className="carousel-item">
               <img className="d-block w-100" src="images/2.png" alt="First slide"/>
@@ -118,7 +132,7 @@ const Home = () => {
         <div className="col-sm-12 col-md-5 col-lg-5 action">
           <p><strong>Together, let's help the needy</strong></p>
           <p>Register on OneShare and start impacting your community, one person at a time.</p>
-          <div><a className="btn" href="/register">Register</a></div>
+          {!user && <div><a className="btn" href="/register">Register</a></div>}
         </div>
       </div>
     </div>
@@ -180,7 +194,7 @@ const Home = () => {
         </div>
         <div className="col-sm-12 col-md-6 col-lg-4 action">
         <p>OneShare is a non-profit set up to provide food and personal protective equipment to vulnerable persons.</p>
-        <p className="d-flex flex-column flex-md-row justify-content-center"><strong>Join OneShare now!</strong> <span><a className="btn" href="/register">Register</a></span></p>
+        {!user && <p className="d-flex flex-column flex-md-row justify-content-center"><strong>Join OneShare now!</strong> <span><a className="btn" href="/register">Register</a></span></p>}
         </div>
       </div>
     </div>

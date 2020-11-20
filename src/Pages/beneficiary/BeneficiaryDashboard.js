@@ -1,10 +1,27 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Redirect } from "react-router-dom";
 import OngoingRequests from "../../Components/OngoingRequests";
 import CompletedRequests from "../../Components/CompletedRequests";
 import AccountSettings from "../../Components/AccountSettings";
 
-const BeneficiaryDashboard = () => {
+const BeneficiaryDashboard = (props) => {
+
+    const [ redirect, setRedirect ] = useState(null);
+
+    const appLoginData =  props.authData.user;
+    const storageData = localStorage.getItem("user");
+    const user = appLoginData || JSON.parse(storageData);
+    console.log(user);
+
     useEffect(() => {
+
+        if (!user){
+            return setRedirect("/login");
+         }
+         if (user.accountType !== "beneficiary"){
+            return setRedirect("/login");
+         }
+
         const dashboardNav = document.getElementById("dashboard-nav");
         const navLists = dashboardNav.querySelectorAll("li");
 
@@ -18,7 +35,7 @@ const BeneficiaryDashboard = () => {
                 navItem.classList.add("active");
             })
         });
-    });
+    }, [user]);
 
     useEffect(() => {
         const ongoingRequestsBtn = document.getElementById("ongoing-requests-btn");
@@ -55,14 +72,16 @@ const BeneficiaryDashboard = () => {
             accountSettings.style.display = "none";
             help.style.display = "block";
         })
-    });
+    }, []);
 
     const dayHour = new Date().getHours();
     const timeOfDay =  dayHour < 12 ? 'morning' :
                     12 < dayHour  && dayHour < 16 ? 'afternoon' : 'evening';
-    const name = 'Isaac';
 
-    return (
+    if (redirect !== null){
+        return <Redirect to={redirect}/>
+    }
+    else return (
     <div className="container">
         <div className="logo-nav">
             <a href="/"><img src="images/logo-stretch.png" alt="oneshare logo" /></a>
@@ -71,7 +90,7 @@ const BeneficiaryDashboard = () => {
             <div className="container row">
                 <div className="dashboard">
                     <div className="container greeting d-flex flex-column">
-                        <h2><strong>Good {timeOfDay}, {name}.</strong></h2>
+                        <h2><strong>Good {timeOfDay}, {user ? user.name.split(" ")[0] : ""}.</strong></h2>
                         <p>No matter how things seem right now, there's hope for you and yours!</p>
                         <p><strong>What are your needs? Let us know!</strong></p>
                         <a className="btn" href="/request-form">Create a Request</a>
@@ -88,9 +107,9 @@ const BeneficiaryDashboard = () => {
             </ul>
         </div>
 
-        <OngoingRequests />
-        <CompletedRequests />
-        <AccountSettings />
+        <OngoingRequests authData={props.authData}/>
+        <CompletedRequests authData={props.authData}/>
+        <AccountSettings authData={props.authData} setAuthData={props.setAuthData}/>
 
         <div className="dashboard-items row" id="help">
             <div className="col-12 col-md-4">

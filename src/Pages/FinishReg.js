@@ -2,15 +2,29 @@ import React, { useState, useEffect } from 'react';
 
 import lgaList from '../Components/states-and-lgs';
 import { Redirect } from 'react-router';
+import Terms from '../Components/Terms';
 
 const FinishReg = (props) => {
     const [ selectedLga, setSelectedLga ] = useState('');
     const [ readTerms, updateReadTerms ] = useState(false);
     const [ redirect, setRedirect ] = useState(null);
-    const accountType = sessionStorage.getItem('account-type');
+    const [ showTerms, updateShowTerms ] = useState(false);
+    const accountGeneralType = sessionStorage.getItem('account-type');
+
 
     useEffect(() => {
-        if (!accountType) return setRedirect('/register');
+        const conditionsSpan = document.getElementById("conditionsSpan");
+        if (conditionsSpan) {
+                conditionsSpan.onclick =  (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                return updateShowTerms(true);
+            }
+        }
+    });
+
+    useEffect(() => {
+        if (!accountGeneralType) return setRedirect('/register');
         if (!props.details) return setRedirect('/register');
 
 
@@ -24,36 +38,82 @@ const FinishReg = (props) => {
         };
 
         const form = document.getElementById("finish-reg-form");
+        const successDiv = document.getElementById("success-div");
+        const failureDiv = document.getElementById("failure-div");
+        const loadingDiv = document.getElementById("loading-div");
+        const submitBtn = document.getElementById("submit-btn");
 
         form.addEventListener('submit', (e) =>{
             e.preventDefault();
             const formData = new FormData(form);
             const name = formData.get('name');
             const userState = formData.get('userState');
-            const userLga = formData.get('userLga');
-            const params = {
-                body: {
+            const userLGA = formData.get('userLga');
+            const accountTypeSplit = accountGeneralType.split("-");
+            const accountType = accountTypeSplit[0];
+            const accountSubtype = accountTypeSplit[1];
+            successDiv.style.display = "none";
+            failureDiv.style.display = "none";
+            loadingDiv.style.display = "block";
+            submitBtn.style.display = "none";
+
+            const Params = {
+				headers: {
+					"Content-type": "application/JSON",
+				},
+				body: JSON.stringify({
                     name,
                     email,
                     password,
                     userState,
-                    userLga,
+                    userLGA,
                     accountType,
-                }
+                    accountSubtype
+				}),
+				method: "POST",
+			};
+
+            async function registerUser(params){
+             const res = await fetch("https://oneshare-backend.herokuapp.com/api/user/register-user", params);
+             const data = await res.json();
+             console.log(data)
+             console.log(data.error)
+             if (data.success){
+                 successDiv.innerHTML = data.success + " <a href='/login'> Continue to Login</a>";
+                 successDiv.style.display = "block";
+                 failureDiv.style.display = "none";
+                 submitBtn.style.display = "none";
+                 form.reset();
+             }
+             if (data.error){
+                failureDiv.innerHTML = data.error;
+                failureDiv.style.display = "block";
+                successDiv.style.display = "none";
+                submitBtn.style.display = "block";
+             }
+             loadingDiv.style.display = "none";
             }
-            console.log(params);
+            try {
+                registerUser(Params);
+            } catch (err) {
+                successDiv.style.display = "none";
+                failureDiv.innerText = err.error;
+                failureDiv.style.display = "block";
+                loadingDiv.style.display = "none";
+                submitBtn.style.display = "block";
+            }
         })
         return () => {
             form.removeEventListener('submit', (e) =>{
                 e.preventDefault();
             })
         }
-    }, [props.details, accountType])
+    }, [props.details, accountGeneralType])
 
 
-    if (redirect !== null){
-        return <Redirect to={redirect} />
-    }
+   if (redirect !== null){
+    return <Redirect to={redirect} />
+   }
     else return (
         <>
             <div className="bg-color"></div>
@@ -98,9 +158,13 @@ const FinishReg = (props) => {
                             <br/>
                             <div className="text-center">
                                 <input type="checkbox" id="terms" name="terms" required/>
-                                <label htmlFor="terms" className="d-inline">I have read and agreed to the <a href="/terms-and-conditions">Terms and Conditions</a></label>
+                                <label htmlFor="terms" className="d-inline">I have read and agreed to the
+                                    <span id="conditionsSpan" className="text-primary" style={{cursor: "pointer"}}> Terms and Conditions</span></label>
                             </div>
                             <br/>
+                            <div id="loading-div"></div>
+                            <div id="success-div" className="text-success"></div>
+                            <div id="failure-div" className="text-danger mb-3"></div>
                             <button type="submit" id="submit-btn" className={readTerms ? "completed" : ""}>
                                 <strong>Finish</strong>
                             </button>
@@ -108,6 +172,7 @@ const FinishReg = (props) => {
                     </div>
                   <div className="bg-color-device" id="finish-page"></div>
                 </div>
+                {showTerms && <Terms show={updateShowTerms}/>}
             </div>
         </>
     )

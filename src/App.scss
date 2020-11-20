@@ -61,8 +61,10 @@ a:hover {
 	.navbar {
 		margin-top: 20px;
 		background: #fff;
+		transition: all ease 0.5s;
 
 		&.scrolled {
+			margin-top: 0;
 			box-shadow: 0 0 5px $black;
 
 			a {
@@ -942,7 +944,113 @@ p.faded {
 		border: 2px dashed $red;
 		background: rgba($red, 0.1);
 	}
-	#file-error {
+	#file-error,
+	#file-name {
 		display: none;
+	}
+	#dropImgCont {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+}
+
+.admin {
+	.register-nav button {
+		border: none;
+		background: none;
+		color: $blue;
+	}
+}
+.admin-nav {
+	ul {
+		margin-top: 20vh;
+		li {
+			color: rgba($blue, 0.5);
+			padding: 20px 0;
+			img {
+				margin-right: 5px;
+			}
+			a {
+				color: rgba($blue, 0.5);
+			}
+			&.active {
+				color: $dark-blue;
+				font-weight: bolder;
+				&::before {
+					content: ">";
+					margin-right: 10px;
+				}
+			}
+		}
+	}
+}
+.overview {
+	margin-top: 20vh;
+	width: 70%;
+	padding-left: 10px;
+
+	h2 {
+		color: $dark-blue;
+	}
+	button {
+		background: rgba($gray, 0.2);
+		font-weight: bolder;
+		padding: 20px 40px;
+		border-radius: 10px;
+		margin: 10px 10px;
+		&.active {
+			background: $blue;
+			color: #fff;
+		}
+	}
+	.summary {
+		margin-top: 40px;
+		margin-bottom: 50px;
+		box-shadow: 0 0 10px 0 rgba($gray, 0.2);
+		span {
+			color: $blue;
+		}
+		p {
+			margin: 10px;
+		}
+	}
+}
+
+#loading-div {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border-bottom: 2px dashed $red;
+	border-right: 3px dashed $red;
+	margin: 20px;
+	animation: spin 1s linear infinite;
+	animation-fill-mode: forwards;
+	animation-timing-function: steps(20);
+	display: none;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+#terms-div {
+	position: absolute;
+	top: 10vh;
+	z-index: 9;
+	background: #fff;
+	h1 {
+		color: $dark-blue;
+		font-size: 24px;
+		font-weight: bolder;
+	}
+	li {
+		list-style: inside;
 	}
 }

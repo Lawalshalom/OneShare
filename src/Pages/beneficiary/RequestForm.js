@@ -1,21 +1,85 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Redirect } from "react-router-dom";
 
-const RequestForm = () => {
+const RequestForm = (props) => {
+
+    const [ redirect, setRedirect ] = useState(null);
+
+    const user =  props.authData.user || JSON.parse(localStorage.getItem("user"));
+    const storedToken = props.authData.token || localStorage.getItem("token");
 
     useEffect(() => {
-        const form = document.getElementById("request-form");
 
-        form.addEventListener("submit", (e) => {
+        if (!user){
+           return setRedirect("/login")
+        }
+        if (user.accountType !== "beneficiary"){
+            return setRedirect("/login");
+         }
+
+
+        const form = document.getElementById("request-form");
+        const successDiv = document.getElementById("success-div");
+        const failureDiv = document.getElementById("failure-div");
+        const loadingDiv = document.getElementById("loading-div");
+        const submitBtn = document.getElementById("submit-btn");
+
+        form.onsubmit = (e) => {
             e.preventDefault();
             const formData = new FormData(form);
             const requestType = formData.get("request-type");
             const requestDetails = formData.get("request-details");
+            successDiv.style.display = "none";
+            failureDiv.style.display = "none";
+            loadingDiv.style.display = "block";
+            submitBtn.style.display = "none";
+            const accessToken = "Bearer " + storedToken
+            const Params = {
+				headers: {
+                    "Content-type": "application/JSON",
+                    "Authorization": accessToken
+				},
+				body: JSON.stringify({
+                    requestType,
+                    requestDetails
+				}),
+				method: "POST",
+			};
 
-            const body = {requestType, requestDetails}
-            console.log(body)
-        })
-    })
-    return (
+            async function submitRequest(params){
+             const res = await fetch("http://localhost:7890/api/beneficiary/create-request", params);
+             const data = await res.json();
+             if (data.success){
+                props.setAuthData.updateUser(data.user);
+                successDiv.innerHTML = data.success;
+                successDiv.style.display = "block";
+                failureDiv.style.display = "none";
+                submitBtn.style.display = "block";
+                 form.reset();
+             }
+             if (data.error){
+                failureDiv.innerHTML = data.error;
+                failureDiv.style.display = "block";
+                successDiv.style.display = "none";
+                submitBtn.style.display = "block";
+             }
+             loadingDiv.style.display = "none";
+            }
+            submitRequest(Params).catch(err => {
+                successDiv.style.display = "none";
+                failureDiv.innerText = err;
+                failureDiv.style.display = "block";
+                loadingDiv.style.display = "none";
+                submitBtn.style.display = "block";
+            }
+            )
+        }
+    }, [props, user, storedToken])
+
+    if (redirect !== null){
+        return <Redirect to={redirect}/>
+    }
+    else return (
         <>
         <div className="container">
             <div className="register-nav">
@@ -64,8 +128,12 @@ const RequestForm = () => {
                         <div className="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start">
                             <p className="text-center text-md-left"><strong>Hit submit once you're done</strong></p>
                         </div>
+
                         <div className="col-12 col-md-6 d-flex justify-content-center">
-                            <button className="btn completed" type="submit">Submit</button>
+                            <div id="loading-div"></div>
+                            <div id="success-div" className="text-success"></div>
+                            <div id="failure-div" className="text-danger mb-3"></div>
+                            <button className="btn completed" id="submit-btn" type="submit">Submit</button>
                         </div>
                     </div>
                 </form>

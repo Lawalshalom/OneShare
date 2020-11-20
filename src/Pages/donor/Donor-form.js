@@ -1,7 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Redirect } from "react-router-dom";
 
-const DonorForm = () => {
+const DonorForm = (props) => {
     const [ dropImg, setDropImg ] = useState(null);
+    const [ redirect, setRedirect ] = useState(null);
+
+    const user =  props.authData.user || JSON.parse(localStorage.getItem("user"));
+    const storedToken = props.authData.token || localStorage.getItem("token");
+
+
+    useEffect(() => {
+        if (!user){
+            return setRedirect("/login")
+         }
+         if (user.accountType !== "donor"){
+             return setRedirect("/login");
+          }
+    }, [user])
 
    const handleDrag = (e) => {
        e.preventDefault();
@@ -29,45 +44,106 @@ const DonorForm = () => {
         e.stopPropagation();
         const dnd = document.getElementById("dnd");
         const fileInput = document.getElementById("dropImgCont");
+        const fileName = document.getElementById("file-name");
         dnd.classList.remove("active");
         if (e.dataTransfer.items && e.dataTransfer.items.length > 0 && e.dataTransfer.files.length === 1) {
             setDropImg(e.dataTransfer.files[0]);
             fileInput.style.display = "none";
-            fileInput.innerHTML = e.dataTransfer.files[0].name;
+            fileName.style.display = "block";
+            fileName.innerHTML = e.dataTransfer.files[0].name;
           }
       }
 
-    useEffect(() => {
-        const form = document.getElementById("donation-form");
-        const fileError = document.getElementById("file-error");
+        const formSubmission = (e) => {
+            const form = document.getElementById("donation-form");
+            const successDiv = document.getElementById("success-div");
+            const failureDiv = document.getElementById("failure-div");
+            const loadingDiv = document.getElementById("loading-div");
+            const submitBtn = document.getElementById("submit-btn");
+            const fileError = document.getElementById("file-error");
+            const fileInput = document.getElementById("dropImgCont");
+            const fileName = document.getElementById("file-name");
 
-        form.addEventListener("submit", (e) => {
             e.preventDefault();
             const formData = new FormData(form);
             const donationType = formData.get("donation-type");
             const donationDetails = formData.get("donation-details");
 
-            const picture = dropImg === null ? formData.get("myfile") : dropImg;
+            const picture = dropImg ?dropImg : formData.get("myfile");
             let fileExt;
-            if (picture){
-                fileExt = picture.name.split(".")[1];
+            if (!picture.name){
+                failureDiv.innerHTML = "Please upload a picture";
+                failureDiv.style.display = "block";
             }
-            if (fileExt !== "jpg" && fileExt !== "jpeg" && fileExt !== "png"){
-               return fileError.style.display = "block";
-            }
+
             else {
+                fileExt = picture.name.split(".")[1].toLowerCase();
+
+            if (fileExt === "jpg" || fileExt === "jpeg" || fileExt === "png"){
                 fileError.style.display = "none";
-                const body = {picture, donationType, donationDetails}
-                console.log(body)
-                form.reset();
+
+            const accessToken = "Bearer " + storedToken
+            const Params = {
+				headers: {
+                    "Content-type": "application/JSON",
+                    "Authorization": accessToken
+				},
+                body: {picture,
+                        donationType,
+                        donationDetails
+                        },
+				method: "POST",
+            };
+            console.log(Params.body)
+            console.log(picture)
+            console.log(JSON.stringify({picture}))
+
+            async function submitDonation(params){
+                const res = await fetch("http://localhost:7890/api/donor/create-donation", params);
+                const data = await res.json();
+                console.log(data);
+                console.log(params)
+                if (data.success){
+                   props.setAuthData.updateUser(data.user);
+                   successDiv.innerHTML = data.success;
+                   successDiv.style.display = "block";
+                   failureDiv.style.display = "none";
+                   submitBtn.style.display = "block";
+                   fileName.style.display = "none";
+                   fileInput.style.display = "flex";
+                    form.reset();
+                }
+                if (data.error){
+                   failureDiv.innerHTML = data.error;
+                   failureDiv.style.display = "block";
+                   successDiv.style.display = "none";
+                   submitBtn.style.display = "block";
+                }
+                loadingDiv.style.display = "none";
+               }
+          /*     submitDonation(Params).catch(err => {
+                   successDiv.style.display = "none";
+                   failureDiv.innerText = err;
+                   failureDiv.style.display = "block";
+                   loadingDiv.style.display = "none";
+                   submitBtn.style.display = "block";
+               })
+        */
+           }
+            else {
+                return fileError.style.display = "block";
             }
-        })
-    }, [dropImg]);
-    return (
+        }
+        };
+
+        if (redirect !== null){
+            return <Redirect to={redirect}/>
+        }
+        else return (
         <>
         <div className="container">
             <div className="register-nav">
-                <a href="/beneficiary-dashboard"><i className="fa fa-angle-left fa-2x"></i> Go back</a>
+                <a href="/donor-dashboard"><i className="fa fa-angle-left fa-2x"></i> Go back</a>
             </div>
 
             <div className="container row">
@@ -80,7 +156,7 @@ const DonorForm = () => {
             </div>
 
             <div className="request-form dashboard-nav row">
-                <form id="donation-form" className="col-12 col-lg-10">
+                <form id="donation-form" onSubmit={formSubmission} className="col-12 col-lg-10">
 
                     <div className="d-flex flex-column flex-md-row request-detail">
                         <div className="col-12 col-md-6">
@@ -92,7 +168,8 @@ const DonorForm = () => {
                                 onDragEnter={handleDragIn} onDragLeave={handleDragOut} onDrop={handleDrop} onDragOver={handleDrag}>
                                 <img src="images/upload.svg" alt="upload icon" />
                                 <p className="text-center mt-3"><strong>Drag and drop an image</strong></p>
-                                <div className="d-flex justify-content-center align-items-center flex-column" id="dropImgCont">
+                                <p id="file-name" className="text-primary text-center"></p>
+                                <div id="dropImgCont">
                                     <span>or</span>
                                     <input type="file" className="ml-5" id="myfile" name="myfile"/></div>
                                 <p className="faded text-center mt-3">An 800x600px image is recommended</p>
@@ -134,7 +211,10 @@ const DonorForm = () => {
                             <p className="text-center text-md-left"><strong>Hit submit once you're done</strong></p>
                         </div>
                         <div className="col-12 col-md-6 d-flex justify-content-center">
-                            <button className="btn completed" type="submit">Submit</button>
+                            <div id="loading-div"></div>
+                            <div id="success-div" className="text-success"></div>
+                            <div id="failure-div" className="text-danger mb-3"></div>
+                            <button className="btn completed" id="submit-btn" type="submit">Submit</button>
                         </div>
                     </div>
                 </form>

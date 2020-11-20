@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Redirect } from 'react-router-dom';
 
-const Register = () => {
+const Register = (props) => {
     const [ redirect, setRedirect ] = useState(null);
+    const appLoginData =  props.authData.user;
+    const storageData = localStorage.getItem("user");
+    const user = appLoginData || JSON.parse(storageData);
+    console.log(user);
+
     useEffect(() => {
+        if (user){
+            return;
+        }
         const benefitDiv = document.getElementById("beneficiary");
         const donorDiv = document.getElementById("donor");
         const continueDiv = document.getElementById('continue-register');
@@ -86,7 +94,7 @@ const Register = () => {
                 }
             });
         }
-    }, []);
+    }, [user]);
 
 
     if (redirect === 'register-beneficiary'){
@@ -103,7 +111,7 @@ const Register = () => {
                 <a href="/login">Go to Login <i className="fa fa-angle-right fa-2x"></i> </a>
             </div>
 
-            <div className="account-types">
+            {!user && <div className="account-types">
                 <div className="account-type-intro">
                     <h2>Choosing an Account type</h2>
                     <div className="underline"></div>
@@ -133,6 +141,14 @@ const Register = () => {
                     </div>
                 </div>
             </div>
+            }
+            {
+                user && <div className="d-flex justify-content-center flex-column" style={{height: "80vh"}}>
+                <p className="text-center">You are already logged in</p>
+                <p className="text-center"><a href={user.accountType === "donor" ? "/donor-dashboard" : "beneficiary-dashboard"}>
+                <strong>Continue to dashboard</strong></a></p>
+                </div>
+            }
             <div className="continue-register" id="continue-register">
                 <button>Continue <i className="fa fa-arrow-right"></i></button>
             </div>

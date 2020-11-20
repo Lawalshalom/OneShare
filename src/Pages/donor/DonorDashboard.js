@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import OngoingDonations from "../../Components/OngoingDonations";
 import CompletedDonations from "../../Components/CompletedDonations";
 import AccountSettings from "../../Components/AccountSettings";
-import { Redirect } from "react-router-dom";
 
 const DonorDashboard = (props) => {
 
@@ -13,6 +13,13 @@ const DonorDashboard = (props) => {
     const user = appLoginData || JSON.parse(storageData);
 
     useEffect(() => {
+
+        if (!user){
+            return setRedirect("/login");
+        }
+        else if (user.accountType !== "donor"){
+            return setRedirect("/login");
+        };
 
         const dashboardNav = document.getElementById("dashboard-nav");
         const navLists = dashboardNav.querySelectorAll("li");
@@ -77,13 +84,6 @@ const DonorDashboard = (props) => {
             help.style.display = "block";
         });
     }, []);
-
-    if (!user){
-        return setRedirect("/login");
-     }
-     if (user.accountType !== "donor"){
-        return setRedirect("/login");
-     }
 
     const dayHour = new Date().getHours();
     const timeOfDay =  dayHour < 12 ? "morning" :

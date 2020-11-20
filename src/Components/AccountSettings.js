@@ -8,31 +8,21 @@ const AccountSettings = (props) => {
     const user = appLoginData || JSON.parse(storageData);
     const storedToken = props.authData.token || localStorage.getItem("token");
 
-    useEffect(() => {
-        const logoutBtn = document.getElementById("logout-btn");
-        logoutBtn.addEventListener("click", () => {
+
+        const handleClick = () => {
             props.setAuthData.updateUser(null);
             props.setAuthData.updateToken(null);
             setRedirect("/");
-        });
-        return () => {
-            logoutBtn.removeEventListener("click", () => {
-                props.setAuthData.updateUser(null);
-                props.setAuthData.updateToken(null);
-                setRedirect("/");
-            })
-        }
-    }, [props]);
-
-    useEffect(() => {
-        const form = document.getElementById("password-form");
-        const successDiv = document.getElementById("success-div");
-        const failureDiv = document.getElementById("failure-div");
-        const loadingDiv = document.getElementById("loading-div");
-        const submitBtn = document.getElementById("submit-btn");
+        };
 
         const handleSubmit = (e) => {
             e.preventDefault();
+            const form = document.getElementById("password-form")
+            const successDiv = document.getElementById("success-div");
+            const failureDiv = document.getElementById("failure-div");
+            const loadingDiv = document.getElementById("loading-div");
+            const submitBtn = document.getElementById("submit-btn");
+
             const formData = new FormData(form);
             const oldPassword = formData.get("old-password");
             const newPassword = formData.get("new-password");
@@ -90,13 +80,6 @@ const AccountSettings = (props) => {
                 )
             }
         }
-        form.addEventListener("submit", handleSubmit);
-
-        return () => {
-            form.removeEventListener("submit", handleSubmit);
-        }
-    }, [props, storedToken, user]);
-
 
    useEffect(() => {
     const togglePassword1 = document.getElementById('toggle-password1');
@@ -126,7 +109,7 @@ const AccountSettings = (props) => {
         <div className="dashboard-items" id="account-settings">
         <div className="row">
             <div className="col-12 col-md-6">
-                <form id="password-form">
+                <form id="password-form" onSubmit={handleSubmit}>
                 <p>Change your OneShare password at any time!</p>
                 <div className="w-60">
                     <input type="password" name="old-password" id="password1" placeholder="Current Password" autoComplete="false" required/>
@@ -144,7 +127,7 @@ const AccountSettings = (props) => {
                 </form>
             </div>
             <div className="col-12 col-md-6">
-                <p id="logout-btn" className="text-primary logout"><img src="images/logout-icon.svg" alt="logout icon" />Logout of OneShare</p>
+                <p id="logout-btn" onClick={handleClick} className="text-primary logout"><img src="images/logout-icon.svg" alt="logout icon" />Logout of OneShare</p>
             </div>
         </div>
     </div>

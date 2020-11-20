@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 
 const RegisterBeneficiary = () => {
     const [ redirect, setRedirect ] = useState(null);
+
     useEffect(() => {
         const individualDiv = document.getElementById("individual");
         const familyDiv = document.getElementById("family");
@@ -201,18 +202,18 @@ const RegisterBeneficiary = () => {
     else return (
         <>
         <div className="container choose-beneficiary-account">
-            <div className="register-nav">
+            <div className="register-nav" data-aos="fade-down">
                 <a href="/"><i className="fa fa-angle-left fa-2x"></i> Go to Home</a>
                 <a href="/login">Go to Login <i className="fa fa-angle-right fa-2x"></i> </a>
             </div>
 
             <div className="beneficiary-types">
                 <div className="beneficiary-type-intro">
-                    <h2>Choosing an Account type</h2>
-                    <div className="underline"></div>
-                    <p>We'd also want to know whom you'll be making requests as on OneShare.</p>
+                    <h2 data-aos="fade-down" data-aos-delay="100">Choosing an Account type</h2>
+                    <div className="underline" data-aos="fade-down"></div>
+                    <p  data-aos="fade-up">We'd also want to know whom you'll be making requests as on OneShare.</p>
                 </div>
-                <div className="beneficiary-list">
+                <div className="beneficiary-list" data-aos="fade-up">
                     <div className="beneficiary-account-item" id="individual">
                         <div className="beneficiary-account-icon">
                             <img src="images/icons/individual.svg" id="individual-icon" alt="individual icon"/>
@@ -235,7 +236,7 @@ const RegisterBeneficiary = () => {
                         </div>
                     </div>
                 </div>
-                    <div className="beneficiary-account-item" id="organization">
+                    <div className="beneficiary-account-item" id="organization" data-aos="fade-up" data-aos-delay="100">
                         <div className="beneficiary-account-icon">
                             <img src="images/icons/organization.svg" id="organization-icon" alt="organization icon"/>
                             <img src="images/icons/check.svg" id="organization-check-icon" alt="check icon" className="check"/>

@@ -3,7 +3,9 @@ import { Redirect } from 'react-router-dom';
 
 const RegisterDonor = () => {
     const [ redirect, setRedirect ] = useState(null);
+
     useEffect(() => {
+
         const individualDiv = document.getElementById("individual");
         const organizationDiv = document.getElementById("organization");
         const continueDiv = document.getElementById('continue-register');
@@ -56,11 +58,11 @@ const RegisterDonor = () => {
 
             if (individualDiv.classList.contains('selected')) {
                 sessionStorage.setItem('account-type', 'donor-individual');
-                return setRedirect('continue-donor-registration');
+                return setRedirect('/continue-donor-registration');
             }
             else if (organizationDiv.classList.contains('selected')) {
                 sessionStorage.setItem('account-type', 'donor-organization');
-                return setRedirect('continue-donor-registration');
+                return setRedirect('/continue-donor-registration');
             };
         });
         return () => {
@@ -90,19 +92,19 @@ const RegisterDonor = () => {
 
                 if (individualDiv.classList.contains('selected')) {
                     sessionStorage.setItem('account-type', 'donor-individual');
-                    return setRedirect('continue-donor-registration');
+                    return setRedirect('/continue-donor-registration');
                 }
                 else if (organizationDiv.classList.contains('selected')) {
                     sessionStorage.setItem('account-type', 'donor-organization');
-                    return setRedirect('continue-donor-registration');
+                    return setRedirect('/continue-donor-registration');
                 };
             });
         }
     }, []);
 
 
-    if (redirect === 'continue-donor-registration'){
-       return <Redirect to="/continue-donor-registration" />
+    if (redirect !== null){
+       return <Redirect to={redirect} />
     }
     else return (
         <>
@@ -114,11 +116,11 @@ const RegisterDonor = () => {
 
             <div className="donor-types">
                 <div className="donor-type-intro">
-                    <h2>Choosing an Account type</h2>
-                    <div className="underline"></div>
-                    <p>We'd also want to know whom you'll be donating as on OneShare.</p>
+                    <h2 data-aos="fade-down">Choosing an Account type</h2>
+                    <div className="underline" data-aos="fade-down"></div>
+                    <p data-aos="fade-up">We'd also want to know whom you'll be donating as on OneShare.</p>
                 </div>
-                <div className="donor-list">
+                <div className="donor-list" data-aos="fade-up" data-aos-delay="100">
                     <div className="donor-account-item" id="individual">
                         <div className="donor-account-icon">
                             <i className="fa fa-user fa-2x" id="individual-icon"></i>

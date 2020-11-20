@@ -11,10 +11,10 @@ const OngoingDonations = (props) => {
 
 
     if (!user){
-        return setRedirect("/login");
+        return <Redirect to="/login"/>;
      }
      if (user.accountType !== "donor"){
-        return setRedirect("/login");
+        return <Redirect to="/login"/>;
      }
 
      const donations = user.donations;

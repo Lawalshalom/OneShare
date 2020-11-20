@@ -47,13 +47,13 @@ const ContinueBeneficiaryReg = (props) => {
         <>
             <div className="bg-color"></div>
             <div className="container container-xl continue-donor-reg">
-                <div className="register-nav">
+                <div className="register-nav" data-aos="fade-down">
                     <a href="/"><i className="fa fa-angle-left fa-2x"></i> Go to Home</a>
                     <a href="/login">Go to Login <i className="fa fa-angle-right fa-2x"></i> </a>
                 </div>
 
                 <div className="continue-registration">
-                    <div className="register-info">
+                    <div className="register-info"  data-aos="fade-right">
                         <h1><strong>You're registering to be a <span>Beneficiary</span> on OneShare.</strong></h1>
                         <p>As a Beneficiary, you'll be able to post your needs on OneShare and meet with Donors in your community.</p>
                         <p>To register as a donor account instead, <a href="/register-donor">click here.</a></p>
@@ -62,7 +62,7 @@ const ContinueBeneficiaryReg = (props) => {
                         </div>
                     </div>
 
-                    <div className="register-form">
+                    <div className="register-form"  data-aos="fade-left">
                         <h2><strong>Register</strong></h2>
                         <div className="underline"></div>
                         <p className="text-center">Register on OneShare, help protect the vulnerable in our communities!</p>

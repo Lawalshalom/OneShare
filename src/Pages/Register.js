@@ -12,6 +12,10 @@ const Register = (props) => {
         if (user){
             return;
         }
+
+        if (sessionStorage.getItem('account-type')){
+           return sessionStorage.removeItem('account-type');
+        }
         const benefitDiv = document.getElementById("beneficiary");
         const donorDiv = document.getElementById("donor");
         const continueDiv = document.getElementById('continue-register');
@@ -113,11 +117,11 @@ const Register = (props) => {
 
             {!user && <div className="account-types">
                 <div className="account-type-intro">
-                    <h2>Choosing an Account type</h2>
-                    <div className="underline"></div>
-                    <p>There are two account types on OneShare: Beneficiary and Donor accounts. For the best experience it's best to pick an account that suits your motivations.</p>
+                    <h2 data-aos="fade-down">Choosing an Account type</h2>
+                    <div className="underline" data-aos="fade-down"></div>
+                    <p data-aos="fade-up">There are two account types on OneShare: Beneficiary and Donor accounts. For the best experience it's best to pick an account that suits your motivations.</p>
                 </div>
-                <div className="account-list">
+                <div className="account-list" data-aos="fade-up">
                     <div className="account-item" id="beneficiary">
                         <div className="account-icon">
                             <img src="images/icons/beneficiary.svg" id="benefit-icon" alt="benefit icon"/>

@@ -95,13 +95,13 @@ const Login = (props) => {
         <>
             <div className="bg-image"></div>
             <div className="container login">
-                <div className="login-nav">
+                <div className="login-nav" data-aos="fade-down">
                     <a href="/" className="login-home-link"><i className="fa fa-angle-left fa-2x"></i> Go to Home</a>
                     <a href="/register">Go to Register <i className="fa fa-angle-right fa-2x"></i> </a>
                 </div>
 
                 <div className="continue-login">
-                    <div className="login-info">
+                    <div className="login-info" data-aos="fade-right">
                         <h1><strong>The OneShare Vision.</strong></h1>
                         <p>Our vision is to leverage communal bonds in ensuring that every Nigerian gets needed food and medical supplies irrespective of where they live or their socioeconomic status.</p>
                         <div className="oneshare-logo" id="oneShare-logo">
@@ -109,12 +109,12 @@ const Login = (props) => {
                         </div>
                     </div>
 
-                    <div className="login-form">
+                    <div className="login-form" data-aos="fade-left">
                         <h2><strong>Login</strong></h2>
                         <div className="underline"></div>
                         <p className="text-center">Welcome back to OneShare.</p>
                         {!user &&  <form id="login-form">
-                            <input type="email" name="email" placeholder="Email address" autoComplete="false" required/> <br/>
+                            <input type="email" name="email" placeholder="Email address" autoFocus="true" autoComplete="false" required/> <br/>
                              <div className="w-100 text-center">
                                 <input type="password" name="password" id="password" placeholder="Password" autoComplete="false" required/>
                                 <span><i className="fa fa-eye" id="toggle-password"></i></span>

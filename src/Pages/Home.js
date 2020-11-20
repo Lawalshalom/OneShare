@@ -21,17 +21,17 @@ const Home = (props) => {
     <div className="homepage container">
       <div className="container navbar fixed-top" id="header">
         <div className="container d-flex row flex-sm-row justify-content-between">
-          <div className="col-6 oneshare-logo">
+          <div className="col-6 oneshare-logo" data-aos="fade-right">
             <img src="images/Logo.svg" alt="oneshare logo" />
           </div>
-          <div className="col-6 d-sm-flex d-none justify-content-end login-btn">
+          <div className="col-6 d-sm-flex d-none justify-content-end login-btn" data-aos="fade-left">
             {!user ? <a href="/register">Register / Login</a>
             : user.accountType === "donor" ?
             <a href="/donor-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
             : <a href="/beneficiary-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
           }
           </div>
-          <div className="col-6 d-flex d-sm-none justify-content-end login-btn">
+          <div className="col-6 d-flex d-sm-none justify-content-end login-btn" data-aos="fade-left">
           {!user ? <a href="/register">Register / Login</a>
             : user.accountType === "donor" ?
             <a href="/donor-dashboard" className="d-flex"><span className="mt-1 pl-1">Dashboard</span><i className="fa fa-angle-right fa-2x pl-2"></i></a>
@@ -42,13 +42,13 @@ const Home = (props) => {
       </div>
 
       <div className="home-intro d-flex flex-column flex-md-row row">
-        <div className="col-lg-8 col-md-8 ">
+        <div className="col-lg-8 col-md-8" data-aos="fade-right">
           <h1><strong>Help get food and supplies to the prople who need them</strong></h1>
           <p>We are a non-profit set up to provide food and personal equipment to vulnerable persons by connecting those who have to those in need within their vicinity.</p>
           <p><strong>You can register to be a donor or an intending beneficiary</strong></p>
           {!user && <div><a className="btn" href="/register">Register on OneShare</a></div>}
         </div>
-        <div className="info-div col-lg-4 col-md-4 d-flex flex-md-column flex-sm-row align-items-center justify-content-center">
+        <div className="info-div col-lg-4 col-md-4 d-flex flex-md-column flex-sm-row align-items-center justify-content-center" data-aos="fade-left">
 
           <div className="info text-center">
             <h2>250K</h2>
@@ -84,10 +84,10 @@ const Home = (props) => {
       </div>
 
     <div className="about-oneshare d-flex row flex-column flex-md-row">
-      <div className="col-lg-4 col-md-6 info">
+      <div className="col-lg-4 col-md-6 info" data-aos="fade-up-right">
         <p>OneShare is a non-profit set up to provide food and personal equipment to vulnerable persons by connecting those who have to those in need within their vicinity.</p>
       </div>
-      <div className="col-lg-8 col-md-6 text">
+      <div className="col-lg-8 col-md-6 text" data-aos="fade-up-left">
         <p>Food is a basic human need and as evidenced by the surge in armed robbery rates across Nigeria during the lockdown, people can do anything in the face of hunger and perceived injustice. As restrictions are gradually being lifted, many would need a steady supply of personal protective equipment to reduce their risk of infection. However, the prices of food and personal protective equipment have skyrocketed in recent weeks.</p>
       </div>
     </div>

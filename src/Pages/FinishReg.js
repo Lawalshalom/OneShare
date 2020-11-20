@@ -118,12 +118,12 @@ const FinishReg = (props) => {
         <>
             <div className="bg-color"></div>
             <div className="container container-xl continue-donor-reg">
-                <div className="register-nav">
+                <div className="register-nav" data-aos="fade-down">
                     <a href="/"><i className="fa fa-angle-left fa-2x"></i> Go to Home</a>
                 </div>
 
                 <div className="continue-registration">
-                    <div className="register-info">
+                    <div className="register-info" data-aos="fade-right">
                         <h1><strong>Welcome to OneShare!</strong></h1>
                         <p>To complete your registration, we'll need some of your information for identification and also to give you the best recommendation in your location.</p>
                         <div className="oneshare-logo">
@@ -131,12 +131,14 @@ const FinishReg = (props) => {
                         </div>
                     </div>
 
-                    <div className="register-form">
+                    <div className="register-form" data-aos="fade-left">
                         <h2 className="text-center"><strong>Complete Registration</strong></h2>
                         <div className="underline"></div>
                         <p className="text-center">Final steps to register on OneShare.</p>
                         <form id="finish-reg-form">
-                            <input type="name" name="name" placeholder="Full Name" autoComplete="false" autoFocus required/> <br/>
+                            <input type="name" name="name" placeholder="Full Name"
+                            autoComplete="false" autoFocus required minLength="3"
+                            maxLength="30" pattern="[a-zA-Z]{3,}\s[a-zA-Z]{3,}"/> <br/>
 
                             <select name="userState" id="userState" required>
                                 <option value="">State of Residence</option>

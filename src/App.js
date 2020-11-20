@@ -86,9 +86,9 @@ const App = () => {
               <Route path="/register-beneficiary" render={renderprops =>
                 <RegisterBeneficiary {...renderprops} />} />
               <Route path="/continue-beneficiary-registration" render={renderprops =>
-                <ContinueBeneficiaryReg setDetails={setDetails} {...renderprops} />} />
+                <ContinueBeneficiaryReg setDetails={setDetails} details={details} {...renderprops} />} />
               <Route path="/continue-donor-registration" render={renderprops =>
-                <ContinueDonorReg setDetails={setDetails} {...renderprops} />} />
+                <ContinueDonorReg setDetails={setDetails} details={details} {...renderprops} />} />
               <Route path="/finish-registration" render={renderprops =>
                 <FinishReg details={details} {...renderprops} />} />
               <Route path="/login" render={renderprops =>

@@ -29,7 +29,13 @@ button:focus {
 a:hover {
 	text-decoration: none;
 }
-
+.aos-animate {
+	overflow: hidden !important;
+	::-webkit-scrollbar {
+		display: none;
+	}
+	scrollbar-width: none !important;
+}
 .register-nav,
 .login-nav {
 	padding-top: 30px;

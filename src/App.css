@@ -25,6 +25,15 @@ a:hover {
   text-decoration: none;
 }
 
+.aos-animate {
+  overflow: hidden !important;
+  scrollbar-width: none !important;
+}
+
+.aos-animate ::-webkit-scrollbar {
+  display: none;
+}
+
 .register-nav,
 .login-nav {
   padding-top: 30px;

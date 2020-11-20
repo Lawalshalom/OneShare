@@ -70,8 +70,8 @@ const ContinueDonorReg = (props) => {
                         <div className="underline"></div>
                         <p className="text-center">Register on OneShare, help protect the vulnerable in our communities!</p>
                         <form id="continue-donor-form">
-                            <input type="email" name="email" placeholder="Email address" autoComplete="false" required/> <br/>
-                             <div className="w-100 text-center">
+                            <input type="email" className="mb-2" name="email" placeholder="Email address" autoComplete="false" required/> <br/>
+                             <div className="w-100 mt-3 mb-2 text-center">
                                 <input type="password" name="password" id="password" placeholder="Password" autoComplete="false" required/>
                                 <span><i className="fa fa-eye" id="toggle-password"></i></span>
                             </div>

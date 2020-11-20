@@ -26,8 +26,9 @@ a:hover {
 }
 
 .aos-animate {
-  overflow: hidden !important;
-  scrollbar-width: none !important;
+  overflow: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 .aos-animate ::-webkit-scrollbar {
@@ -681,8 +682,8 @@ a:hover {
 	LOGIN
 ***************/
 .bg-image {
-  background: -webkit-gradient(linear, left top, right top, from(rgba(244, 96, 54, 0.8)), to(rgba(244, 96, 54, 0.7))), url("img/Rectangle 12.png") center center/cover no-repeat;
-  background: linear-gradient(to right, rgba(244, 96, 54, 0.8), rgba(244, 96, 54, 0.7)), url("img/Rectangle 12.png") center center/cover no-repeat;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(244, 96, 54, 0.8)), to(rgba(244, 96, 54, 0.7))), url("https://res.cloudinary.com/lawfirm1000/image/upload/v1605907871/oneshare/Rectangle_12_wntpbf.png") center center/cover no-repeat;
+  background: linear-gradient(to right, rgba(244, 96, 54, 0.8), rgba(244, 96, 54, 0.7)), url("https://res.cloudinary.com/lawfirm1000/image/upload/v1605907871/oneshare/Rectangle_12_wntpbf.png") center center/cover no-repeat;
   position: absolute;
   height: 100vh;
   z-index: -1;
@@ -817,10 +818,10 @@ a:hover {
     color: #2d7dd2;
   }
   .bg-image-device {
-    background: -webkit-gradient(linear, left top, right top, from(rgba(244, 96, 54, 0.8)), to(rgba(244, 96, 54, 0.7))), url("img/Rectangle 12.png") center center/cover no-repeat;
-    background: linear-gradient(to right, rgba(244, 96, 54, 0.8), rgba(244, 96, 54, 0.7)), url("img/Rectangle 12.png") center center/cover no-repeat;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(244, 96, 54, 0.8)), to(rgba(244, 96, 54, 0.7))), url("https://res.cloudinary.com/lawfirm1000/image/upload/v1605907871/oneshare/Rectangle_12_wntpbf.png") center center/cover no-repeat;
+    background: linear-gradient(to right, rgba(244, 96, 54, 0.8), rgba(244, 96, 54, 0.7)), url("https://res.cloudinary.com/lawfirm1000/image/upload/v1605907871/oneshare/Rectangle_12_wntpbf.png") center center/cover no-repeat;
     width: 100vw;
-    height: 60vh;
+    height: 80vh;
     left: 0;
     position: absolute;
     z-index: -1;

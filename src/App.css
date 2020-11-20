@@ -656,7 +656,7 @@ a:hover {
     left: 0;
     background-color: rgba(244, 96, 54, 0.1);
     position: absolute;
-    top: 34rem;
+    top: 32rem;
     z-index: -1;
   }
   .bg-color-device#finish-page {

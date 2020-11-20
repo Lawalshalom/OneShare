@@ -115,7 +115,7 @@ const Login = (props) => {
                         <p className="text-center">Welcome back to OneShare.</p>
                         {!user &&  <form id="login-form">
                             <div className="mb-3 text-center w-100">
-                                <input type="email" name="email" placeholder="Email address" autoFocus="true" autoComplete="false" required/>
+                                <input type="email" name="email" placeholder="Email address" autoFocus autoComplete="false" required/>
                             </div>
                              <div className="w-100 mt-2 mb-2 text-center">
                                 <input type="password" name="password" id="password" placeholder="Password" autoComplete="false" required/>

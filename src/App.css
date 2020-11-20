@@ -1,6 +1,8 @@
 * {
   margin: 0;
   overflow-x: hidden;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 * ::-webkit-scrollbar {
@@ -570,7 +572,7 @@ a:hover {
 }
 
 .continue-donor-reg .register-info .oneshare-logo {
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .continue-donor-reg .register-form {
@@ -650,15 +652,16 @@ a:hover {
   }
   .bg-color-device {
     width: 100vw;
-    height: 35rem;
-    margin-top: -3rem;
+    height: 30rem;
     left: 0;
     background-color: rgba(244, 96, 54, 0.1);
     position: absolute;
+    top: 34rem;
     z-index: -1;
   }
   .bg-color-device#finish-page {
-    margin-top: 10vh;
+    top: 38rem;
+    height: 25rem;
   }
   .continue-registration {
     -webkit-box-orient: vertical;
@@ -824,6 +827,7 @@ a:hover {
     height: 80vh;
     left: 0;
     position: absolute;
+    top: 35rem;
     z-index: -1;
   }
   .bg-image-device#finish-page {

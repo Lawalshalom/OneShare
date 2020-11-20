@@ -136,11 +136,11 @@ const FinishReg = (props) => {
                         <div className="underline"></div>
                         <p className="text-center">Final steps to register on OneShare.</p>
                         <form id="finish-reg-form">
-                            <input type="name" name="name" placeholder="Full Name"
+                            <input className="mb-4" type="name" name="name" placeholder="Full Name"
                             autoComplete="false" autoFocus required minLength="3"
-                            maxLength="30" pattern="[a-zA-Z]{3,}\s[a-zA-Z]{3,}"/> <br/>
+                            maxLength="30" pattern="[a-zA-Z]{3,}\s[a-zA-Z]{3,}"/>
 
-                            <select name="userState" id="userState" required>
+                            <select className="mb-4" name="userState" id="userState" required>
                                 <option value="">State of Residence</option>
                                 {
                                     Object.keys(lgaList).map(state => {
@@ -148,8 +148,7 @@ const FinishReg = (props) => {
                                     })
                                 }
                             </select>
-                            <br/>
-                            <select name="userLga" id="userLga" required>
+                            <select className="mb-4" name="userLga" id="userLga" required>
                                 <option value="">Local Government Area (LGA)</option>
                                 {
                                    lgaList[selectedLga] && lgaList[selectedLga].map(lga => {
@@ -157,7 +156,6 @@ const FinishReg = (props) => {
                                     })
                                 }
                             </select>
-                            <br/>
                             <div className="text-center">
                                 <input type="checkbox" id="terms" name="terms" required/>
                                 <label htmlFor="terms" className="d-inline">I have read and agreed to the

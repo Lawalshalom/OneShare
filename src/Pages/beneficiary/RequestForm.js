@@ -120,7 +120,7 @@ const RequestForm = (props) => {
                             <p>We want to know more about this request, in about 50 words (there's a 400 character limit).</p>
                         </div>
                         <div className="d-flex justify-content-center ml-md-5">
-                            <textarea placeholder="Write here" minLength="20" maxLength="400" name="request-details" required></textarea>
+                            <textarea placeholder="Write here" minLength="50" maxLength="400" name="request-details" required></textarea>
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@ const Register = (props) => {
         }
 
         if (sessionStorage.getItem('account-type')){
-           return sessionStorage.removeItem('account-type');
+           sessionStorage.removeItem('account-type');
         }
         const benefitDiv = document.getElementById("beneficiary");
         const donorDiv = document.getElementById("donor");

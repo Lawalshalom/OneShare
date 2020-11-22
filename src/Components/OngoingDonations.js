@@ -50,7 +50,7 @@ const OngoingDonations = (props) => {
                     <div key={donation.id} className="row item-cover">
                         <div className="dashboard-item col-md-10 col-lg-9 row">
                             <div className="item-img col-12 col-md-4">
-                                <img className="w-100" src={`http://localhost:7890/${donation.id}`} alt="donor item"/>
+                                <img className="w-100" src={`https://oneshare-backend.herokuapp.com/${donation.id}`} alt="donor item"/>
                             </div>
                             <div className="item-details col-12 col-md-8 d-flex flex-column">
                                 <div className="item-name d-flex">

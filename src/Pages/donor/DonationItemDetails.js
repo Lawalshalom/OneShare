@@ -89,7 +89,7 @@ const DonationItemDetails = (props) => {
             <div className="row dashboard-item-details">
                 <div className="dashboard-item col-md-11 col-lg-11 row">
                     <div className="item-img col-12 col-md-4">
-                        <img className="w-100" src={`http://localhost:7890/${donation.id}`} alt="donor item"/>
+                        <img className="w-100" src={`https://oneshare-backend.herokuapp.com/${donation.id}`} alt="donor item"/>
                     </div>
                     <div className="item-details col-12 col-md-8 d-flex flex-column">
                         <div className="item-name d-flex">

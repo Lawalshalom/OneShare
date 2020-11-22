@@ -107,7 +107,7 @@ const DonorForm = (props) => {
             };
 
             async function submitDonation(params){
-                const res = await fetch("http://localhost:7890/api/donor/create-donation", params);
+                const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/create-donation", params);
                 const data = await res.json();
                 if (data.success){
                    props.setAuthData.updateUser(data.user);

@@ -50,7 +50,7 @@ const OngoingDonations = (props) => {
                     <div key={donation.id} className="row item-cover">
                         <div className="dashboard-item col-md-10 col-lg-9 row">
                             <div className="item-img col-12 col-md-4">
-                                <img className="w-100" src="images/rectangle31.png" alt="donor item"/>
+                                <img className="w-100" src={`http://localhost:7890/${donation.id}`} alt="donor item"/>
                             </div>
                             <div className="item-details col-12 col-md-8 d-flex flex-column">
                                 <div className="item-name d-flex">
@@ -75,25 +75,6 @@ const OngoingDonations = (props) => {
                 )}
             )
         }
-
-    <div className="row item-cover">
-        <div className="dashboard-item col-md-10 col-lg-9 row">
-            <div className="item-img col-12 col-md-4">
-                <img className="w-100" src="images/rectangle3.png" alt="donor item"/>
-            </div>
-            <div className="item-details col-12 col-md-8 d-flex flex-column">
-                <div className="item-name d-flex">
-                    <p><strong>PPE Equipment </strong></p>
-                    <p className="faded-blue"> •</p>
-                </div>
-                <div className="item-location d-flex flex-column flex-md-row">
-                    <p><img src="images/icons/frames01.svg" alt="location icon" /> Eti-Osa LGA, Lagos State</p>
-                    <p><img src="images/icons/frames02.svg" alt="time icon" /> Posted 8:30AM, Yersterday</p>
-                </div>
-                    <p className="faded">Lorem ipsum i an a dog in a garden and this is a ....<a href="/donation-item-details">Read More</a></p>
-            </div>
-        </div>
-    </div>
 
     <p className="faded"><em> • Only approved donations are displayed</em></p>
 </div>

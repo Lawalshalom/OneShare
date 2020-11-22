@@ -12,6 +12,9 @@ const CompletedRequests = (props) => {
     if (!user){
         return <Redirect to="/login"/>
     }
+    if (user.accountType !== "beneficiary"){
+        return <Redirect to="/login"/>
+    }
     const requests = user.requests;
     requests.forEach(req => {
         if (!req.approved && req.completed){

@@ -13,6 +13,9 @@ const OngoingRequests = (props) => {
     if (!user){
         return <Redirect to="/login"/>
     }
+    if (user.accountType !== "beneficiary"){
+        return <Redirect to="/login"/>
+    }
 
     const requests = user.requests;
     requests.forEach(req => {

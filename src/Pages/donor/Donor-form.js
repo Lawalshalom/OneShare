@@ -16,6 +16,8 @@ const DonorForm = (props) => {
          if (user.accountType !== "donor"){
              return setRedirect("/login");
           }
+
+          document.getElementById("donation-form").enctype = "multipart/form-data";
     }, [user])
 
    const handleDrag = (e) => {
@@ -56,6 +58,7 @@ const DonorForm = (props) => {
 
         const formSubmission = (e) => {
             const form = document.getElementById("donation-form");
+            form.enctype = "multipart/form-data";
             const successDiv = document.getElementById("success-div");
             const failureDiv = document.getElementById("failure-div");
             const loadingDiv = document.getElementById("loading-div");
@@ -63,6 +66,10 @@ const DonorForm = (props) => {
             const fileError = document.getElementById("file-error");
             const fileInput = document.getElementById("dropImgCont");
             const fileName = document.getElementById("file-name");
+            successDiv.style.display = "none";
+            failureDiv.style.display = "none";
+            loadingDiv.style.display = "block";
+            submitBtn.style.display = "none";
 
             e.preventDefault();
             const formData = new FormData(form);
@@ -74,35 +81,34 @@ const DonorForm = (props) => {
             if (!picture.name){
                 failureDiv.innerHTML = "Please upload a picture";
                 failureDiv.style.display = "block";
+                return;
             }
-
+            else if (picture.size > (1000*1024)) {
+                failureDiv.innerHTML = 'Sorry, the max allowed size for images is 1MB';
+                failureDiv.style.display = "block";
+                return;
+              }
             else {
                 fileExt = picture.name.split(".")[1].toLowerCase();
 
             if (fileExt === "jpg" || fileExt === "jpeg" || fileExt === "png"){
                 fileError.style.display = "none";
-
-            const accessToken = "Bearer " + storedToken
+            const accessToken = "Bearer " + storedToken;
+            const myFormData = new FormData();
+            myFormData.append("myfile", picture);
+            myFormData.append("donationType", donationType);
+            myFormData.append("donationDetails", donationDetails);
             const Params = {
 				headers: {
-                    "Content-type": "application/JSON",
                     "Authorization": accessToken
-				},
-                body: {picture,
-                        donationType,
-                        donationDetails
-                        },
-				method: "POST",
+                },
+                body: myFormData,
+                method: "POST",
             };
-            console.log(Params.body)
-            console.log(picture)
-            console.log(JSON.stringify({picture}))
 
             async function submitDonation(params){
                 const res = await fetch("http://localhost:7890/api/donor/create-donation", params);
                 const data = await res.json();
-                console.log(data);
-                console.log(params)
                 if (data.success){
                    props.setAuthData.updateUser(data.user);
                    successDiv.innerHTML = data.success;
@@ -111,7 +117,7 @@ const DonorForm = (props) => {
                    submitBtn.style.display = "block";
                    fileName.style.display = "none";
                    fileInput.style.display = "flex";
-                    form.reset();
+                   form.reset();
                 }
                 if (data.error){
                    failureDiv.innerHTML = data.error;
@@ -121,14 +127,14 @@ const DonorForm = (props) => {
                 }
                 loadingDiv.style.display = "none";
                }
-          /*     submitDonation(Params).catch(err => {
+               submitDonation(Params).catch(err => {
                    successDiv.style.display = "none";
                    failureDiv.innerText = err;
                    failureDiv.style.display = "block";
                    loadingDiv.style.display = "none";
                    submitBtn.style.display = "block";
                })
-        */
+
            }
             else {
                 return fileError.style.display = "block";
@@ -156,7 +162,7 @@ const DonorForm = (props) => {
             </div>
 
             <div className="request-form dashboard-nav row">
-                <form id="donation-form" onSubmit={formSubmission} className="col-12 col-lg-10">
+                <form id="donation-form" onSubmit={formSubmission} encType="multipart/form-data" className="col-12 col-lg-10">
 
                     <div className="d-flex flex-column flex-md-row request-detail">
                         <div className="col-12 col-md-6">
@@ -171,7 +177,7 @@ const DonorForm = (props) => {
                                 <p id="file-name" className="text-primary text-center"></p>
                                 <div id="dropImgCont">
                                     <span>or</span>
-                                    <input type="file" className="ml-5" id="myfile" name="myfile"/></div>
+                                    <input type="file" className="ml-5" id="myfile" accept="image/*" name="myfile"/></div>
                                 <p className="faded text-center mt-3">An 800x600px image is recommended</p>
                                 <p className="text-danger text-center" id="file-error">File must be in jpg, jpeg or png formats only</p>
                             </div>
@@ -202,7 +208,7 @@ const DonorForm = (props) => {
                             <p>We want to know more about this donation, in about 50 words (there's a 400 character limit).</p>
                         </div>
                         <div className="d-flex justify-content-center ml-md-5">
-                            <textarea placeholder="Write here" minLength="50" maxLength="400" name="donation-details" required></textarea>
+                            <textarea placeholder="Write here" minLength="50" maxLength="400" pattern="[w+]{50,}"  name="donation-details" required></textarea>
                         </div>
                     </div>
 

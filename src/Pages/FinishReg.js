@@ -136,7 +136,7 @@ const FinishReg = (props) => {
                         <div className="underline"></div>
                         <p className="text-center">Final steps to register on OneShare.</p>
                         <form id="finish-reg-form">
-                            <input className="mb-4" type="name" name="name" placeholder="Full Name"
+                            <input className="mb-4" type="name" name="name" placeholder="FirstName LastName"
                             autoComplete="false" autoFocus required minLength="3"
                             maxLength="30" pattern="[a-zA-Z]{3,}\s[a-zA-Z]{3,}"/>
 

@@ -9,6 +9,10 @@
   display: none;
 }
 
+*:focus {
+  outline: none;
+}
+
 body {
   overflow: hidden !important;
 }
@@ -967,7 +971,7 @@ a:hover {
   width: 20px;
 }
 
-.dashboard-item .contact-btn a {
+.dashboard-item .contact-btn span {
   color: #163f69;
   border: 1.5px solid #eeb927;
   border-radius: 40px;
@@ -1070,6 +1074,13 @@ p.faded {
 
 .request-detail strong {
   color: #163f69;
+}
+
+.request-detail input[type="number"] {
+  border: none;
+  padding: 10px;
+  background-color: rgba(128, 128, 128, 0.1);
+  border-radius: 10px;
 }
 
 .request-detail textarea {

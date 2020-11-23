@@ -4,14 +4,23 @@ import { Redirect } from 'react-router';
 const DonationItemDetails = (props) => {
     const [ beneficiaries, setBeneficiaries ] = useState(null);
     const [ redirect, setRedirect ] = useState(null);
+    let storedDonation;
+    let propsDonation;
 
-    const donation = props.location.state.donation;
+    if (props.location.state){
+        localStorage.setItem("donation", JSON.stringify(props.location.state.donation));
+        propsDonation = props.location.state.donation;
+    }
+    else {
+        storedDonation = JSON.parse(localStorage.getItem("donation"));
+    }
     const appLoginData =  props.authData.user;
     const storageData = localStorage.getItem("user");
     const storageToken = localStorage.getItem("token");
     const user = appLoginData || JSON.parse(storageData);
     const token = props.authData.token || storageToken;
 
+    const donation = propsDonation || storedDonation;
     const bearer = "Bearer " + token;
     const Params = {
         headers: {
@@ -21,7 +30,7 @@ const DonationItemDetails = (props) => {
     }
     async function getBeneficiaries(params){
         if(beneficiaries !== null) return;
-        const res = await fetch("http://localhost:7890/api/donor/choose-beneficiary", params);
+        const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/choose-beneficiary", params);
         const data = await res.json();
         setBeneficiaries(data.requests);
     }
@@ -50,30 +59,65 @@ const DonationItemDetails = (props) => {
     const displayTime = (time) => {
         const timeString = new Date(time);
         const diff = (new Date().getHours()) - (timeString.getHours());
-        const minuteDiff = (new Date().getMinutes()) - (timeString.getMinutes());
         const dateDiff = (new Date().getDate()) - (timeString.getDate());
-        const displayDate = dateDiff === 0 ? "Today"
-            : dateDiff === 1 ? "Yesterday" : dateDiff === 2 ? "Two days ago"
-            : `${timeString.getDate()}, ${timeString.getMonth}, ${timeString.getFullYear()}`;
-        const displayTime = diff === 0 ? `${minuteDiff} minutes ago`
-                :diff === 1 ? `${diff} hour ago` : (1 <= diff && diff < 12)
-                ? `${diff} hours ago` : timeString.toLocaleTimeString();
+        const minDiff = (new Date().getMinutes()) - (timeString.getMinutes());
+        let displayTime, displayDate;
+
+        const displayMins = minDiff === 0 ? "Just Now"
+                          : minDiff === 1 ? `${minDiff} minute ago`
+                          : `${minDiff} minutes ago`
+
+        const hours = timeString.getHours() === 0 ? "12"
+                    : timeString.getHours() > 0 && timeString.getHours() < 10 ? `0${timeString.getHours()}`
+                    : timeString.getHours() > 10 && timeString.getHours() <= 12 ? timeString.getHours()
+                    : timeString.getHours() > 12 && timeString.getHours() < 22 ? `0${timeString.getHours() - 12}`
+                    : `${timeString.getHours() - 12}`;
+
+        const amPM = timeString.getHours() > 12 ? "PM" : "AM";
+        switch (diff) {
+            case 0:
+                displayTime = displayMins;
+                break;
+            case 1:
+                displayTime = `${diff} hour ago`
+                break;
+            case 2: case 3: case 4: case 5: case 6: case 7: case 8: case 9: case 10: case 11: case 12:
+               displayTime = `${diff} hours ago`
+                break;
+            default: displayTime = `${hours}:${timeString.getMinutes() === 0 ? "00" : timeString.getMinutes() < 10 ? `0${timeString.getMinutes()}` : timeString.getMinutes()} ${amPM}`;
+                break;
+        }
+        switch (dateDiff) {
+            case 0:
+                displayDate = "Today"
+                break;
+            case 1:
+                displayDate = "Yesterday"
+                break;
+            case 2:
+                displayDate = "Two days ago"
+                break;
+            default:
+                displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
+                break;
+        }
         return `${displayTime}, ${displayDate}`;
     }
 
     const lgaBeneficiaries = [];
     const stateBeneficiaries = [];
-    console.log(beneficiaries);
 
     if (beneficiaries){
-        beneficiaries.forEach(beneficiary => {
-            if (beneficiary.userState === user.useState && beneficiary.approved === true  && beneficiary.requestType === donation.donationType && beneficiary.userLGA === user.userLGA){
-                return lgaBeneficiaries.push(beneficiary);
-            }
-            else if (beneficiary.userState === user.useState && beneficiary.approved === true && beneficiary.requestType === donation.donationType){
-                return stateBeneficiaries.push(beneficiary);
-            }
-        });
+        for (let i = 0; i < beneficiaries.length; i++){
+            beneficiaries[i].forEach(beneficiary => {
+                if (beneficiary.userState === user.userState && !beneficiary.approved  && !beneficiary.completed &&  beneficiary.requestType === donation.donationType && beneficiary.userLGA === user.userLGA){
+                    return lgaBeneficiaries.push(beneficiary);
+                }
+                else if (beneficiary.userState === user.useState && !beneficiary.approved &&  !beneficiary.completed && beneficiary.requestType === donation.donationType){
+                    return stateBeneficiaries.push(beneficiary);
+                }
+            });
+        }
     }
 
     if (redirect !== null){
@@ -112,7 +156,7 @@ const DonationItemDetails = (props) => {
             {
                 lgaBeneficiaries.map(request => {
                     return (
-                        <div className="row beneficiaries-details">
+                        <div key={request.id} className="row beneficiaries-details">
                             <div className="dashboard-item col-md-10 col-lg-9 row">
                                 <div className="item-details col-12 col-md-8 d-flex flex-column">
                                     <div className="item-name d-flex">
@@ -127,10 +171,16 @@ const DonationItemDetails = (props) => {
                                         <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                                 </div>
                                 <div className="contact-btn col-md-4">
-                                    <span className="btn" onClick={() => setRedirect({
-                                                            pathname: "/choose-beneficiary",
-                                                            state: { request }
-                                                          })}>Get in Contact</span>
+                                    <span className="btn" onClick={() => {
+                                        const confirm = window.confirm(`Do you want to choose ${request.name} as beneficiary for this donation?`);
+                                         if (confirm) {
+                                             if (donation.beneficiary){
+                                                 return alert("You have selected a beneficiary already for this donation")
+                                             }
+                                             setRedirect({
+                                            pathname: "/choose-beneficiary",
+                                            state: { request, donation }
+                                          })}}}>Get in Contact</span>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +198,7 @@ const DonationItemDetails = (props) => {
             {
                 stateBeneficiaries.map(request => {
                     return (
-                        <div className="row beneficiaries-details">
+                        <div key={request.id} className="row beneficiaries-details">
                             <div className="dashboard-item col-md-10 col-lg-9 row">
                                 <div className="item-details col-12 col-md-8 d-flex flex-column">
                                     <div className="item-name d-flex">
@@ -163,10 +213,11 @@ const DonationItemDetails = (props) => {
                                         <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                                 </div>
                                 <div className="contact-btn col-md-4">
-                                    <span className="btn" onClick={() => setRedirect({
-                                                            pathname: "/choose-beneficiary",
-                                                            state: { request }
-                                                          })}>Get in Contact</span>
+                                    <span className="btn" onClick={() => {
+                                        return setRedirect({
+                                            pathname: "/choose-beneficiary",
+                                            state: { request, user }
+                                          })}}>Get in Contact</span>
                                 </div>
                             </div>
                         </div>

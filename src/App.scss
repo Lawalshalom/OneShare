@@ -15,6 +15,9 @@ $gray: rgba(128, 128, 128, 0.637);
 	}
 	scrollbar-width: none;
 	-ms-overflow-style: none;
+	&:focus {
+		outline: none;
+	}
 }
 body {
 	overflow: hidden !important;
@@ -826,7 +829,7 @@ a:hover {
 		}
 	}
 	.contact-btn {
-		a {
+		span {
 			color: $dark-blue;
 			border: 1.5px solid $yellow;
 			border-radius: 40px;
@@ -917,6 +920,13 @@ p.faded {
 
 	strong {
 		color: $dark-blue;
+	}
+
+	input[type="number"] {
+		border: none;
+		padding: 10px;
+		background-color: rgba($gray, 0.1);
+		border-radius: 10px;
 	}
 
 	textarea {

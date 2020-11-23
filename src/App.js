@@ -102,7 +102,7 @@ const App = () => {
               <Route path="/donation-item-details" render={renderprops =>
                 <DonationItemDetails authData={{user}} {...renderprops} />} />
               <Route path="/choose-beneficiary" render={renderprops =>
-                <ChooseBeneficiary {...renderprops} />} />
+                <ChooseBeneficiary authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/donor-form" render={renderprops =>
                 <DonorForm authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/request-form" render={renderprops =>

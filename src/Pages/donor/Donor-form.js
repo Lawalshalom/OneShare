@@ -79,13 +79,19 @@ const DonorForm = (props) => {
             const picture = dropImg ?dropImg : formData.get("myfile");
             let fileExt;
             if (!picture.name){
-                failureDiv.innerHTML = "Please upload a picture";
+                failureDiv.innerHTML = "Please upload a picture!";
                 failureDiv.style.display = "block";
+                successDiv.style.display = "none";
+                loadingDiv.style.display = "none";
+                submitBtn.style.display = "block";
                 return;
             }
             else if (picture.size > (1000*1024)) {
                 failureDiv.innerHTML = 'Sorry, the max allowed size for images is 1MB';
                 failureDiv.style.display = "block";
+                successDiv.style.display = "none";
+                loadingDiv.style.display = "none";
+                submitBtn.style.display = "block";
                 return;
               }
             else {

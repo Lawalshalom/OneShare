@@ -17,7 +17,6 @@ const RequestForm = (props) => {
             return setRedirect("/login");
          }
 
-
         const form = document.getElementById("request-form");
         const successDiv = document.getElementById("success-div");
         const failureDiv = document.getElementById("failure-div");
@@ -29,6 +28,7 @@ const RequestForm = (props) => {
             const formData = new FormData(form);
             const requestType = formData.get("request-type");
             const requestDetails = formData.get("request-details");
+            const phoneNumber = formData.get("phoneNumber");
             successDiv.style.display = "none";
             failureDiv.style.display = "none";
             loadingDiv.style.display = "block";
@@ -41,13 +41,14 @@ const RequestForm = (props) => {
 				},
 				body: JSON.stringify({
                     requestType,
-                    requestDetails
+                    requestDetails,
+                    phoneNumber
 				}),
 				method: "POST",
 			};
 
             async function submitRequest(params){
-             const res = await fetch("http://localhost:7890/api/beneficiary/create-request", params);
+             const res = await fetch("https://oneshare-backend.herokuapp.com/api/beneficiary/create-request", params);
              const data = await res.json();
              if (data.success){
                 props.setAuthData.updateUser(data.user);
@@ -102,14 +103,26 @@ const RequestForm = (props) => {
                             <p><strong>Which of these do you need?</strong></p>
                             <p>Please pick the option that best suits your need at this time.</p>
                         </div>
-                        <div className="ml-md-5">
-                            <div className="d-flex align-items-center">
-                                <input type="radio" id="food-items" name="request-type" value="food-items" required/>
+                        <div className="ml-3 ml-md-5">
+                            <div className="d-flex ml-md-3 align-items-center">
+                                <input type="radio" id="food-items" name="request-type" value="Food Items" required/>
                                 <label className="pl-2 pt-2" htmlFor="food-items">Food Items</label><br/>
                             </div>
-                            <div className="d-flex align-items-center">
-                                <input type="radio" id="ppe" name="request-type" value="ppe" required/>
+                            <div className="d-flex ml-md-3 align-items-center">
+                                <input type="radio" id="ppe" name="request-type" value="Protective Equipments" required/>
                                 <label className="pl-2 pt-2" htmlFor="ppe">PPE Equipment</label><br/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="d-flex flex-column flex-md-row request-detail">
+                        <div className="col-12 col-md-6">
+                            <p><strong>How would you like to be contacted?</strong></p>
+                            <p>Please enter your mobile contact for donors to reach you.</p>
+                        </div>
+                        <div className="ml-md-5">
+                            <div className="d-flex align-items-center justify-content-md-center ml-3">
+                                <input type="number" id="phoneNumber" name="phoneNumber" placeholder="Enter phone number" required/>
                             </div>
                         </div>
                     </div>

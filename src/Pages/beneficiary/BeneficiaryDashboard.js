@@ -17,9 +17,11 @@ const BeneficiaryDashboard = (props) => {
     useEffect(() => {
 
         if (!user || !token){
+            props.setAuthData.updateUser(null);
             return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
          }
          if (user.accountType !== "beneficiary"){
+             props.setAuthData.updateUser(null);
             return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
          }
 
@@ -48,7 +50,7 @@ const BeneficiaryDashboard = (props) => {
                 })
             });
         }
-    }, [user, token]);
+    }, [user, token, props]);
 
     useEffect(() => {
         const ongoingRequestsBtn = document.getElementById("ongoing-requests-btn");

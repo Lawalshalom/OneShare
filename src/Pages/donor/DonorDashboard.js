@@ -17,9 +17,11 @@ const DonorDashboard = (props) => {
     useEffect(() => {
 
         if (!user || !token){
+            props.setAuthData.updateUser(null);
             return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
          }
          if (user.accountType !== "donor"){
+             props.setAuthData.updateUser(null);
             return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
          }
 
@@ -48,7 +50,7 @@ const DonorDashboard = (props) => {
                 });
             });
         }
-    }, [user, token]);
+    }, [user, token, props]);
 
     useEffect(() => {
         const ongoingDonationsBtn = document.getElementById("ongoing-donations-btn");

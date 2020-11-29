@@ -109,11 +109,13 @@ const DonorDashboard = (props) => {
                    else return props.setAuthData.updateUser(data.user);
             }
             else {
+                props.setAuthData.updateUser(null);
                 return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
             }
         }
         updateUser(Params).catch(err => {
             console.log(err);
+            return props.setAuthData.updateUser(null);
         })
 
     const dayHour = new Date().getHours();

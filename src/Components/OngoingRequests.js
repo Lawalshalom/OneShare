@@ -59,10 +59,12 @@ const OngoingRequests = (props) => {
                 if (data.success){
                     return props.setAuthData.updateUser(data.user);
                 }
+                else return props.setAuthData.updateUser(null);
             }
 
             deleteRequest(Params).catch(err => {
                 console.log(err);
+                return props.setAuthData.updateUser(null);
             })
         }
     }

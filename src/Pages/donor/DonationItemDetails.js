@@ -172,7 +172,7 @@ const handleSelect = (request) => {
                 if (beneficiary.userState === user.userState && !beneficiary.approved  && !beneficiary.completed &&  beneficiary.requestType === donation.donationType && beneficiary.userLGA === user.userLGA){
                     return lgaBeneficiaries.push(beneficiary);
                 }
-                else if (beneficiary.userState === user.useState && !beneficiary.approved &&  !beneficiary.completed && beneficiary.requestType === donation.donationType){
+                else if (beneficiary.userState === user.userState && !beneficiary.approved &&  !beneficiary.completed && beneficiary.requestType === donation.donationType){
                     return stateBeneficiaries.push(beneficiary);
                 }
             });

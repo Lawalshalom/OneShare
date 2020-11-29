@@ -198,11 +198,11 @@ const DonorForm = (props) => {
                         </div>
                         <div className="ml-md-5">
                             <div className="d-flex align-items-center">
-                                <input type="radio" id="food-items" name="donation-type" value="food-items" required/>
+                                <input type="radio" id="food-items" name="donation-type" value="Food Items" required/>
                                 <label className="pl-2 pt-2" htmlFor="food-items">Food Items</label><br/>
                             </div>
                             <div className="d-flex align-items-center">
-                                <input type="radio" id="ppe" name="donation-type" value="ppe" required/>
+                                <input type="radio" id="ppe" name="donation-type" value="Protective Equipments" required/>
                                 <label className="pl-2 pt-2" htmlFor="ppe">PPE Equipment</label><br/>
                             </div>
                         </div>

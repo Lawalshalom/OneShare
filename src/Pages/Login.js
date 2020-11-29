@@ -38,6 +38,7 @@ const Login = (props) => {
             submitBtn.style.display = "none";
             const Params = {
 				headers: {
+                    "Access-Control-Allow-Origin": "*",
 					"Content-type": "application/JSON",
 				},
 				body: JSON.stringify({

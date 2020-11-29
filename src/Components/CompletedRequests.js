@@ -55,19 +55,19 @@ const CompletedRequests = (props) => {
         }
         switch (dateDiff) {
             case 0:
-                displayDate = "Today"
+                displayDate = ""
                 break;
             case 1:
-                displayDate = "Yesterday"
+                displayDate = ", Yesterday"
                 break;
             case 2:
-                displayDate = "Two days ago"
+                displayDate = ", Two days ago"
                 break;
             default:
                 displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
                 break;
         }
-        return `${displayTime}, ${displayDate}`;
+        return `${displayTime} ${displayDate}`;
     }
     completed.reverse();
 
@@ -88,7 +88,7 @@ const CompletedRequests = (props) => {
                                     <p className="text-primary"> Completed <img className="check-icon" src="images/icons/check.svg" alt="check icon" /></p>
                                 </div>
                                 <div className="item-location d-flex flex-column flex-md-row">
-                                    <p><img src="images/icons/frames01.svg" alt="location icon" /> {req.requestLGA} LGA, {req.requestState} state</p>
+                                    <p><img src="images/icons/frames01.svg" alt="location icon" /> {req.userLGA} LGA, {req.userState} state</p>
                                     <p><img src="images/icons/Frame.png" alt="time icon" /> Completed {displayTime(req.dateCreated)}</p>
                                 </div>
                             </div>

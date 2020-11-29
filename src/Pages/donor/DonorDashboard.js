@@ -11,15 +11,17 @@ const DonorDashboard = (props) => {
     const appLoginData =  props.authData.user;
     const storageData = localStorage.getItem("user");
     const user = appLoginData || JSON.parse(storageData);
+    const storageToken = localStorage.getItem("token");
+    const token = props.authData.token || storageToken;
 
     useEffect(() => {
 
-        if (!user){
-            return setRedirect("/login");
-        }
-        else if (user.accountType !== "donor"){
-            return setRedirect("/login");
-        };
+        if (!user || !token){
+            return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
+         }
+         if (user.accountType !== "donor"){
+            return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
+         }
 
         const dashboardNav = document.getElementById("dashboard-nav");
         const navLists = dashboardNav.querySelectorAll("li");
@@ -46,7 +48,7 @@ const DonorDashboard = (props) => {
                 });
             });
         }
-    }, [user]);
+    }, [user, token]);
 
     useEffect(() => {
         const ongoingDonationsBtn = document.getElementById("ongoing-donations-btn");
@@ -85,6 +87,33 @@ const DonorDashboard = (props) => {
         });
     }, []);
 
+        const bearer = "Bearer " + token;
+            const Params = {
+                headers: {
+                    "authorization": bearer,
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-type": "application/JSON",
+                },
+                method: "POST"
+        }
+
+        async function updateUser() {
+            const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/user", Params);
+            const data = await res.json();
+            if (data.user){
+                if (JSON.stringify(data.user.donations) === JSON.stringify(user.donations)){
+                    return;
+                }
+                   else return props.setAuthData.updateUser(data.user);
+            }
+            else {
+                return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
+            }
+        }
+        updateUser(Params).catch(err => {
+            console.log(err);
+        })
+
     const dayHour = new Date().getHours();
     const timeOfDay =  dayHour < 12 ? "morning" :
                     12 < dayHour  && dayHour < 16 ? "afternoon" : 'evening';
@@ -119,7 +148,7 @@ const DonorDashboard = (props) => {
 
         </div>
 
-        <OngoingDonations authData={props.authData}/>
+        <OngoingDonations authData={props.authData} setAuthData={props.setAuthData}/>
         <CompletedDonations authData={props.authData}/>
         <AccountSettings authData={props.authData} setAuthData={props.setAuthData}/>
 

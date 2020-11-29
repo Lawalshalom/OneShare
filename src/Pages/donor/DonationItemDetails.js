@@ -20,10 +20,22 @@ const DonationItemDetails = (props) => {
     const user = appLoginData || JSON.parse(storageData);
     const token = props.authData.token || storageToken;
 
-    const donation = propsDonation || storedDonation;
+    let donation = propsDonation || storedDonation;
+
+    if (!donation || !user.donations){
+        return <Redirect to="/donor-dashboard"/>
+    }
+
+    user.donations.forEach(dona => {
+        if (dona.id === donation.id && JSON.stringify(donation) !== JSON.stringify(dona)){
+           return donation = dona;
+        }
+    })
+
     const bearer = "Bearer " + token;
     const Params = {
         headers: {
+            "Access-Control-Allow-Origin": "*",
             "authorization": bearer
         },
         method: "GET"
@@ -89,19 +101,65 @@ const DonationItemDetails = (props) => {
         }
         switch (dateDiff) {
             case 0:
-                displayDate = "Today"
+                displayDate = ""
                 break;
             case 1:
-                displayDate = "Yesterday"
+                displayDate = ", Yesterday"
                 break;
             case 2:
-                displayDate = "Two days ago"
+                displayDate = ", Two days ago"
                 break;
             default:
                 displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
                 break;
         }
-        return `${displayTime}, ${displayDate}`;
+        return `${displayTime} ${displayDate}`;
+    }
+
+const handleSelect = (request) => {
+    const confirm = window.confirm(`Do you want to choose ${request.name} as beneficiary for this donation?`);
+    if (confirm) {
+            const successDiv = document.getElementById("success-div");
+            const failureDiv = document.getElementById("failure-div");
+            const loadingDiv = document.getElementById("loading-div");
+            const submitBtn = document.getElementById("submit-btn");
+
+            const fetchParams = {
+                headers: {
+                    "authorization": bearer,
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-type": "application/JSON",
+                },
+                body: JSON.stringify({
+                    donationId: donation.id,
+                    beneficiary: request,
+                    email: user.email
+                }),
+                method: "POST"
+            }
+                successDiv.style.display = "none";
+                failureDiv.style.display = "none";
+                loadingDiv.style.display = "block";
+                submitBtn.style.display = "none";
+
+            async function chooseBeneficiary(params){
+                const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/save-chosen-beneficiary", params);
+                const data = await res.json();
+                console.log(data)
+                if (data.success){
+                    props.setAuthData.updateUser(data.user);
+                    const updatedDonation = data.user.donations.find((dona => dona.id === donation.id))
+                    localStorage.setItem("donation", JSON.stringify(updatedDonation));
+                       return setRedirect({
+                            pathname: "/choose-beneficiary",
+                            state: { request, donation }
+                          })
+                }
+            }
+            chooseBeneficiary(fetchParams).catch(err => {
+                console.log(err)
+            })
+        }
     }
 
     const lgaBeneficiaries = [];
@@ -109,6 +167,7 @@ const DonationItemDetails = (props) => {
 
     if (beneficiaries){
         for (let i = 0; i < beneficiaries.length; i++){
+            // eslint-disable-next-line no-loop-func
             beneficiaries[i].forEach(beneficiary => {
                 if (beneficiary.userState === user.userState && !beneficiary.approved  && !beneficiary.completed &&  beneficiary.requestType === donation.donationType && beneficiary.userLGA === user.userLGA){
                     return lgaBeneficiaries.push(beneficiary);
@@ -138,7 +197,9 @@ const DonationItemDetails = (props) => {
                     <div className="item-details col-12 col-md-8 d-flex flex-column">
                         <div className="item-name d-flex">
                             <p><strong>{donation.donationType.toUpperCase()}</strong></p>
-                            <p className="faded">{donation.beneficiary ? " • Beneficiary chosen, in contact"
+                            <p className="faded">
+                                {donation.completed ? <span className="text-primary"> Completed <img className="check-icon" src="images/icons/check.svg" alt="check icon" /></span> :
+                                    donation.beneficiary ? " • Beneficiary chosen, in contact"
                                         : " • No Beneficiaries yet"}</p>
                         </div>
                         <div className="item-location d-flex flex-column flex-md-row">
@@ -149,12 +210,12 @@ const DonationItemDetails = (props) => {
                     </div>
                 </div>
             </div>
-            <p className="beneficiaries-header"><strong>People who need this in {user.userLGA} LGA, {user.userState}</strong></p>
+                {!donation.completed && <p className="beneficiaries-header"><strong>People who need this in {user.userLGA} LGA, {user.userState}</strong></p>}
 
-            {lgaBeneficiaries.length < 1 && <p className="faded"><em>• No {donation.donationType.toUpperCase()} requests have been made in your LGA yet.</em></p>}
+            {!donation.completed && lgaBeneficiaries.length < 1 && <p className="faded"><em>• No {donation.donationType.toUpperCase()} requests have been made in your LGA yet.</em></p>}
 
             {
-                lgaBeneficiaries.map(request => {
+                !donation.completed && lgaBeneficiaries.map(request => {
                     return (
                         <div key={request.id} className="row beneficiaries-details">
                             <div className="dashboard-item col-md-10 col-lg-9 row">
@@ -171,32 +232,33 @@ const DonationItemDetails = (props) => {
                                         <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                                 </div>
                                 <div className="contact-btn col-md-4">
-                                    <span className="btn" onClick={() => {
-                                        const confirm = window.confirm(`Do you want to choose ${request.name} as beneficiary for this donation?`);
-                                         if (confirm) {
-                                             if (donation.beneficiary){
-                                                 return alert("You have selected a beneficiary already for this donation")
-                                             }
-                                             setRedirect({
-                                            pathname: "/choose-beneficiary",
-                                            state: { request, donation }
-                                          })}}}>Get in Contact</span>
+                                    <div id="loading-div"></div>
+                                    <div id="success-div" className="text-success"></div>
+                                    <div id="failure-div" className="text-danger mb-3"></div>
+                                    <span className="btn" id="submit-btn" onClick={() => handleSelect(request)}>Get in Contact</span>
                                 </div>
                             </div>
                         </div>
                     )
                 })
             }
+            {
+                donation.completed &&
+                <div className="beneficiaries-header">
+                    <p className="faded">Donated to {donation.beneficiary.name}</p>
+                </div>
+
+            }
 
 
 
-            <p className="beneficiaries-header"><strong>Other people who need this in {user.userState} state</strong></p>
+            {!donation.completed && <p className="beneficiaries-header"><strong>Other people who need this in {user.userState} state</strong></p>}
 
 
-            {stateBeneficiaries.length < 1 && <p className="faded"><em>• No other {donation.donationType.toUpperCase()} requests have been made in your state yet.</em></p>}
+            {!donation.completed && stateBeneficiaries.length < 1 && <p className="faded"><em>• No other {donation.donationType.toUpperCase()} requests have been made in your state yet.</em></p>}
 
             {
-                stateBeneficiaries.map(request => {
+               !donation.completed && stateBeneficiaries.map(request => {
                     return (
                         <div key={request.id} className="row beneficiaries-details">
                             <div className="dashboard-item col-md-10 col-lg-9 row">

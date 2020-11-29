@@ -6,8 +6,6 @@ const CompletedDonations = (props) => {
     const storageData = localStorage.getItem("user");
     const user = appLoginData || JSON.parse(storageData);
     const completed = [];
-    console.log(user);
-
 
     if (!user){
         return <Redirect to="/login"/>;
@@ -18,7 +16,7 @@ const CompletedDonations = (props) => {
 
      const donations = user.donations;
      donations.forEach(donation => {
-         if (donation.approved && donation.completed){
+         if (!donation.approved && donation.completed){
              completed.push(donation);
          }
      });
@@ -56,19 +54,19 @@ const CompletedDonations = (props) => {
         }
         switch (dateDiff) {
             case 0:
-                displayDate = "Today"
+                displayDate = ""
                 break;
             case 1:
-                displayDate = "Yesterday"
+                displayDate = ", Yesterday"
                 break;
             case 2:
-                displayDate = "Two days ago"
+                displayDate = ", Two days ago"
                 break;
             default:
                 displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
                 break;
         }
-        return `${displayTime}, ${displayDate}`;
+        return `${displayTime} ${displayDate}`;
     }
 
     completed.reverse();
@@ -81,7 +79,7 @@ const CompletedDonations = (props) => {
         {
             completed.map(donation => {
                 return (
-                    <div className="row item-cover">
+                    <div key={donation.id} className="row item-cover">
                         <div className="dashboard-item col-md-10 col-lg-9 row">
                             <div className="item-img col-12 col-md-4">
                                 <img className="w-100" src={`https://oneshare-backend.herokuapp.com/${donation.id}`} alt="donor item"/>

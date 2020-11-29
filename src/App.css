@@ -1021,6 +1021,12 @@ a:hover {
   background-color: #f46036;
 }
 
+.dashboard-items .delete-btn button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #f46036;
+}
+
 .dashboard-items .logout {
   font-weight: bold;
   margin: 20px 0;
@@ -1218,7 +1224,8 @@ p.faded {
   margin: 10px;
 }
 
-#loading-div {
+#loading-div,
+[id*="loading-div"] {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -1271,5 +1278,18 @@ p.faded {
 
 #terms-div li {
   list-style: inside;
+}
+
+#delete-success-div {
+  display: none;
+}
+
+#delete-success-div button {
+  background: none;
+  padding: 10px;
+}
+
+#delete-success-div p {
+  margin: 0;
 }
 /*# sourceMappingURL=App.css.map */

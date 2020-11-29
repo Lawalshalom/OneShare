@@ -1,11 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router';
 
 const ChooseBeneficiary = (props) => {
-    const [ fetchData, updateFetch ] = useState(null);
+        if (!props.location.state){
+            return <Redirect to="/donor-dashboard"/>
+        }
 
-    const donation = props.location.state.donation;
-    const request = props.location.state.request;
+    const redirectDonation = props.location.state.donation;
+    const redirectRequest = props.location.state.request;
+    localStorage.setItem("donation", JSON.stringify(redirectDonation));
+    localStorage.setItem("request", JSON.stringify(redirectRequest));
+    const savedDonation = JSON.parse(localStorage.getItem("chosen-donation"))
+    const savedRequest = JSON.parse(localStorage.getItem("chosen-request"));
+
+    let donation = redirectDonation || savedDonation;
+    const request = redirectRequest || savedRequest;
 
     const appLoginData =  props.authData.user;
     const storageData = localStorage.getItem("user");
@@ -13,46 +22,26 @@ const ChooseBeneficiary = (props) => {
     const user = appLoginData || JSON.parse(storageData);
     const token = props.authData.token || storageToken;
 
+    user.donations.forEach(dona => {
+        if (dona.id === donation.id && JSON.stringify(donation) !== JSON.stringify(dona)){
+           return donation = dona;
+        }
+    })
+
     const bearer = "Bearer " + token;
 
-    useEffect(() => {
-        if (!props.location.state){
-            return <Redirect to="/donor-dashboard"/>
-        }
-
-        const fetchParams = {
-            headers: {
-                "authorization": bearer
-            },
-            body: JSON.stringify({
-                id: donation.id,
-                beneficiary: request,
-                email: user.email
-            }),
-            method: "POST"
-        }
-
-        async function chooseBeneficiary(params){
-            if (donation.beneficiary){
-                return;
-            }
-            const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/save-chosen-beneficiary", params);
-            const data = await res.json();
-            console.log(data)
-            if (data.success){
-                props.setAuthData.updateUser(data.user);
-            }
-        }
-        chooseBeneficiary(fetchParams).catch(err => {
-            console.log(err)
-        })
-    })
 
     const handleMarkCompleted = () => {
         const confirm = window.confirm(`Are you sure items have been delivered to ${request.name}?`);
         if (confirm){
+            const loadingDiv = document.getElementById("loading-div");
+            const submitBtn = document.getElementById("submit-btn");
+            loadingDiv.style.display = "block";
+            submitBtn.style.display = "none";
             const Params = {
                 headers: {
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-type": "application/JSON",
                     "authorization": bearer
                 },
                 body: JSON.stringify({
@@ -64,23 +53,19 @@ const ChooseBeneficiary = (props) => {
                 method: "POST"
             }
             async function completedDonation(params){
-                const res = await fetch("http://localhost:5670/api/donor/complete-donation", params);
+                const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/complete-donation", params);
                 const data = await res.json();
                 console.log(data)
-                updateFetch(data)
                 if (data.success){
                     props.setAuthData.updateUser(data.user);
+                    loadingDiv.style.display = "none";
                 }
             }
             completedDonation(Params).catch(err => {
                 console.log(err);
             })
         }
-        return;
     }
-
-    console.log(fetchData);
-
 
     const handleReadMore = (e) => {
         const dots = e.target.previousElementSibling;
@@ -117,7 +102,6 @@ const ChooseBeneficiary = (props) => {
                     : timeString.getHours() > 10 && timeString.getHours() <= 12 ? timeString.getHours()
                     : timeString.getHours() > 12 && timeString.getHours() < 22 ? `0${timeString.getHours() - 12}`
                     : `${timeString.getHours() - 12}`;
-
         const amPM = timeString.getHours() > 12 ? "PM" : "AM";
         switch (diff) {
             case 0:
@@ -134,22 +118,21 @@ const ChooseBeneficiary = (props) => {
         }
         switch (dateDiff) {
             case 0:
-                displayDate = "Today"
+                displayDate = ""
                 break;
             case 1:
-                displayDate = "Yesterday"
+                displayDate = ", Yesterday"
                 break;
             case 2:
-                displayDate = "Two days ago"
+                displayDate = ", Two days ago"
                 break;
             default:
                 displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
                 break;
         }
-        return `${displayTime}, ${displayDate}`;
+        return `${displayTime} ${displayDate}`;
     }
 
-    console.log(user)
     return (
         <div className="container">
             <div className="register-nav">
@@ -172,10 +155,16 @@ const ChooseBeneficiary = (props) => {
                     <p className="faded">{donation.donationDetails}</p>
                     <div className="mark-donation d-flex flex-column-reverse flex-lg-row align-items-lg-center">
                         <div className="mt-2 mt-lg-0">
-                            <button className="btn" onClick={handleMarkCompleted}>Mark Donation as Completed</button>
+                            <div id="loading-div"></div>
+                           {
+                               donation.completed ?
+                               <button id="completed-btn" className="btn"> Completed <img className="check-icon" src="images/icons/check.svg" alt="check icon" /></button>
+                               : <button className="btn" id="submit-btn" onClick={handleMarkCompleted}>Mark Donation as Completed</button>
+                            }
                         </div>
                         <div className="p-lg-4 overflow-hidden">
-                            <i className="fa fa-arrow-left d-none d-md-inline"></i>
+                            <i className="fa fa-arrow-down d-inline d-lg-none" aria-hidden="true"></i>
+                            <i className="fa fa-arrow-left d-none d-lg-inline" aria-hidden="true"></i>
                             <span className="p-2">Click this <strong>only after</strong>  the items have been handed over.</span>
                         </div>
                     </div>

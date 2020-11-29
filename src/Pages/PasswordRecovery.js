@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const PasswordRecovery = () => {
     let password1, password2 = '';
 
-
     const handlePassword1 = (e) => {
         password1 = e.target.value;
     }
+
+    console.log(password2)
 
     const comparePassword = (e) => {
         const match = document.getElementById('password-match');
@@ -50,12 +51,14 @@ const PasswordRecovery = () => {
 
             inputEmail.style.display = 'none';
             inputResetCode.style.display = 'flex'
+            console.log(email)
         });
 
         inputResetCode.addEventListener('submit', (e) => {
             e.preventDefault();
             const formData = new FormData(inputResetCode);
             const resetCode = formData.get('reset-code');
+            console.log(resetCode)
 
             inputEmail.style.display = 'none';
             inputResetCode.style.display = 'none';

@@ -6,8 +6,9 @@ const OngoingDonations = (props) => {
     const appLoginData =  props.authData.user;
     const storageData = localStorage.getItem("user");
     const user = appLoginData || JSON.parse(storageData);
+    const storageToken = localStorage.getItem("token");
+    const token = props.authData.token || storageToken;
     const ongoing = [];
-    console.log(user);
 
 
     if (!user){
@@ -23,6 +24,47 @@ const OngoingDonations = (props) => {
              ongoing.push(donation);
          }
      });
+
+     const deleteRequest = (id) => {
+        const confirm = window.confirm("Are you sure you want to delete this donation?");
+        if (confirm){
+            const loadingDiv = document.getElementById(`loading-div-${id}`);
+            const submitBtn = document.getElementById(`delete-btn-${id}`);
+            const successDiv = document.getElementById("delete-success-div");
+            loadingDiv.style.display = "block";
+            submitBtn.style.display = "none";
+
+
+            const bearer = "Bearer " + token;
+                const Params = {
+                    headers: {
+                        "authorization": bearer,
+                        "Access-Control-Allow-Origin": "*",
+                        "Content-type": "application/JSON",
+                    },
+                    body: JSON.stringify({
+                        donationId: id
+                    }),
+                    method: "POST"
+            }
+
+            async function deleteRequest() {
+                const res = await fetch("https://oneshare-backend.herokuapp.com/api/donor/delete-donation", Params);
+                const data = await res.json();
+                loadingDiv.style.display = "none";
+                successDiv.style.display = "block";
+                submitBtn.style.display = "block";
+                if (data.success){
+                    return props.setAuthData.updateUser(data.user);
+                }
+            }
+
+            deleteRequest(Params).catch(err => {
+                console.log(err);
+            })
+        }
+    }
+
 
      const displayTime = (time) => {
         const timeString = new Date(time);
@@ -57,19 +99,19 @@ const OngoingDonations = (props) => {
         }
         switch (dateDiff) {
             case 0:
-                displayDate = "Today"
+                displayDate = ""
                 break;
             case 1:
-                displayDate = "Yesterday"
+                displayDate = ", Yesterday"
                 break;
             case 2:
-                displayDate = "Two days ago"
+                displayDate = ", Two days ago"
                 break;
             default:
                 displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
                 break;
         }
-        return `${displayTime}, ${displayDate}`;
+        return `${displayTime} ${displayDate}`;
     }
     ongoing.reverse();
 
@@ -78,6 +120,11 @@ const OngoingDonations = (props) => {
     }
     else return(
         <div className="dashboard-items" data-aos="fade-up" id="ongoing-donations">
+            <div className="d-flex justify-content-center">
+                <div id="delete-success-div" className="alert alert-dismissible col-md-8 fade show" role="alert" data-aos="fade-up">
+                    <p className="text-success">Donation deleted successfully</p>
+                </div>
+            </div>
 
         {ongoing.length < 1 && <p className="faded">Post your donations to see them here</p>}
 
@@ -90,7 +137,7 @@ const OngoingDonations = (props) => {
                             <div className="item-img col-12 col-md-4">
                                 <img className="w-100" src={`https://oneshare-backend.herokuapp.com/${donation.id}`} alt="donor item"/>
                             </div>
-                            <div className="item-details col-12 col-md-8 d-flex flex-column">
+                            <div className="item-details col-10 col-md-8 d-flex flex-column">
                                 <div className="item-name d-flex">
                                     <p><strong>{donation.donationType.toUpperCase()}</strong></p>
                                     <p className="faded">{donation.beneficiary ? " • Beneficiary chosen, in contact"
@@ -108,6 +155,10 @@ const OngoingDonations = (props) => {
                                         Read More</span>
                                 </p>
                             </div>
+                        </div>
+                        <div className="col-2 delete-btn">
+                            <div id={`loading-div-${donation.id}`}></div>
+                            <button onClick={() => deleteRequest(donation.id)} id={`delete-btn-${donation.id}`}><strong>X</strong></button>
                         </div>
                     </div>
                 )}

@@ -31,17 +31,11 @@ const App = () => {
 
   const updateToken = (data) => {
     setToken(data);
-    if (localStorage.getItem("token")){
-      localStorage.removeItem("token");
-    }
     localStorage.setItem("token", data);
   }
 
   const updateUser = (user) => {
     setUser(user);
-    if (localStorage.getItem("user")){
-      localStorage.removeItem("user");
-    }
     localStorage.setItem("user", JSON.stringify(user));
   }
 
@@ -100,7 +94,7 @@ const App = () => {
               <Route path="/beneficiary-dashboard" render={renderprops =>
                 <BeneficiaryDashboard authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/donation-item-details" render={renderprops =>
-                <DonationItemDetails authData={{user}} {...renderprops} />} />
+                <DonationItemDetails authData={{user}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/choose-beneficiary" render={renderprops =>
                 <ChooseBeneficiary authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/donor-form" render={renderprops =>

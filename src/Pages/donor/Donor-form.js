@@ -11,14 +11,16 @@ const DonorForm = (props) => {
 
     useEffect(() => {
         if (!user){
+            props.setAuthData.setMessage("You have to login first!");
             return setRedirect("/login")
          }
          if (user.accountType !== "donor"){
+            props.setAuthData.setMessage("You have to login first!");
              return setRedirect("/login");
           }
 
           document.getElementById("donation-form").enctype = "multipart/form-data";
-    }, [user])
+    }, [user, props])
 
    const handleDrag = (e) => {
        e.preventDefault();

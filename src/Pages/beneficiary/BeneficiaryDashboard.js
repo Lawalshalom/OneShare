@@ -17,11 +17,13 @@ const BeneficiaryDashboard = (props) => {
     useEffect(() => {
 
         if (!user || !token){
+            props.setAuthData.setMessage("You have to login first!");
             props.setAuthData.updateUser(null);
             return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
          }
          if (user.accountType !== "beneficiary"){
-             props.setAuthData.updateUser(null);
+            props.setAuthData.setMessage("You have to login first!");
+            props.setAuthData.updateUser(null);
             return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
          }
 
@@ -109,12 +111,14 @@ const BeneficiaryDashboard = (props) => {
                    else return props.setAuthData.updateUser(data.user);
             }
             else {
+                props.setAuthData.setMessage("You have to login first!");
                 props.setAuthData.updateUser(null);
                 return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
             }
         }
         updateUser(Params).catch(err => {
             console.log(err);
+            props.setAuthData.setMessage("You have to login first!");
             return props.setAuthData.updateUser(null);
         })
 

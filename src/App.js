@@ -28,6 +28,7 @@ const App = () => {
   const [ details, setDetails ] = useState(null);
   const [ token, setToken ] = useState(null);
   const [ user, setUser ] = useState(null);
+  const [ message, setMessage ] = useState(null);
 
   const updateToken = (data) => {
     setToken(data);
@@ -41,7 +42,8 @@ const App = () => {
 
   const setAuthData = {
     updateToken,
-    updateUser
+    updateUser,
+    setMessage
   }
 
   useEffect(() => {
@@ -86,7 +88,7 @@ const App = () => {
               <Route path="/finish-registration" render={renderprops =>
                 <FinishReg details={details} {...renderprops} />} />
               <Route path="/login" render={renderprops =>
-                <Login setAuthData={setAuthData} authData={{user, token}} {...renderprops} />} />
+                <Login setAuthData={setAuthData} authData={{user, token, message}} {...renderprops} />} />
               <Route path="/password-recovery" render={renderprops =>
                 <PasswordRecovery {...renderprops} />} />
               <Route path="/donor-dashboard" render={renderprops =>

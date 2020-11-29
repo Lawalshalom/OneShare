@@ -11,9 +11,11 @@ const RequestForm = (props) => {
     useEffect(() => {
 
         if (!user){
+            props.setAuthData.setMessage("You have to login first!");
            return setRedirect("/login")
         }
         if (user.accountType !== "beneficiary"){
+            props.setAuthData.setMessage("You have to login first!");
             return setRedirect("/login");
          }
 

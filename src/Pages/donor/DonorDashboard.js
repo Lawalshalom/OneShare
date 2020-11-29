@@ -17,12 +17,14 @@ const DonorDashboard = (props) => {
     useEffect(() => {
 
         if (!user || !token){
+            props.setAuthData.setMessage("You have to login first!");
             props.setAuthData.updateUser(null);
-            return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
+            return setRedirect({pathname: "/login", state: {message: "You have to login first!"}});
          }
          if (user.accountType !== "donor"){
+            props.setAuthData.setMessage("You have to login first!");
              props.setAuthData.updateUser(null);
-            return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
+            return setRedirect({pathname: "/login", state: {message: "You have to login first!"}});
          }
 
         const dashboardNav = document.getElementById("dashboard-nav");
@@ -106,15 +108,19 @@ const DonorDashboard = (props) => {
                 if (JSON.stringify(data.user.donations) === JSON.stringify(user.donations)){
                     return;
                 }
-                   else return props.setAuthData.updateUser(data.user);
+                   else {
+                       return props.setAuthData.updateUser(data.user);
+                   }
             }
             else {
+                props.setAuthData.setMessage("You have to login first!");
                 props.setAuthData.updateUser(null);
-                return setRedirect({pathName: "/login", state: {message: "You have to login again first"}});
+                return setRedirect({pathname: "/login", state: {message: "You have to login first!"}});
             }
         }
         updateUser(Params).catch(err => {
             console.log(err);
+            props.setAuthData.setMessage("You have to login first!");
             return props.setAuthData.updateUser(null);
         })
 

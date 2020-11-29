@@ -7,6 +7,10 @@ const Login = (props) => {
     const appLoginData =  props.authData.user;
     const storageData = localStorage.getItem("user");
     const user = appLoginData || JSON.parse(storageData);
+    const message = props.authData.message;
+
+    console.log(props)
+    console.log(message)
 
    useEffect(() => {
        if (user){
@@ -111,6 +115,14 @@ const Login = (props) => {
                     </div>
 
                     <div className="login-form" data-aos="fade-left">
+                        {
+                            message &&
+                            <div className="d-flex justify-content-center">
+                                <div className="alert fade show" role="alert" data-aos="fade-up">
+                                    <p className="text-danger">{message}</p>
+                                </div>
+                            </div>
+                        }
                         <h2><strong>Login</strong></h2>
                         <div className="underline"></div>
                         <p className="text-center">Welcome back to OneShare.</p>

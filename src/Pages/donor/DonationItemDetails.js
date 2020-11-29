@@ -22,7 +22,7 @@ const DonationItemDetails = (props) => {
 
     let donation = propsDonation || storedDonation;
 
-    if (!donation || !user.donations){
+    if (!donation || !user){
         return <Redirect to="/donor-dashboard"/>
     }
 

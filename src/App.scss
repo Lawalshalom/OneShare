@@ -994,8 +994,21 @@ p.faded {
 	}
 }
 .admin-nav {
+	width: max-content;
+	z-index: 99;
+	&.show {
+		left: 30px;
+		ul {
+			background-color: #fff;
+			left: 30px;
+		}
+	}
+
 	ul {
-		margin-top: 20vh;
+		position: absolute;
+		top: 20vh;
+		left: -320px;
+		transition: all 0.5s;
 		li {
 			color: rgba($blue, 0.5);
 			padding: 20px 0;
@@ -1005,7 +1018,8 @@ p.faded {
 			a {
 				color: rgba($blue, 0.5);
 			}
-			&.active {
+			&.active a,
+			&:hover a {
 				color: $dark-blue;
 				font-weight: bolder;
 				&::before {
@@ -1016,10 +1030,75 @@ p.faded {
 		}
 	}
 }
+
+@media screen and (min-width: 998px) {
+	.admin-nav ul {
+		position: relative;
+		left: 0;
+		top: 10vh;
+	}
+}
+
+.hamburger-menu {
+	position: absolute;
+	left: 10px;
+	top: 4rem;
+	width: 24px;
+	height: 22px;
+	margin: 10px 5px;
+	transition: 0.5s ease-in-out;
+	cursor: pointer;
+	z-index: 99;
+
+	span {
+		display: block;
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		background: $dark-blue;
+		border-radius: 10px;
+		opacity: 1;
+		left: 0;
+		transition: 0.25s ease-in-out;
+	}
+
+	span:nth-child(1) {
+		top: 2px;
+	}
+
+	span:nth-child(2),
+	span:nth-child(3) {
+		top: 10px;
+	}
+
+	span:nth-child(4) {
+		top: 18px;
+	}
+
+	&.open span:nth-child(1) {
+		top: 18px;
+		width: 0;
+		left: 50%;
+	}
+
+	&.open span:nth-child(2) {
+		transform: rotate(45deg);
+	}
+
+	&.open span:nth-child(3) {
+		transform: rotate(-45deg);
+	}
+
+	&.open span:nth-child(4) {
+		top: 18px;
+		width: 0;
+		left: 50%;
+	}
+}
+
 .overview {
 	margin-top: 20vh;
-	width: 70%;
-	padding-left: 10px;
+	padding-left: 15px;
 
 	h2 {
 		color: $dark-blue;
@@ -1045,6 +1124,159 @@ p.faded {
 		p {
 			margin: 10px;
 		}
+	}
+}
+
+.users {
+	margin-top: 2rem;
+	width: 80%;
+	strong {
+		color: $dark-blue;
+	}
+	.search-users {
+		input {
+			width: 100%;
+			background: rgba($gray, 0.2);
+			border: none;
+			padding: 10px;
+			border-radius: 5px;
+		}
+		p {
+			margin-top: -35px;
+			padding-right: 10px;
+			button {
+				border: none;
+				z-index: 9;
+				background: transparent;
+			}
+		}
+	}
+	.select-users {
+		border: 2px solid rgba($gray, 0.2);
+		padding: 10px;
+		border-radius: 7px;
+		margin-top: 3rem;
+		margin-bottom: 7rem;
+	}
+	.more-options {
+		cursor: pointer;
+		span {
+			margin: -8px 0;
+			opacity: 0.8;
+		}
+	}
+	.display-users {
+		margin-top: -5rem;
+	}
+	.user {
+		margin-bottom: 1rem;
+		input {
+			margin-right: 2rem;
+			width: 1rem;
+			height: 1rem;
+			cursor: pointer;
+			z-index: 9999;
+		}
+	}
+}
+.sort-users {
+	margin-top: 2rem;
+	height: 11rem;
+	border-radius: 5px;
+	padding: 5px;
+	border-top: 2px solid rgba($gray, 0.2);
+
+	button {
+		color: $blue;
+		text-transform: capitalize;
+		&:focus {
+			box-shadow: none;
+		}
+	}
+}
+
+@media screen and (max-width: 998px) {
+	.users {
+		left: 5%;
+		top: 5rem;
+		position: absolute;
+		width: 90%;
+	}
+}
+
+.text-faded {
+	color: rgba(#000, 0.6);
+}
+.dropdown-menu.show {
+	border: none !important;
+	text-align: right;
+	transform: translate3d(-7px, 24px, 0px) !important;
+	background-color: #fff;
+
+	.dropdown-item {
+		color: $blue !important;
+	}
+}
+.dropdown-item:active {
+	background-color: #fff !important;
+}
+
+.pagination {
+	margin-left: 2rem;
+	border-radius: 10px;
+	.page-link {
+		margin: 0 5px;
+		border-radius: 10px !important;
+		color: #000;
+	}
+	button:focus {
+		box-shadow: none;
+	}
+	.page-item.active {
+		.page-link {
+			color: #fff;
+			background-color: rgba($gray, 0.5);
+			border: none;
+		}
+	}
+}
+
+@media screen and (max-width: 568px) {
+	.dropdown-menu.show {
+		transform: translate3d(-25px, 50px, 0px) !important;
+	}
+}
+
+.approvals {
+	margin-top: 5rem;
+	width: 80%;
+	strong {
+		color: $dark-blue;
+	}
+
+	.approval-type {
+		ul {
+			padding: 0;
+			border-bottom: 2px solid rgba($gray, 0.2);
+		}
+		li {
+			margin-right: 25px;
+			span {
+				cursor: pointer;
+			}
+			&.active {
+				border-bottom: 2px solid $blue;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 998px) {
+	.approvals {
+		left: 5%;
+		top: 5rem;
+		position: absolute;
+		width: 90%;
 	}
 }
 
@@ -1093,5 +1325,12 @@ p.faded {
 	}
 	p {
 		margin: 0;
+	}
+}
+.approval-items {
+	margin-top: -5rem;
+	#ongoing,
+	#completed {
+		display: none;
 	}
 }

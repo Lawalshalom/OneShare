@@ -18,9 +18,11 @@ import DonationItemDetails from "./Pages/donor/DonationItemDetails";
 import ChooseBeneficiary from "./Pages/donor/ChooseBeneficiary";
 import DonorForm from "./Pages/donor/Donor-form";
 import RequestForm from "./Pages/beneficiary/RequestForm";
+import AdminRegister from "./Pages/admin/AdminRegister";
+import AdminLogin from "./Pages/admin/AdminLogin";
 import Overview from "./Pages/admin/Overview";
 import Approvals from "./Pages/admin/Approvals";
-import Users from "./Pages/admin/Users";
+import UsersLogic from "./Pages/admin/Users";
 import Reviews from "./Pages/admin/Reviews";
 import Error from "./Error";
 
@@ -29,6 +31,7 @@ const App = () => {
   const [ token, setToken ] = useState(null);
   const [ user, setUser ] = useState(null);
   const [ message, setMessage ] = useState(null);
+  const [ userList, setUserList ] = useState(null);
 
   const updateToken = (data) => {
     setToken(data);
@@ -39,11 +42,16 @@ const App = () => {
     setUser(user);
     localStorage.setItem("user", JSON.stringify(user));
   }
+  const updateUserList = (users) => {
+    setUserList(users);
+    localStorage.setItem("userList", JSON.stringify(users));
+  }
 
   const setAuthData = {
     updateToken,
     updateUser,
-    setMessage
+    setMessage,
+    updateUserList
   }
 
   useEffect(() => {
@@ -103,14 +111,18 @@ const App = () => {
                 <DonorForm authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/request-form" render={renderprops =>
                 <RequestForm authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
+              <Route path="/admin-register" render={renderprops =>
+                <AdminRegister authData={{user, token}} setAuthData={setAuthData} {...renderprops} />} />
+              <Route path="/admin-login" render={renderprops =>
+                <AdminLogin authData={{user, token, message}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-overview" render={renderprops =>
-                <Overview {...renderprops} />} />
+                <Overview authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-users" render={renderprops =>
-                <Users {...renderprops} />} />
+                <UsersLogic authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-approvals" render={renderprops =>
-                <Approvals {...renderprops} />} />
+                <Approvals authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-reviews" render={renderprops =>
-                <Reviews {...renderprops} />} />
+                <Reviews authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
               <Route render={renderprops =>
                 <Error {...renderprops} />} />
           </Switch>

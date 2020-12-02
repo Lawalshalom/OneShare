@@ -104,6 +104,7 @@ const BeneficiaryDashboard = (props) => {
         async function updateUser() {
             const res = await fetch("https://oneshare-backend.herokuapp.com/api/beneficiary/user", Params);
             const data = await res.json();
+            console.log(data)
             if (data.user){
                 if (JSON.stringify(data.user.requests) === JSON.stringify(user.requests)){
                     return;
@@ -124,7 +125,7 @@ const BeneficiaryDashboard = (props) => {
 
     const dayHour = new Date().getHours();
     const timeOfDay =  dayHour < 12 ? 'morning' :
-                    12 < dayHour  && dayHour < 16 ? 'afternoon' : 'evening';
+                    11 < dayHour  && dayHour < 16 ? 'afternoon' : 'evening';
 
     if (redirect !== null){
         return <Redirect to={redirect}/>

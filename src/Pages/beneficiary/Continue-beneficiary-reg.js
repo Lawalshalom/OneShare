@@ -71,7 +71,7 @@ const ContinueBeneficiaryReg = (props) => {
                                 <input type="email" name="email" placeholder="Email address" autoComplete="false" required/>
                             </div>
                             <div className="w-100 mt-3 mb-3 text-center">
-                                <input type="password" name="password" id="password" placeholder="Password" autoComplete="false" required/>
+                                <input type="password" name="password" id="password" placeholder="Password" minLength="6" maxLength="20" autoComplete="false" required/>
                                 <span><i className="fa fa-eye" id="toggle-password"></i></span>
                             </div>
                             <button type="submit" id="submit-btn" className="completed"><strong>Register</strong></button>

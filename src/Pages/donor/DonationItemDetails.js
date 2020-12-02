@@ -275,11 +275,7 @@ const handleSelect = (request) => {
                                         <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                                 </div>
                                 <div className="contact-btn col-md-4">
-                                    <span className="btn" onClick={() => {
-                                        return setRedirect({
-                                            pathname: "/choose-beneficiary",
-                                            state: { request, user }
-                                          })}}>Get in Contact</span>
+                                    <span className="btn" onClick={() => handleSelect(request)}>Get in touch</span>
                                 </div>
                             </div>
                         </div>

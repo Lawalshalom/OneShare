@@ -126,7 +126,7 @@ const DonorDashboard = (props) => {
 
     const dayHour = new Date().getHours();
     const timeOfDay =  dayHour < 12 ? "morning" :
-                    12 < dayHour  && dayHour < 16 ? "afternoon" : 'evening';
+                    11 < dayHour  && dayHour < 16 ? "afternoon" : 'evening';
 
     if (redirect !== null){
         return <Redirect to={redirect}/>

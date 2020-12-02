@@ -58,7 +58,7 @@ const Approvals = (props) => {
         }
 
         async function updateUsers() {
-            const res = await fetch("http://localhost:7890/api/admin/overview-all", Params);
+            const res = await fetch("https://oneshare-backend.herokuapp.com/api/admin/overview-all", Params);
             const data = await res.json();
             if (data.users){
                 if (data.users.length === userList.length){

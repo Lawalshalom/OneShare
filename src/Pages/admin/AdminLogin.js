@@ -52,7 +52,7 @@ const AdminLogin = (props) => {
 			};
 
             async function registerUser(params){
-             const res = await fetch("http://localhost:7890/api/user/admin-login", params);
+             const res = await fetch("https://oneshare-backend.herokuapp.com/api/user/admin-login", params);
              const data = await res.json();
              console.log(data)
              if (data.success){

@@ -46,7 +46,7 @@ const FinishReg = (props) => {
 			};
 
             async function registerUser(params){
-             const res = await fetch("http://localhost:7890/api/user/register-admin", params);
+             const res = await fetch("https://oneshare-backend.herokuapp.com/api/user/register-admin", params);
              const data = await res.json();
              console.log(data)
              console.log(data.error)

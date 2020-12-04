@@ -313,7 +313,7 @@ function sortArr(arr, property){
                     {
                         users[0].requests &&
                         <div className="approval-items">
-                            <AwaitingApprovalRequests users={users} token={token} message={props.authData.message}
+                            <AwaitingApprovalRequests users={[...users, ...users,...users,...users]} token={token} message={props.authData.message}
                                 displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}
                                 setMessage={props.setAuthData.setMessage} updateUserList={props.setAuthData.updateUserList}/>
                             <OngoingRequests users={users}

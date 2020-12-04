@@ -6,6 +6,8 @@ const AwaitingApprovalRequests = (props) => {
     const users = props.displayUsers.users;
     const message = props.message;
 
+    console.log(allUsers)
+
     const requests = [];
     users.forEach(user => {
         if (user.requests){
@@ -25,7 +27,7 @@ const AwaitingApprovalRequests = (props) => {
             const index = allUsers[num *5] ? num*5 : allUsers.length ;
             const startIndex = num === 1 || index <=5 ? 0 : num *5 -5;
 
-            const newUsers = {users: allUsers.slice(startIndex, index), num, bool: true};
+            const newUsers = {users: allUsers.slice(startIndex, index), num, bool: false};
 
             if (JSON.stringify(props.displayUsers) !== JSON.stringify(newUsers)){
                 props.setDisplayUsers(newUsers);
@@ -103,12 +105,12 @@ const AwaitingApprovalRequests = (props) => {
     }
 
     const pagination = [];
-    let i = Math.floor(requests.length/5);
+    let i = Math.floor(allUsers.length/5);
     while (i > -1){
         pagination.push(i);
         i-= 1;
     }
-    if (requests.length % 5 > 0){
+    if (allUsers.length % 5 > 0){
         if (pagination.length < 1){
             pagination.push(1)
         }
@@ -134,7 +136,7 @@ const AwaitingApprovalRequests = (props) => {
         }
         else pageLinks[pageLinks.length -1].classList.add("disabled");
 
-        props.setDisplayUsers({users:requests.slice(num*5 -5, num*5), num, bool: true});
+        props.setDisplayUsers({users:allUsers.slice(num*5 -5, num*5), num, bool: true});
     }
 
     const handlePrev = () => {
@@ -156,16 +158,19 @@ const AwaitingApprovalRequests = (props) => {
         }
         else pageLinks[pageLinks.length -1].classList.add("disabled");
 
-        props.setDisplayUsers({users: requests.slice((num-1) *5 -5, (num-1) *5), num: num-1, bool: true})
+        props.setDisplayUsers({users: allUsers.slice((num-1) *5 -5, (num-1) *5), num: num-1, bool: true})
     }
 
-    const handleNext = () => {
+    const handleNext = (e) => {
         const pageLinks = [...document.getElementsByClassName("page-item")];
         if (pageLinks[pageLinks.length-2].classList.contains("active")) return;
 
         const elem = pageLinks.find(link => link.classList.contains("active"));
         if (!elem) return;
         const num = pageLinks.indexOf(elem);
+        if (!pageLinks[num+2]){
+            return e.target.classList.add("disable");
+        }
         pageLinks[num].classList.remove("active");
         pageLinks[num+1].classList.add("active");
 
@@ -175,11 +180,11 @@ const AwaitingApprovalRequests = (props) => {
         else pageLinks[0].classList.add("disabled");
 
         if (pageLinks[num+3]){
-            pageLinks[pageLinks.length -1].classList.remove("disabled")
+            e.target.classList.remove("disabled")
         }
-        else pageLinks[pageLinks.length -1].classList.add("disabled");
+        else e.target.classList.add("disabled");
 
-        props.setDisplayUsers({users: requests.slice((num+1) *5 -5, (num+1) *5), num: num+1, bool: true})
+       props.setDisplayUsers({users: allUsers.slice((num+1) *5 -5, (num+1) *5), num: num+1, bool: true})
     }
 
 
@@ -206,10 +211,10 @@ const AwaitingApprovalRequests = (props) => {
             }
 
             async function deleteUser() {
-                const res = await fetch("http://localhost:7890/api/admin/approve-request", Params);
+                const res = await fetch("https://oneshare-backend.herokuapp.com/api/admin/approve-request", Params);
                 const data = await res.json();
                 console.log(data);
-                submitBtn.style.display = "block";
+                submitBtn.style.display = "inline-block";
                 loadingDiv.style.display = "none";
                 if (data.users){
                     props.updateUserList(data.users);
@@ -219,10 +224,13 @@ const AwaitingApprovalRequests = (props) => {
             }
             deleteUser(Params).catch(err => {
                 console.log(err);
+                loadingDiv.style.display = "none";
+                submitBtn.style.display = "inline-block";
                 return props.setMessage("There was an error, try again!");
             })
         }
     }
+    console.log(pagination)
 
     return (
             <div id="awaiting-approval">
@@ -247,7 +255,7 @@ const AwaitingApprovalRequests = (props) => {
             requests.map(req => {
               return  <div key={req.id} className="row item-cover">
                     <div className="dashboard-item col-12 row justify-content-between">
-                        <div className="item-details col-10 col-md-7 d-flex flex-column">
+                        <div className="item-details col-12 col-md-7 d-flex flex-column">
                             <div className="item-name d-flex">
                                 <p><strong className="text-capitalize">{req.name}</strong></p>
                                 <p><strong className="text-capitalize">• {req.requestType}</strong></p>
@@ -282,7 +290,7 @@ const AwaitingApprovalRequests = (props) => {
                     )
                 })
             }
-            <li className="page-item" onClick={handleNext}>
+            <li className={pagination.length === 1 ? "page-item disabled" : "page-item"} onClick={handleNext}>
               <button className="page-link"><i className="fa fa-angle-right" aria-label="hidden"></i></button>
             </li>
           </ul>

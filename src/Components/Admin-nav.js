@@ -11,15 +11,13 @@ const AdminNav = (props) => {
             else item.classList.remove("active");
         });
     })
-    useEffect(() => {
+
+    const handleClick = () => {
         const hamburger = document.querySelector('.hamburger-menu');
         const siteNav = document.querySelector('.admin-nav');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('open');
-            siteNav.classList.toggle('show');
-        });
-
-    })
+        hamburger.classList.toggle('open');
+        siteNav.classList.toggle('show');
+    }
 
     return (
         <>
@@ -32,7 +30,7 @@ const AdminNav = (props) => {
                     <li><a href="/"><img src="images/icons/admin/Frame-3.svg" alt="logout icon" />Go to OneShare</a></li>
                 </ul>
 
-                <div className="hamburger-menu d-lg-none">
+                <div className="hamburger-menu d-lg-none" onClick={handleClick}>
                     <span></span>
                     <span></span>
                     <span></span>

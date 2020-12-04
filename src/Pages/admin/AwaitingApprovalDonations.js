@@ -188,8 +188,7 @@ const AwaitingApprovalDonations = (props) => {
             const token = props.token;
             const submitBtn = document.getElementById(`submit-btn-${id}`);
             const loadingDiv = document.getElementById(`loading-div-${id}`);
-            submitBtn.style.display = "none";
-            loadingDiv.style.display = "block";
+
 
             const bearer = "Bearer " + token;
             const Params = {
@@ -205,19 +204,26 @@ const AwaitingApprovalDonations = (props) => {
             }
 
             async function approveDonation() {
-                const res = await fetch("http://localhost:7890/api/admin/approve-donation", Params);
+                submitBtn.style.display = "none";
+                loadingDiv.style.display = "block";
+                const res = await fetch("https://oneshare-backend.herokuapp.com/api/admin/approve-donation", Params);
                 const data = await res.json();
                 console.log(data);
-                submitBtn.style.display = "block";
-                loadingDiv.style.display = "none";
+
                 if (data.users){
                     props.updateUserList(data.users);
                     props.setMessage("Donation approved successfully!");
                 }
-                else return props.setMessage("There was an error, try again!");
+                else {
+                    loadingDiv.style.display = "none";
+                    submitBtn.style.display = "inline-block";
+                    return props.setMessage("There was an error, try again!");
+                }
             }
             approveDonation(Params).catch(err => {
                 console.log(err);
+                loadingDiv.style.display = "none";
+                submitBtn.style.display = "inline-block";
                 return props.setMessage("There was an error, try again!");
             })
         }
@@ -250,7 +256,7 @@ const AwaitingApprovalDonations = (props) => {
                         <div className="item-img col-12 col-md-3">
                             <img className="w-100" src={`https://oneshare-backend.herokuapp.com/${donation.id}`} alt="donor item"/>
                         </div>
-                        <div className="item-details col-10 col-md-7 d-flex flex-column">
+                        <div className="item-details col-12 col-md-7 d-flex flex-column">
                             <div className="item-name d-flex">
                                 <p><strong className="text-capitalize">{donation.name}</strong></p>
                                 <p><strong className="text-capitalize">• {donation.donationType}</strong></p>

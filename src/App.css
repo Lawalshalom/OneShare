@@ -1314,16 +1314,19 @@ p.faded {
   margin: 10px;
 }
 
-.users {
+.users,
+.reviews {
   margin-top: 2rem;
   width: 80%;
 }
 
-.users strong {
+.users strong,
+.reviews strong {
   color: #163f69;
 }
 
-.users .search-users input {
+.users .search-users input,
+.reviews .search-users input {
   width: 100%;
   background: rgba(128, 128, 128, 0.2);
   border: none;
@@ -1331,18 +1334,21 @@ p.faded {
   border-radius: 5px;
 }
 
-.users .search-users p {
+.users .search-users p,
+.reviews .search-users p {
   margin-top: -35px;
   padding-right: 10px;
 }
 
-.users .search-users p button {
+.users .search-users p button,
+.reviews .search-users p button {
   border: none;
   z-index: 9;
   background: transparent;
 }
 
-.users .select-users {
+.users .select-users,
+.reviews .select-users {
   border: 2px solid rgba(128, 128, 128, 0.2);
   padding: 10px;
   border-radius: 7px;
@@ -1350,24 +1356,31 @@ p.faded {
   margin-bottom: 7rem;
 }
 
-.users .more-options {
+.users .more-options,
+.reviews .more-options {
   cursor: pointer;
 }
 
-.users .more-options span {
+.users .more-options span,
+.reviews .more-options span {
   margin: -8px 0;
   opacity: 0.8;
 }
 
-.users .display-users {
+.users .display-users,
+.users .display-reviews,
+.reviews .display-users,
+.reviews .display-reviews {
   margin-top: -5rem;
 }
 
-.users .user {
+.users .user,
+.reviews .user {
   margin-bottom: 1rem;
 }
 
-.users .user input {
+.users .user input,
+.reviews .user input {
   margin-right: 2rem;
   width: 1rem;
   height: 1rem;
@@ -1446,8 +1459,8 @@ p.faded {
 
 @media screen and (max-width: 568px) {
   .dropdown-menu.show {
-    -webkit-transform: translate3d(-25px, 50px, 0px) !important;
-            transform: translate3d(-25px, 50px, 0px) !important;
+    -webkit-transform: translate3d(-25px, 22px, 0px) !important;
+            transform: translate3d(-25px, 22px, 0px) !important;
   }
 }
 
@@ -1562,5 +1575,39 @@ p.faded {
 .approval-items #ongoing,
 .approval-items #completed {
   display: none;
+}
+
+.more-options .dropdown-toggle {
+  width: 9rem;
+  height: 6rem;
+}
+
+.more-options .dropdown-toggle::after {
+  display: none !important;
+}
+
+.more-options #delete-btn {
+  color: #f46036 !important;
+}
+
+#show-user {
+  top: 35vh;
+  height: 30vh;
+  width: 100vw;
+  position: fixed;
+  left: 0;
+  background: transparent;
+  z-index: 99;
+}
+
+#show-user .show-user {
+  background: #fff;
+  padding: 5rem;
+}
+
+@media screen and (max-width: 568px) {
+  #show-user .show-user {
+    padding: 10px;
+  }
 }
 /*# sourceMappingURL=App.css.map */

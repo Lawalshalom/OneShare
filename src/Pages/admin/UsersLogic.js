@@ -4,8 +4,10 @@ import { Redirect } from 'react-router';
 
 const UsersLogic = (props) => {
 
+    const [ showUser, setShowUser ] = useState(null);
     const [ redirect, setRedirect ] = useState(null);
     const [ sortDetails, setSortDetails ] = useState({accountType: "donors", accountSubtype: "all", sortBy: "name"});
+    const [ displayUsers, setDisplayUsers ] = useState({users: [], num:1, bool:true});
 
     const appLoginData =  props.authData.user;
     const storageData = localStorage.getItem("user");
@@ -14,6 +16,7 @@ const UsersLogic = (props) => {
     const token = props.authData.token || storageToken;
     const storageUserList = localStorage.getItem("userList");
     const userList = props.authData.userList || JSON.parse(storageUserList);
+    const message = props.authData.message;
 
     useEffect(() => {
         if (!user){
@@ -46,8 +49,6 @@ const UsersLogic = (props) => {
         }
         updateUsers(Params).catch(err => {
             console.log(err);
-            props.setAuthData.setMessage("You have to login first!");
-            return props.setAuthData.updateUser(null);
         })
 
     const beneficiaries = [];
@@ -134,7 +135,12 @@ function sortArr(arr, property){
         return <Redirect to={redirect}/>
     }
     else return (
-        <Users users={users} sortDetails={sortDetails} setSortDetails={setSortDetails}/>
+        <Users users={[...users, ...users, ...users, ...users]}
+            user={showUser} setUser={setShowUser} displayUsers={displayUsers}
+            setDisplayUsers={setDisplayUsers} sortDetails={sortDetails}
+            setSortDetails={setSortDetails} message={message} setMessage={props.setAuthData.setMessage}
+            updateUserList={props.setAuthData.updateUserList} token={token}/>
     )
 }
+
 export default UsersLogic;

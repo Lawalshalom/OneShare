@@ -1127,7 +1127,8 @@ p.faded {
 	}
 }
 
-.users {
+.users,
+.reviews {
 	margin-top: 2rem;
 	width: 80%;
 	strong {
@@ -1165,7 +1166,8 @@ p.faded {
 			opacity: 0.8;
 		}
 	}
-	.display-users {
+	.display-users,
+	.display-reviews {
 		margin-top: -5rem;
 	}
 	.user {
@@ -1243,7 +1245,7 @@ p.faded {
 
 @media screen and (max-width: 568px) {
 	.dropdown-menu.show {
-		transform: translate3d(-25px, 50px, 0px) !important;
+		transform: translate3d(-25px, 22px, 0px) !important;
 	}
 }
 
@@ -1332,5 +1334,39 @@ p.faded {
 	#ongoing,
 	#completed {
 		display: none;
+	}
+}
+.more-options {
+	.dropdown-toggle {
+		width: 9rem;
+		height: 6rem;
+
+		&::after {
+			display: none !important;
+		}
+	}
+	#delete-btn {
+		color: #f46036 !important;
+	}
+}
+
+#show-user {
+	top: 35vh;
+	height: 30vh;
+	width: 100vw;
+	position: fixed;
+	left: 0;
+	background: transparent;
+	z-index: 99;
+
+	.show-user {
+		background: #fff;
+		padding: 5rem;
+	}
+}
+
+@media screen and (max-width: 568px) {
+	#show-user .show-user {
+		padding: 10px;
 	}
 }

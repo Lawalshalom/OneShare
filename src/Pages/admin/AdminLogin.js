@@ -9,8 +9,6 @@ const AdminLogin = (props) => {
     const user = appLoginData || JSON.parse(storageData);
     const message = props.authData.message;
 
-    console.log(props)
-
    useEffect(() => {
        if (user){
            return;

@@ -2,14 +2,9 @@ import React,{ useState, useEffect } from 'react';
 import AdminNav from "../../Components/Admin-nav";
 import { Redirect } from 'react-router';
 
-import AwaitingApprovalDonations from "./AwaitingApprovalDonations";
-import OngoingDonations from "./OngoingDonations";
-import CompletedDonations from "./CompletedDonations";
-import AwaitingApprovalRequests from "./AwaitingApprovalRequests";
-import OngoingRequests from "./OngoingRequests";
-import CompletedRequests from "./CompletedRequests";
+import Reviews from "./Reviews";
 
-const Approvals = (props) => {
+const ReviewsLogic = (props) => {
 
 
     const [ redirect, setRedirect ] = useState(null);
@@ -71,6 +66,8 @@ const Approvals = (props) => {
         }
         updateUsers(Params).catch(err => {
             console.log(err);
+            props.setAuthData.setMessage("You have to login first!");
+            return props.setAuthData.updateUser(null);
         })
 
 
@@ -195,50 +192,6 @@ function sortArr(arr, property){
         users = users.reverse();
     }
 
-    const showApproval = (span) => {
-        const awaitingBtn = document.getElementById("awaiting-btn");
-        const ongoingBtn = document.getElementById("ongoing-btn");
-        const completedBtn = document.getElementById("completed-btn");
-        const awaiting = document.getElementById("awaiting-approval");
-        const ongoing = document.getElementById("ongoing");
-        const completed = document.getElementById("completed");
-
-        switch (span) {
-            case "awaiting":
-                awaiting.style.display = "block";
-                awaitingBtn.classList.add("active");
-                ongoing.style.display = "none";
-                completed.style.display = "none";
-                ongoingBtn.classList.remove("active");
-                completedBtn.classList.remove("active");
-                break;
-            case "ongoing":
-                awaiting.style.display = "none";
-                ongoing.style.display = "block";
-                completed.style.display = "none";
-                ongoingBtn.classList.add("active");
-                awaitingBtn.classList.remove("active");
-                completedBtn.classList.remove("active");
-                break;
-            case "completed":
-                awaiting.style.display = "none";
-                ongoing.style.display = "none";
-                completed.style.display = "block";
-                completedBtn.classList.add("active");
-                awaitingBtn.classList.remove("active");
-                ongoingBtn.classList.remove("active");
-                break;
-            default:
-                awaiting.style.display = "block";
-                ongoing.style.display = "none";
-                completed.style.display = "none";
-                awaitingBtn.classList.add("active");
-                ongoingBtn.classList.remove("active");
-                completedBtn.classList.remove("active");
-                break;
-        }
-    }
-
     if (redirect !== null){
         return <Redirect to={redirect}/>
     }
@@ -249,16 +202,10 @@ function sortArr(arr, property){
                 <button id="logout-btn" onClick={handleLogout}><img src="images/logout-icon.svg" alt="logout logo" className="mr-2"/>Logout of Oneshare </button>
             </div>
             <div className="d-flex justify-content-around">
-                <AdminNav page="approvals"/>
+                <AdminNav page="reviews"/>
 
-                <div className="approvals">
-                    <div className="approval-type">
-                        <ul className="d-flex">
-                            <li id="awaiting-btn" className="active"><span onClick={() => showApproval("awaiting")}><strong>Awaiting Approval</strong></span></li>
-                            <li id="ongoing-btn"><span onClick={() => showApproval("ongoing")}><strong>Ongoing</strong></span></li>
-                            <li id="completed-btn"><span onClick={() => showApproval("completed")}><strong>Completed</strong></span></li>
-                        </ul>
-                    </div>
+                <div className="reviews">
+                <Reviews users={users} displayUsers={displayUsers} setDisplayUsers={setDisplayUsers} search={"search"}/>
 
                     <div className="sort-users d-flex justify-content-between">
 
@@ -297,35 +244,11 @@ function sortArr(arr, property){
                         </div>
                     </div>
 
-                    {
-                        users[0].donations &&
-                        <div className="approval-items">
-                            <AwaitingApprovalDonations users={users} token={token} message={props.authData.message}
-                                displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}
-                                setMessage={props.setAuthData.setMessage} updateUserList={props.setAuthData.updateUserList}/>
-                            <OngoingDonations users={users}
-                                displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}/>
-                            <CompletedDonations users={users}
-                                displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}/>
-                        </div>
-                    }
-
-                    {
-                        users[0].requests &&
-                        <div className="approval-items">
-                            <AwaitingApprovalRequests users={users} token={token} message={props.authData.message}
-                                displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}
-                                setMessage={props.setAuthData.setMessage} updateUserList={props.setAuthData.updateUserList}/>
-                            <OngoingRequests users={users}
-                                displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}/>
-                            <CompletedRequests users={users}
-                                displayUsers={displayUsers} setDisplayUsers={setDisplayUsers}/>
-                        </div>
-                    }
+                <Reviews users={users} displayUsers={displayUsers} setDisplayUsers={setDisplayUsers} reviews={"reviews"}/>
 
                 </div>
             </div>
         </div>
     )
 }
-export default Approvals;
+export default ReviewsLogic;

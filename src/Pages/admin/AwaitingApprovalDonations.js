@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AwaitingApprovalDonations = (props) => {
+
+    const allUsers = props.users;
+    const users = props.displayUsers.users;
+    const message = props.message;
+
     const donations = [];
-    props.users.forEach(user => {
+    users.forEach(user => {
         if (user.donations){
             if (user.donations.length > 0){
                 user.donations.forEach(donation => {
@@ -12,6 +17,24 @@ const AwaitingApprovalDonations = (props) => {
             }
         }
     })
+
+    useEffect(() => {
+        const bool = props.displayUsers.bool;
+        if (bool){
+            const num = props.displayUsers.num;
+            const index = allUsers[num *5] ? num*5 : allUsers.length ;
+            const startIndex = num === 1 || index <=5 ? 0 : num *5 -5;
+
+            const newUsers = {users: allUsers.slice(startIndex, index), num, bool: true};
+
+            if (JSON.stringify(props.displayUsers) !== JSON.stringify(newUsers)){
+                props.setDisplayUsers(newUsers);
+                }
+
+            return;
+        }
+
+    }, [allUsers, props])
 
     const handleReadMore = (e) => {
         const dots = e.target.previousElementSibling;
@@ -79,8 +102,125 @@ const AwaitingApprovalDonations = (props) => {
         return `${displayTime} ${displayDate}`;
     }
 
-    const handleApproval = (id) => {
+    const pagination = [];
+    let i = Math.floor(donations.length/5);
+    while (i > -1){
+        pagination.push(i);
+        i-= 1;
+    }
+    if (donations.length % 5 > 0){
+        if (pagination.length < 1){
+            pagination.push(1)
+        }
+        else pagination.unshift(pagination[0] +1)
+    }
+    pagination.pop();
+    pagination.reverse();
 
+    const handlePagination = (num) => {
+        const pageLinks = document.getElementsByClassName("page-item");
+
+        for (let i = 0; i < pageLinks.length; i++){
+            pageLinks[i].classList.remove("active");
+        }
+        pageLinks[num].classList.add("active");
+        if (num > 1){
+            pageLinks[0].classList.remove("disabled")
+        }
+        else pageLinks[0].classList.add("disabled");
+
+        if (pageLinks[num+2]){
+            pageLinks[pageLinks.length -1].classList.remove("disabled")
+        }
+        else pageLinks[pageLinks.length -1].classList.add("disabled");
+
+        props.setDisplayUsers({users:donations.slice(num*5 -5, num*5), num, bool: true});
+    }
+
+    const handlePrev = () => {
+        const pageLinks = [...document.getElementsByClassName("page-item")];
+        if (pageLinks[1].classList.contains("active")) return;
+
+        const elem = pageLinks.find(link => link.classList.contains("active"));
+        const num = pageLinks.indexOf(elem);
+        pageLinks[num].classList.remove("active");
+        pageLinks[num-1].classList.add("active");
+
+        if (num > 2){
+            pageLinks[0].classList.remove("disabled")
+        }
+        else pageLinks[0].classList.add("disabled");
+
+        if (pageLinks[num+1]){
+            pageLinks[pageLinks.length -1].classList.remove("disabled")
+        }
+        else pageLinks[pageLinks.length -1].classList.add("disabled");
+
+        props.setDisplayUsers({users: donations.slice((num-1) *5 -5, (num-1) *5), num: num-1, bool: true})
+    }
+
+    const handleNext = () => {
+        const pageLinks = [...document.getElementsByClassName("page-item")];
+        if (pageLinks[pageLinks.length-2].classList.contains("active")) return;
+
+        const elem = pageLinks.find(link => link.classList.contains("active"));
+        if (!elem) return;
+        const num = pageLinks.indexOf(elem);
+        pageLinks[num].classList.remove("active");
+        pageLinks[num+1].classList.add("active");
+
+        if (num+1 > 1){
+            pageLinks[0].classList.remove("disabled")
+        }
+        else pageLinks[0].classList.add("disabled");
+
+        if (pageLinks[num+3]){
+            pageLinks[pageLinks.length -1].classList.remove("disabled")
+        }
+        else pageLinks[pageLinks.length -1].classList.add("disabled");
+
+        props.setDisplayUsers({users: donations.slice((num+1) *5 -5, (num+1) *5), num: num+1, bool: true})
+    }
+
+    const handleApproval = (id) => {
+        const confirm = window.confirm("Are you sure you want to approve this donation?");
+        if (confirm){
+            const token = props.token;
+            const submitBtn = document.getElementById(`submit-btn-${id}`);
+            const loadingDiv = document.getElementById(`loading-div-${id}`);
+            submitBtn.style.display = "none";
+            loadingDiv.style.display = "block";
+
+            const bearer = "Bearer " + token;
+            const Params = {
+                headers: {
+                    "authorization": bearer,
+                    "Access-Control-Allow-Origin": "*",
+                    "Content-type": "application/JSON",
+                },
+                body: JSON.stringify({
+                    id
+                }),
+                method: "POST"
+            }
+
+            async function approveDonation() {
+                const res = await fetch("http://localhost:7890/api/admin/approve-donation", Params);
+                const data = await res.json();
+                console.log(data);
+                submitBtn.style.display = "block";
+                loadingDiv.style.display = "none";
+                if (data.users){
+                    props.updateUserList(data.users);
+                    props.setMessage("Donation approved successfully!");
+                }
+                else return props.setMessage("There was an error, try again!");
+            }
+            approveDonation(Params).catch(err => {
+                console.log(err);
+                return props.setMessage("There was an error, try again!");
+            })
+        }
     }
 
     return (
@@ -88,6 +228,18 @@ const AwaitingApprovalDonations = (props) => {
          {
             donations.length < 1 &&
             <p className="text-center faded">• No unapproved donations have been made yet</p>
+        }
+
+        {
+            message &&
+            <div className="d-flex justify-content-center">
+                <div className="alert alert-dismissible fade show" role="alert" data-aos="fade-up">
+                    <p className="text-danger">{message}</p>
+                    <button type="button" id="closeTerms"  className="close text-danger" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
         }
 
 
@@ -113,12 +265,31 @@ const AwaitingApprovalDonations = (props) => {
                                     <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                         </div>
                         <div className="contact-btn col-md-2">
-                            <span className="btn" id={donation.id} onClick={() => handleApproval(donation.id)}>Approve</span>
+                            <div id={`loading-div-${donation.id}`}></div>
+                            <span className="btn" id={`submit-btn-${donation.id}`} onClick={() => handleApproval(donation.id)}>Approve</span>
                         </div>
                         </div>
                 </div>
             })
         }
+
+        <nav aria-label="...">
+          <ul className="pagination mt-4">
+            <li className="page-item disabled" onClick={handlePrev}>
+              <button className="page-link"><i className="fa fa-angle-left" aria-label="hidden"></i></button>
+            </li>
+            {
+                pagination.map(num => {
+                    return (
+                        <li key={pagination.indexOf(num)} onClick={() => handlePagination(num)} className={num === 1 ? "active page-item" : "page-item"}><button className="page-link">{num}</button></li>
+                    )
+                })
+            }
+            <li className="page-item" onClick={handleNext}>
+              <button className="page-link"><i className="fa fa-angle-right" aria-label="hidden"></i></button>
+            </li>
+          </ul>
+        </nav>
 
     </div>
     )

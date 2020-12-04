@@ -22,8 +22,8 @@ import AdminRegister from "./Pages/admin/AdminRegister";
 import AdminLogin from "./Pages/admin/AdminLogin";
 import Overview from "./Pages/admin/Overview";
 import Approvals from "./Pages/admin/Approvals";
-import UsersLogic from "./Pages/admin/Users";
-import Reviews from "./Pages/admin/Reviews";
+import UsersLogic from "./Pages/admin/UsersLogic";
+import ReviewsLogic from "./Pages/admin/ReviewsLogic";
 import Error from "./Error";
 
 const App = () => {
@@ -118,11 +118,11 @@ const App = () => {
               <Route path="/admin-overview" render={renderprops =>
                 <Overview authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-users" render={renderprops =>
-                <UsersLogic authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
+                <UsersLogic authData={{user, token, userList, message}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-approvals" render={renderprops =>
-                <Approvals authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
+                <Approvals authData={{user, token, userList, message}} setAuthData={setAuthData} {...renderprops} />} />
               <Route path="/admin-reviews" render={renderprops =>
-                <Reviews authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
+                <ReviewsLogic authData={{user, token, userList}} setAuthData={setAuthData} {...renderprops} />} />
               <Route render={renderprops =>
                 <Error {...renderprops} />} />
           </Switch>

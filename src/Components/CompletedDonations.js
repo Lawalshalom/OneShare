@@ -63,10 +63,10 @@ const CompletedDonations = (props) => {
                 displayDate = ", Two days ago"
                 break;
             default:
-                displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
+                displayDate = `${timeString.toDateString()}, ${timeString.toLocaleTimeString()}`;
                 break;
         }
-        return `${displayTime} ${displayDate}`;
+        return dateDiff > -1 && dateDiff < 3 ? `${displayTime} ${displayDate}` : displayDate;
     }
 
     completed.reverse();

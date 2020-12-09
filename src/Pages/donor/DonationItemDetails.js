@@ -110,19 +110,19 @@ const DonationItemDetails = (props) => {
                 displayDate = ", Two days ago"
                 break;
             default:
-                displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
+                displayDate = `${timeString.toDateString()}, ${timeString.toLocaleTimeString()}`;
                 break;
         }
-        return `${displayTime} ${displayDate}`;
+        return dateDiff > 0 && dateDiff < 3 ? `${displayTime} ${displayDate}` : displayDate;
     }
 
 const handleSelect = (request) => {
     const confirm = window.confirm(`Do you want to choose ${request.name} as beneficiary for this donation?`);
     if (confirm) {
-            const successDiv = document.getElementById("success-div");
-            const failureDiv = document.getElementById("failure-div");
-            const loadingDiv = document.getElementById("loading-div");
-            const submitBtn = document.getElementById("submit-btn");
+            const successDiv = document.getElementById(`success-div-${request.id}`);
+            const failureDiv = document.getElementById(`failure-div-${request.id}`);
+            const loadingDiv = document.getElementById(`loading-div-${request.id}`);
+            const submitBtn = document.getElementById(`submit-btn-${request.id}`);
 
             const fetchParams = {
                 headers: {
@@ -196,7 +196,7 @@ const handleSelect = (request) => {
                     </div>
                     <div className="item-details col-12 col-md-8 d-flex flex-column">
                         <div className="item-name d-flex">
-                            <p><strong>{donation.donationType.toUpperCase()}</strong></p>
+                            <p><strong className="text-capitalize">{donation.donationType}</strong></p>
                             <p className="faded">
                                 {donation.completed ? <span className="text-primary"> Completed <img className="check-icon" src="images/icons/check.svg" alt="check icon" /></span> :
                                     donation.beneficiary ? " • Beneficiary chosen, in contact"
@@ -221,8 +221,8 @@ const handleSelect = (request) => {
                             <div className="dashboard-item col-md-10 col-lg-9 row">
                                 <div className="item-details col-12 col-md-8 d-flex flex-column">
                                     <div className="item-name d-flex">
-                                        <p><strong>{request.name} </strong></p>
-                                        <p className="faded"> • {request.accountSubtype}</p>
+                                        <p><strong className="text-capitalize">{request.name} </strong></p>
+                                        <p className="faded text-capitalize"> • {request.accountSubtype}</p>
                                     </div>
                                     <div className="item-location d-flex flex-column flex-md-row">
                                         <p><img src="images/icons/frames01.svg" alt="time icon" /> Posted {displayTime(request.dateCreated)}</p>
@@ -232,10 +232,10 @@ const handleSelect = (request) => {
                                         <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                                 </div>
                                 <div className="contact-btn col-md-4">
-                                    <div id="loading-div"></div>
-                                    <div id="success-div" className="text-success"></div>
-                                    <div id="failure-div" className="text-danger mb-3"></div>
-                                    <span className="btn" id="submit-btn" onClick={() => handleSelect(request)}>Get in Contact</span>
+                                    <div id={`loading-div-${request.id}`}></div>
+                                    <div id={`success-div-${request.id}`} className="text-success"></div>
+                                    <div id={`failure-div-${request.id}`} className="text-danger mb-3"></div>
+                                    <span className="btn" id={`submit-btn-${request.id}`} onClick={() => handleSelect(request)}>Get in Contact</span>
                                 </div>
                             </div>
                         </div>
@@ -264,8 +264,8 @@ const handleSelect = (request) => {
                             <div className="dashboard-item col-md-10 col-lg-9 row">
                                 <div className="item-details col-12 col-md-8 d-flex flex-column">
                                     <div className="item-name d-flex">
-                                        <p><strong>{request.name} </strong></p>
-                                        <p className="faded"> • {request.accountSubtype}</p>
+                                        <p><strong className="text-capitalize">{request.name} </strong></p>
+                                        <p className="faded text-capitalize"> • {request.accountSubtype}</p>
                                     </div>
                                     <div className="item-location d-flex flex-column flex-md-row">
                                         <p><img src="images/icons/frames01.svg" alt="time icon" /> Posted {displayTime(request.dateCreated)}</p>
@@ -275,7 +275,10 @@ const handleSelect = (request) => {
                                         <span onClick={handleReadLess} className="text-primary p-2 read-less">Read Less</span></p>
                                 </div>
                                 <div className="contact-btn col-md-4">
-                                    <span className="btn" onClick={() => handleSelect(request)}>Get in touch</span>
+                                    <div id={`loading-div-${request.id}`}></div>
+                                    <div id={`success-div-${request.id}`} className="text-success"></div>
+                                    <div id={`failure-div-${request.id}`} className="text-danger mb-3"></div>
+                                    <span className="btn" id={`submit-btn-${request.id}`} onClick={() => handleSelect(request)}>Get in Contact</span>
                                 </div>
                             </div>
                         </div>

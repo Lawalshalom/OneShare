@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 
 const ChooseBeneficiary = (props) => {
+
+    const [ data, setData ] = useState(null);
         if (!props.location.state){
             return <Redirect to="/donor-dashboard"/>
         }
@@ -58,6 +60,7 @@ const ChooseBeneficiary = (props) => {
                 console.log(data)
                 if (data.success){
                     props.setAuthData.updateUser(data.user);
+                    setData(data.success);
                     loadingDiv.style.display = "none";
                 }
             }

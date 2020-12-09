@@ -64,11 +64,12 @@ const CompletedRequests = (props) => {
                 displayDate = ", Two days ago"
                 break;
             default:
-                displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
+                displayDate = `${timeString.toDateString()}, ${timeString.toLocaleTimeString()}`;
                 break;
         }
-        return `${displayTime} ${displayDate}`;
+        return dateDiff > 0 && dateDiff < 3 ? `${displayTime} ${displayDate}` : displayDate;
     }
+
     completed.reverse();
 
     return (

@@ -66,7 +66,7 @@ const OngoingDonations = (props) => {
     }
 
 
-     const displayTime = (time) => {
+    const displayTime = (time) => {
         const timeString = new Date(time);
         const diff = (new Date().getHours()) - (timeString.getHours());
         const dateDiff = (new Date().getDate()) - (timeString.getDate());
@@ -108,11 +108,12 @@ const OngoingDonations = (props) => {
                 displayDate = ", Two days ago"
                 break;
             default:
-                displayDate = `${timeString.getDate()}, ${timeString.getMonth()}, ${timeString.getFullYear()}`;
+                displayDate = `${timeString.toDateString()}, ${timeString.toLocaleTimeString()}`;
                 break;
         }
-        return `${displayTime} ${displayDate}`;
+        return dateDiff > 0 && dateDiff < 3 ? `${displayTime} ${displayDate}` : displayDate;
     }
+
     ongoing.reverse();
 
     if (redirect !== null){

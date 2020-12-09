@@ -69,6 +69,7 @@ const ChooseBeneficiary = (props) => {
             })
         }
     }
+    console.log(data)
 
     const handleReadMore = (e) => {
         const dots = e.target.previousElementSibling;

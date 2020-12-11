@@ -1198,7 +1198,8 @@ p.faded {
 }
 
 @media screen and (max-width: 998px) {
-	.users {
+	.users,
+	.reviews {
 		left: 5%;
 		top: 5rem;
 		position: absolute;

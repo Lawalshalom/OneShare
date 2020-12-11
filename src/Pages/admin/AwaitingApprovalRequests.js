@@ -193,7 +193,7 @@ const AwaitingApprovalRequests = (props) => {
         if (confirm){
             const token = props.token;
             const submitBtn = document.getElementById(`submit-btn-${id}`);
-            const loadingDiv = document.getElementById(`loading-div$-{id}`);
+            const loadingDiv = document.getElementById(`loading-div-${id}`);
             submitBtn.style.display = "none";
             loadingDiv.style.display = "block";
 
@@ -210,7 +210,7 @@ const AwaitingApprovalRequests = (props) => {
                 method: "POST"
             }
 
-            async function deleteUser() {
+            async function approveRequest() {
                 const res = await fetch("https://oneshare-backend.herokuapp.com/api/admin/approve-request", Params);
                 const data = await res.json();
                 console.log(data);
@@ -222,7 +222,7 @@ const AwaitingApprovalRequests = (props) => {
                 }
                 else return props.setMessage("There was an error, try again!");
             }
-            deleteUser(Params).catch(err => {
+            approveRequest(Params).catch(err => {
                 console.log(err);
                 loadingDiv.style.display = "none";
                 submitBtn.style.display = "inline-block";

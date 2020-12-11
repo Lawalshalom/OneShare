@@ -260,14 +260,14 @@ const Users = (props) => {
                 }),
                 method: "POST"
             }
-            const url = accountType === "donor" ? "http://localhost:7890/api/admin/delete-donor" : "http://localhost:7890/api/admin/delete-beneficiary";
+            const url = accountType === "donor" ? "https://oneshare-backend.herokuapp.com/api/admin/delete-donor" : "https://oneshare-backend.herokuapp.com/api/admin/delete-beneficiary";
 
             async function deleteUser() {
                 const res = await fetch(url, Params);
                 const data = await res.json();
                 if (data.users){
                     props.updateUserList(data.users);
-                    props.setMessage("User deleted successfully!");
+                    props.setMessage(data.success);
                 }
                 else return props.setMessage("There was an error, try again!");
             }

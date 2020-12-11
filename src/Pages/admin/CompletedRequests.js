@@ -173,15 +173,13 @@ const CompletedRequests = (props) => {
                 completed.map(req => {
                     return <div key={req.id} className="row item-cover">
                     <div className="dashboard-item col-12 row">
-                        <div className="item-details col-10 col-md-7 d-flex flex-column">
-                            <div className="item-name d-flex">
-                                <p>{req.name}</p>
-                                <p><span className="text-primary">Donated to ></span> {req.beneficiary.name}</p>
-                            </div>
-                            <div className="d-flex">
-                                <p><strong className="text-capitalize">{req.reqType} • </strong></p>
-                                <p className="text-primary"> Completed <img className="check-icon" src="images/icons/check.svg" alt="check icon" /></p>
-
+                        <div className="item-details col-12 col-md-9 d-flex flex-column">
+                            <div className="item-name d-flex flex-column flex-md-row">
+                                <div className="d-flex">
+                                    <p>{req.name}</p>
+                                    <p><strong className="text-capitalize">{req.requestType}</strong></p>
+                                </div>
+                                <p className="text-primary ml-2"> • Completed <img className="check-icon" src="images/icons/check.svg" alt="check icon" /></p>
                             </div>
                             <div className="item-location d-flex flex-column flex-md-row">
                                 <p><img src="images/icons/frames01.svg" alt="location icon" />{req.userLGA} LGA, {req.userState} State</p>

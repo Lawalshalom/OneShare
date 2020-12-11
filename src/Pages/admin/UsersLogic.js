@@ -135,7 +135,7 @@ function sortArr(arr, property){
         return <Redirect to={redirect}/>
     }
     else return (
-        <Users users={[...users, ...users, ...users, ...users]}
+        <Users users={users}
             user={showUser} setUser={setShowUser} displayUsers={displayUsers}
             setDisplayUsers={setDisplayUsers} sortDetails={sortDetails}
             setSortDetails={setSortDetails} message={message} setMessage={props.setAuthData.setMessage}
